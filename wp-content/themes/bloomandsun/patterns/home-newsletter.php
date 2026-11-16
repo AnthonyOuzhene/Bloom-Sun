@@ -17,7 +17,7 @@
 		<!-- /wp:heading -->
 
 		<!-- wp:paragraph -->
-		<p>Un e-mail quand les nouvelles pièces arrivent en boutique. Pas plus.</p>
+		<p>Un e-mail quand les nouvelles pièces arrivent en magasin. Pas plus.</p>
 		<!-- /wp:paragraph -->
 
 		<!-- wp:html -->

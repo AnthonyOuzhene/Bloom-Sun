@@ -1,10 +1,10 @@
 <?php
 /**
- * Title: Accueil — Notre boutique
+ * Title: Accueil — Le magasin
  * Slug: bloomandsun/home-store
  * Categories: bloomandsun
  *
- * Remplace [ADRESSE DE LA BOUTIQUE] et le lien « Itinéraire » par la vraie adresse.
+ * Remplace [ADRESSE DU MAGASIN] et le lien « Itinéraire » par la vraie adresse.
  */
 ?>
 <!-- wp:group {"tagName":"section","className":"bs-section bs-store","layout":{"type":"default"}} -->
@@ -14,7 +14,7 @@
 		<!-- wp:group {"className":"bs-split__text","layout":{"type":"default"}} -->
 		<div class="wp-block-group bs-split__text">
 			<!-- wp:paragraph {"className":"bs-eyebrow"} -->
-			<p class="bs-eyebrow">Notre boutique</p>
+			<p class="bs-eyebrow">Le magasin</p>
 			<!-- /wp:paragraph -->
 
 			<!-- wp:heading -->
@@ -22,7 +22,7 @@
 			<!-- /wp:heading -->
 
 			<!-- wp:paragraph -->
-			<p>[ADRESSE DE LA BOUTIQUE]</p>
+			<p>[ADRESSE DU MAGASIN]</p>
 			<!-- /wp:paragraph -->
 
 			<!-- wp:group {"className":"bs-hours","layout":{"type":"default"}} -->
@@ -53,7 +53,7 @@
 		<!-- wp:group {"className":"bs-photo bs-store__photo","backgroundColor":"rose","layout":{"type":"default"}} -->
 		<div class="wp-block-group bs-photo bs-store__photo has-rose-background-color has-background">
 			<!-- wp:paragraph {"className":"bs-photo__label"} -->
-			<p class="bs-photo__label">Photo : la vitrine ou l'intérieur de la boutique</p>
+			<p class="bs-photo__label">Photo : la vitrine ou l'intérieur du magasin</p>
 			<!-- /wp:paragraph -->
 		</div>
 		<!-- /wp:group -->

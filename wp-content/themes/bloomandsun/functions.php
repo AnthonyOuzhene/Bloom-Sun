@@ -109,7 +109,7 @@ add_action( 'init', function () {
 
 /**
  * URL d'une catégorie de produits à partir de son slug.
- * Renvoie la page Boutique si la catégorie n'existe pas encore.
+ * Renvoie la page Collections (boutique en ligne WooCommerce) si la catégorie n'existe pas encore.
  */
 function bloomandsun_category_url( string $slug ): string {
 	$link = get_term_link( $slug, 'product_cat' );
@@ -122,7 +122,7 @@ function bloomandsun_category_url( string $slug ): string {
 }
 
 /**
- * URL de la page Boutique, avec des paramètres optionnels (ex. tri par date).
+ * URL de la page Collections (boutique en ligne WooCommerce), avec des paramètres optionnels (ex. tri par date).
  */
 function bloomandsun_shop_url( array $args = [] ): string {
 	$url = function_exists( 'wc_get_page_permalink' ) ? wc_get_page_permalink( 'shop' ) : home_url( '/' );

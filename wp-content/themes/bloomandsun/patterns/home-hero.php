@@ -23,7 +23,7 @@
 			<!-- /wp:heading -->
 
 			<!-- wp:paragraph {"className":"bs-lead"} -->
-			<p class="bs-lead">Mailles, robes fluides et manteaux choisis en boutique, à porter dès maintenant. Commandez en ligne ou venez essayer.</p>
+			<p class="bs-lead">Mailles, robes fluides et manteaux choisis en magasin, à porter dès maintenant. Commandez en ligne ou venez essayer.</p>
 			<!-- /wp:paragraph -->
 
 			<!-- wp:buttons {"className":"bs-actions"} -->

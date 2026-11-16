@@ -28,7 +28,7 @@
 			<p class="bs-feature__title">Retours sous 14 jours</p>
 			<!-- /wp:paragraph -->
 			<!-- wp:paragraph {"className":"bs-feature__text"} -->
-			<p class="bs-feature__text">Échange possible en boutique</p>
+			<p class="bs-feature__text">Échange possible en magasin</p>
 			<!-- /wp:paragraph -->
 		</div>
 		<!-- /wp:group -->
@@ -47,7 +47,7 @@
 		<!-- wp:group {"className":"bs-feature bs-feature--store","layout":{"type":"default"}} -->
 		<div class="wp-block-group bs-feature bs-feature--store">
 			<!-- wp:paragraph {"className":"bs-feature__title"} -->
-			<p class="bs-feature__title">Retrait en boutique</p>
+			<p class="bs-feature__title">Retrait en magasin</p>
 			<!-- /wp:paragraph -->
 			<!-- wp:paragraph {"className":"bs-feature__text"} -->
 			<p class="bs-feature__text">Gratuit, prêt sous [DÉLAI]</p>
