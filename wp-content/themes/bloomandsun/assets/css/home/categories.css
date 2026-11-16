@@ -1,0 +1,38 @@
+/* ==========================================================================
+   Bloom & Sun — « Par envie » (patterns/home-categories.php)
+   La grille vient de .bs-grid--4 (base.css).
+   ========================================================================== */
+
+.bs-cat-card {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	gap: 12px;
+}
+
+.bs-cat-card__title {
+	font-weight: 500;
+}
+
+.bs-cat-card__title a {
+	text-decoration: none;
+}
+
+/* Toute la carte est cliquable : le lien du titre est étiré sur la carte */
+.bs-cat-card__title a::after {
+	content: "";
+	position: absolute;
+	inset: 0;
+}
+
+.bs-cat-card .bs-photo {
+	transition: opacity 0.2s ease;
+}
+
+.bs-cat-card:hover .bs-photo {
+	opacity: 0.85;
+}
+
+.bs-cat-card:hover .bs-cat-card__title a {
+	text-decoration: underline;
+}

@@ -1,0 +1,57 @@
+/* ==========================================================================
+   Bloom & Sun — réassurance (patterns/home-reassurance.php)
+   La grille vient de .bs-grid--4 (base.css), les icônes de base.css (:root).
+   ========================================================================== */
+
+.bs-reassurance {
+	padding-block: 28px;
+	border-block: 1px solid var(--bs-line);
+}
+
+.bs-reassurance .bs-grid {
+	gap: 24px;
+}
+
+.bs-feature {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	gap: 2px;
+	padding-left: 34px;
+}
+
+/* Icône à gauche, choisie par la classe bs-feature--<nom> */
+.bs-feature::before {
+	content: "";
+	position: absolute;
+	top: 1px;
+	left: 0;
+	width: 20px;
+	height: 20px;
+	background: var(--bs-terracotta);
+	-webkit-mask: var(--bs-feature-icon) center / contain no-repeat;
+	mask: var(--bs-feature-icon) center / contain no-repeat;
+}
+
+.bs-feature--truck  { --bs-feature-icon: var(--bs-icon-truck); }
+.bs-feature--return { --bs-feature-icon: var(--bs-icon-return); }
+.bs-feature--card   { --bs-feature-icon: var(--bs-icon-card); }
+.bs-feature--store  { --bs-feature-icon: var(--bs-icon-store); }
+
+.bs-feature__title {
+	font-size: var(--wp--preset--font-size--small);
+	font-weight: 600;
+}
+
+.bs-feature__text {
+	color: var(--bs-ink-soft);
+	font-size: 0.8125rem;
+}
+
+/* Responsive
+   -------------------------------------------------------------------------- */
+@media (max-width: 599px) {
+	.bs-reassurance .bs-grid {
+		grid-template-columns: 1fr;
+	}
+}

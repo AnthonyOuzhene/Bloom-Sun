@@ -1,0 +1,52 @@
+/* ==========================================================================
+   Bloom & Sun — newsletter (patterns/home-newsletter.php)
+   ========================================================================== */
+
+.bs-newsletter__inner {
+	align-items: center;
+	gap: 14px;
+	text-align: center;
+}
+
+.bs-newsletter__inner > p {
+	color: var(--bs-ink-soft);
+}
+
+.bs-newsletter__form {
+	display: flex;
+	gap: 8px;
+	width: min(100%, 440px);
+	margin-top: 10px;
+}
+
+.bs-newsletter__form input {
+	flex: 1 1 auto;
+	min-width: 0;
+	padding: 0.8rem 1.2rem;
+	border: 1px solid #D9CFC6;
+	border-radius: 999px;
+	background: #fff;
+	color: var(--bs-ink);
+	font: inherit;
+	font-size: var(--wp--preset--font-size--small);
+}
+
+.bs-newsletter__form button {
+	flex: 0 0 auto;
+	border: 0;
+	background: var(--bs-ink);
+	color: #fff;
+	cursor: pointer;
+}
+
+.bs-newsletter__form button:hover {
+	background: var(--bs-terracotta);
+}
+
+/* Responsive
+   -------------------------------------------------------------------------- */
+@media (max-width: 599px) {
+	.bs-newsletter__form {
+		flex-direction: column;
+	}
+}

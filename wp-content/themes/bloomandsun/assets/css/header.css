@@ -1,0 +1,211 @@
+/* ==========================================================================
+   Bloom & Sun — en-tête (parts/header.html, patterns/logo.php)
+   Bandeau d'annonce, logo, menu, icônes.
+   ========================================================================== */
+
+/* Bandeau d'annonce
+   -------------------------------------------------------------------------- */
+.bs-announcement {
+	margin: 0;
+	padding: 9px var(--bs-gutter);
+	background: var(--bs-coral);
+	color: var(--bs-ink);
+	font-size: 0.8125rem;
+	letter-spacing: 0.02em;
+	text-align: center;
+}
+
+/* En-tête
+   -------------------------------------------------------------------------- */
+.bs-header {
+	border-bottom: 1px solid var(--bs-line);
+	background: var(--bs-cream);
+}
+
+.bs-header__inner {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	gap: 24px;
+	padding-block: 18px;
+}
+
+/* Logo (aussi utilisé dans le pied de page, voir footer.css)
+   -------------------------------------------------------------------------- */
+.bs-logo {
+	--bs-logo-sun: var(--bs-coral);
+	display: block;
+	flex: 0 0 auto;
+	color: var(--bs-ink);
+	text-decoration: none;
+}
+
+.bs-logo__svg {
+	display: block;
+	width: 150px;
+	height: auto;
+	overflow: visible;
+}
+
+.bs-logo text {
+	font-family: var(--bs-font-title);
+	font-weight: 400;
+}
+
+.bs-logo__sun {
+	stroke: var(--bs-logo-sun);
+}
+
+/* Menu
+   -------------------------------------------------------------------------- */
+.bs-header .bs-nav {
+	flex: 1 1 auto;
+	gap: 2rem;
+	font-size: 0.9375rem;
+}
+
+.bs-header .bs-nav .wp-block-navigation__container {
+	gap: 2rem;
+}
+
+.bs-header .bs-nav a {
+	text-decoration: none;
+}
+
+.bs-header .bs-nav a:hover {
+	color: var(--bs-terracotta);
+}
+
+/* Icônes : recherche, compte, liste d'envies, panier
+   -------------------------------------------------------------------------- */
+.bs-header__actions {
+	flex: 0 0 auto;
+	gap: 16px;
+}
+
+.bs-header__actions svg {
+	width: 22px;
+	height: 22px;
+}
+
+.bs-header .bs-search,
+.bs-header .bs-search .wp-block-search__inside-wrapper {
+	display: flex;
+	align-items: center;
+	margin: 0;
+	padding: 0;
+	border: 0;
+}
+
+.bs-header .bs-search .wp-block-search__button {
+	display: block;
+	width: 22px;
+	height: 22px;
+	margin: 0;
+	padding: 0;
+	border: 0;
+	background: none;
+	color: var(--bs-ink);
+}
+
+/* Icône de recherche au trait, comme les autres icônes */
+.bs-header .bs-search .wp-block-search__button svg {
+	display: none;
+}
+
+.bs-header .bs-search .wp-block-search__button::before {
+	content: "";
+	display: block;
+	width: 100%;
+	height: 100%;
+	background: currentColor;
+	-webkit-mask: var(--bs-icon-search) center / contain no-repeat;
+	mask: var(--bs-icon-search) center / contain no-repeat;
+}
+
+.bs-header .bs-search .wp-block-search__button:hover {
+	color: var(--bs-terracotta);
+}
+
+.bs-header .wp-block-woocommerce-customer-account a {
+	display: flex;
+	padding: 0;
+	color: var(--bs-ink);
+}
+
+.bs-header .wc-block-mini-cart__button {
+	padding: 0;
+	color: var(--bs-ink);
+}
+
+.bs-header .wc-block-mini-cart__badge {
+	background: var(--bs-terracotta);
+	color: #fff;
+}
+
+.bs-icon-link {
+	display: block;
+	width: 22px;
+	height: 22px;
+	background: currentColor;
+	color: var(--bs-ink);
+	-webkit-mask: var(--bs-icon-heart) center / contain no-repeat;
+	mask: var(--bs-icon-heart) center / contain no-repeat;
+}
+
+.bs-icon-link:hover {
+	color: var(--bs-terracotta);
+}
+
+/* Responsive
+   -------------------------------------------------------------------------- */
+@media (max-width: 960px) {
+	/* Tablette : logo + icônes sur une ligne, menu centré en dessous */
+	.bs-header__inner {
+		flex-wrap: wrap;
+		row-gap: 12px;
+	}
+
+	.bs-header .bs-logo {
+		margin-right: auto;
+	}
+
+	.bs-header .bs-nav {
+		flex: 1 0 100%;
+		order: 3;
+		font-size: 0.875rem;
+	}
+
+	.bs-header .bs-nav,
+	.bs-header .bs-nav .wp-block-navigation__container {
+		gap: 1.5rem;
+	}
+
+	.bs-logo__svg {
+		width: 128px;
+	}
+}
+
+@media (max-width: 599px) {
+	.bs-header__inner {
+		gap: 14px;
+	}
+
+	/* Le menu devient un bouton « hamburger », placé à gauche du logo */
+	.bs-header .bs-nav {
+		flex: 0 0 auto;
+		order: -1;
+	}
+
+	.bs-logo__svg {
+		width: 112px;
+	}
+
+	.bs-header__actions {
+		gap: 12px;
+	}
+
+	.bs-header .bs-search {
+		display: none;
+	}
+}

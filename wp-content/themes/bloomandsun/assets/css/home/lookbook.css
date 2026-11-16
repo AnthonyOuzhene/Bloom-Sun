@@ -1,0 +1,15 @@
+/* ==========================================================================
+   Bloom & Sun — Lookbook (patterns/home-lookbook.php)
+   La mise en page texte + photo vient de .bs-split (base.css).
+   ========================================================================== */
+
+.bs-lookbook__photo {
+	aspect-ratio: 1.47;
+}
+
+/* Étiquette centrée sous l'arche */
+.bs-lookbook__photo .bs-photo__label {
+	left: 50%;
+	transform: translateX(-50%);
+	white-space: nowrap;
+}

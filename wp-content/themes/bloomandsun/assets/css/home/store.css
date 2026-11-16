@@ -1,0 +1,33 @@
+/* ==========================================================================
+   Bloom & Sun — Notre boutique (patterns/home-store.php)
+   La mise en page texte + photo vient de .bs-split (base.css).
+   ========================================================================== */
+
+/* Colonne texte plus étroite que la photo */
+.bs-split--store {
+	grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+}
+
+.bs-store__photo {
+	aspect-ratio: 1.68;
+}
+
+/* Horaires sur deux colonnes : jours | heures */
+.bs-hours {
+	display: grid;
+	grid-template-columns: auto 1fr;
+	gap: 4px 24px;
+	font-size: var(--wp--preset--font-size--small);
+}
+
+.bs-hours__day {
+	font-weight: 600;
+}
+
+/* Responsive
+   -------------------------------------------------------------------------- */
+@media (max-width: 960px) {
+	.bs-split--store {
+		grid-template-columns: 1fr;
+	}
+}

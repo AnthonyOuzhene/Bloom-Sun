@@ -7,4 +7,4 @@ Requires PHP: 8.1
 Text Domain: bloomandsun
 */
 
-/* Le CSS du thème est dans assets/css/main.css */
+/* Le CSS du thème est dans assets/css/ (voir functions.php pour le chargement) */

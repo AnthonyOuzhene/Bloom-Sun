@@ -1,0 +1,89 @@
+/* ==========================================================================
+   Bloom & Sun — pied de page (parts/footer.html)
+   ========================================================================== */
+
+.bs-footer {
+	padding-top: 48px;
+	background: var(--bs-coral);
+	color: var(--bs-ink);
+	font-size: var(--wp--preset--font-size--small);
+}
+
+.bs-footer a {
+	color: var(--bs-ink);
+	text-decoration: none;
+}
+
+.bs-footer a:hover {
+	text-decoration: underline;
+}
+
+.bs-footer__grid {
+	display: grid;
+	grid-template-columns: repeat(4, minmax(0, 1fr));
+	gap: 32px;
+	padding-bottom: 32px;
+}
+
+.bs-footer__brand,
+.bs-footer__col {
+	display: flex;
+	flex-direction: column;
+	gap: 14px;
+}
+
+/* Logo en blanc (le logo lui-même est stylé dans header.css) */
+.bs-footer .bs-logo {
+	--bs-logo-sun: #fff;
+	color: #fff;
+}
+
+.bs-footer .bs-logo__svg {
+	width: 130px;
+}
+
+.bs-footer__title {
+	font-family: var(--bs-font-text);
+	font-size: var(--wp--preset--font-size--small);
+	font-weight: 600;
+	line-height: 1.4;
+}
+
+.bs-footer__links,
+.bs-footer__legal {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.bs-footer__links {
+	display: flex;
+	flex-direction: column;
+	gap: 6px;
+}
+
+.bs-footer__bottom {
+	padding-block: 18px;
+	border-top: 1px solid rgba(58, 46, 43, 0.15);
+}
+
+.bs-footer__legal {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 8px 24px;
+	font-size: 0.8125rem;
+}
+
+/* Responsive
+   -------------------------------------------------------------------------- */
+@media (max-width: 960px) {
+	.bs-footer__grid {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+	}
+}
+
+@media (max-width: 599px) {
+	.bs-footer__grid {
+		grid-template-columns: 1fr;
+	}
+}
