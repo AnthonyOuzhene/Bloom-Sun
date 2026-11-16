@@ -14,12 +14,12 @@
 
 // Sections : classe CSS du groupe principal => fichier assets/css/home/<fichier>.css
 const BLOOMANDSUN_SECTION_STYLES = [
-	'bs-hero'        => 'hero',
-	'bs-categories'  => 'categories',
-	'bs-lookbook'    => 'lookbook',
-	'bs-reassurance' => 'reassurance',
-	'bs-store'       => 'store',
-	'bs-newsletter'  => 'newsletter',
+	'bs-hero'         => 'hero',
+	'bs-categories'   => 'categories',
+	'bs-inspirations' => 'inspirations',
+	'bs-reassurance'  => 'reassurance',
+	'bs-store'        => 'store',
+	'bs-newsletter'   => 'newsletter',
 ];
 
 /**

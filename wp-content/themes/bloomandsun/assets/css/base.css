@@ -124,7 +124,7 @@ a {
 	gap: 10px;
 }
 
-/* Bloc texte + photo côte à côte (Lookbook, Notre boutique) */
+/* Bloc texte + photo côte à côte (Inspirations, Notre boutique) */
 .bs-split {
 	display: grid;
 	grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
