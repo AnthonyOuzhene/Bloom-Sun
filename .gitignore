@@ -1,0 +1,21 @@
+# Bloom & Sun — on ne versionne que notre code :
+# la config DDEV et le thème. WordPress, les extensions, les médias
+# et wp-config.php se réinstallent / restent en local.
+
+# 1. Tout ignorer à la racine…
+/*
+
+# 2. …sauf ces fichiers et dossiers
+!/.gitignore
+!/README.md
+!/.ddev/
+
+# 3. Dans wp-content, uniquement notre thème
+!/wp-content/
+/wp-content/*
+!/wp-content/themes/
+/wp-content/themes/*
+!/wp-content/themes/bloomandsun/
+
+# Fichiers système
+.DS_Store

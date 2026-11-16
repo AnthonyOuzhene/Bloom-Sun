@@ -1,0 +1,60 @@
+<?php
+/**
+ * Title: Accueil — Réassurance
+ * Slug: bloomandsun/home-reassurance
+ * Categories: bloomandsun
+ *
+ * Les icônes sont dessinées en CSS (classes bs-feature--truck, --return, --card, --store).
+ */
+?>
+<!-- wp:group {"tagName":"section","className":"bs-reassurance","layout":{"type":"default"}} -->
+<section class="wp-block-group bs-reassurance">
+	<!-- wp:group {"className":"bs-container bs-grid bs-grid--4","layout":{"type":"default"}} -->
+	<div class="wp-block-group bs-container bs-grid bs-grid--4">
+		<!-- wp:group {"className":"bs-feature bs-feature--truck","layout":{"type":"default"}} -->
+		<div class="wp-block-group bs-feature bs-feature--truck">
+			<!-- wp:paragraph {"className":"bs-feature__title"} -->
+			<p class="bs-feature__title">Livraison Colissimo et point relais</p>
+			<!-- /wp:paragraph -->
+			<!-- wp:paragraph {"className":"bs-feature__text"} -->
+			<p class="bs-feature__text">Offerte dès [MONTANT] €</p>
+			<!-- /wp:paragraph -->
+		</div>
+		<!-- /wp:group -->
+
+		<!-- wp:group {"className":"bs-feature bs-feature--return","layout":{"type":"default"}} -->
+		<div class="wp-block-group bs-feature bs-feature--return">
+			<!-- wp:paragraph {"className":"bs-feature__title"} -->
+			<p class="bs-feature__title">Retours sous 14 jours</p>
+			<!-- /wp:paragraph -->
+			<!-- wp:paragraph {"className":"bs-feature__text"} -->
+			<p class="bs-feature__text">Échange possible en boutique</p>
+			<!-- /wp:paragraph -->
+		</div>
+		<!-- /wp:group -->
+
+		<!-- wp:group {"className":"bs-feature bs-feature--card","layout":{"type":"default"}} -->
+		<div class="wp-block-group bs-feature bs-feature--card">
+			<!-- wp:paragraph {"className":"bs-feature__title"} -->
+			<p class="bs-feature__title">Paiement sécurisé</p>
+			<!-- /wp:paragraph -->
+			<!-- wp:paragraph {"className":"bs-feature__text"} -->
+			<p class="bs-feature__text">CB, Apple Pay, PayPal</p>
+			<!-- /wp:paragraph -->
+		</div>
+		<!-- /wp:group -->
+
+		<!-- wp:group {"className":"bs-feature bs-feature--store","layout":{"type":"default"}} -->
+		<div class="wp-block-group bs-feature bs-feature--store">
+			<!-- wp:paragraph {"className":"bs-feature__title"} -->
+			<p class="bs-feature__title">Retrait en boutique</p>
+			<!-- /wp:paragraph -->
+			<!-- wp:paragraph {"className":"bs-feature__text"} -->
+			<p class="bs-feature__text">Gratuit, prêt sous [DÉLAI]</p>
+			<!-- /wp:paragraph -->
+		</div>
+		<!-- /wp:group -->
+	</div>
+	<!-- /wp:group -->
+</section>
+<!-- /wp:group -->

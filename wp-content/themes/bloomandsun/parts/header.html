@@ -1,0 +1,35 @@
+<!-- wp:paragraph {"className":"bs-announcement"} -->
+<p class="bs-announcement">Livraison offerte dès [MONTANT] € · Retours sous 14 jours · Retrait gratuit en boutique</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:group {"className":"bs-header","layout":{"type":"default"}} -->
+<div class="wp-block-group bs-header">
+	<!-- wp:group {"className":"bs-container bs-header__inner","layout":{"type":"default"}} -->
+	<div class="wp-block-group bs-container bs-header__inner">
+		<!-- wp:pattern {"slug":"bloomandsun/logo"} /-->
+
+		<!-- wp:navigation {"className":"bs-nav","overlayMenu":"mobile","layout":{"type":"flex","justifyContent":"center"}} -->
+			<!-- wp:navigation-link {"label":"Nouveautés","url":"/boutique/?orderby=date","kind":"custom","isTopLevelLink":true} /-->
+			<!-- wp:navigation-link {"label":"Boutique","url":"/boutique/","kind":"custom","isTopLevelLink":true} /-->
+			<!-- wp:navigation-link {"label":"Lookbook","url":"/lookbook/","kind":"custom","isTopLevelLink":true} /-->
+			<!-- wp:navigation-link {"label":"Notre boutique","url":"/notre-boutique/","kind":"custom","isTopLevelLink":true} /-->
+			<!-- wp:navigation-link {"label":"Contact","url":"/contact/","kind":"custom","isTopLevelLink":true} /-->
+		<!-- /wp:navigation -->
+
+		<!-- wp:group {"className":"bs-header__actions","layout":{"type":"flex","flexWrap":"nowrap"}} -->
+		<div class="wp-block-group bs-header__actions">
+			<!-- wp:search {"label":"Rechercher","showLabel":false,"placeholder":"Rechercher un produit","buttonText":"Rechercher","buttonPosition":"button-only","buttonUseIcon":true,"isSearchFieldHidden":true,"query":{"post_type":"product"},"className":"bs-search"} /-->
+
+			<!-- wp:woocommerce/customer-account {"displayStyle":"icon_only","iconStyle":"line"} /-->
+
+			<!-- wp:paragraph {"className":"bs-wishlist"} -->
+			<p class="bs-wishlist"><a class="bs-icon-link bs-icon--heart" href="/wishlist/" aria-label="Liste d'envies"></a></p>
+			<!-- /wp:paragraph -->
+
+			<!-- wp:woocommerce/mini-cart {"miniCartIcon":"bag"} /-->
+		</div>
+		<!-- /wp:group -->
+	</div>
+	<!-- /wp:group -->
+</div>
+<!-- /wp:group -->

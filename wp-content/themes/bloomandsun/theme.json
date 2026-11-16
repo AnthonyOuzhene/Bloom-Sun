@@ -1,0 +1,93 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/theme.json",
+	"version": 3,
+	"settings": {
+		"appearanceTools": true,
+		"useRootPaddingAwareAlignments": true,
+		"layout": { "contentSize": "760px", "wideSize": "1240px" },
+		"color": {
+			"defaultPalette": false,
+			"defaultGradients": false,
+			"defaultDuotone": false,
+			"palette": [
+				{ "slug": "cream",           "name": "Crème",           "color": "#FBF7F2" },
+				{ "slug": "white",           "name": "Blanc",           "color": "#FFFFFF" },
+				{ "slug": "blush",           "name": "Rose poudré",     "color": "#F7E6E0" },
+				{ "slug": "petal",           "name": "Pétale",          "color": "#F3DDD6" },
+				{ "slug": "rose",            "name": "Rose",            "color": "#ECCEC4" },
+				{ "slug": "coral",           "name": "Corail",          "color": "#E4A593" },
+				{ "slug": "terracotta",      "name": "Terracotta",      "color": "#A65F4F" },
+				{ "slug": "terracotta-dark", "name": "Terracotta foncé","color": "#8C4E41" },
+				{ "slug": "sand",            "name": "Sable",           "color": "#E6DBCB" },
+				{ "slug": "sage",            "name": "Sauge",           "color": "#C9D3C1" },
+				{ "slug": "mist",            "name": "Brume",           "color": "#BED3D6" },
+				{ "slug": "ink",             "name": "Encre",           "color": "#3A2E2B" }
+			]
+		},
+		"typography": {
+			"defaultFontSizes": false,
+			"fluid": true,
+			"fontSizes": [
+				{ "slug": "x-small",  "name": "Très petit", "size": "0.8125rem", "fluid": false },
+				{ "slug": "small",    "name": "Petit",      "size": "0.875rem",  "fluid": false },
+				{ "slug": "medium",   "name": "Moyen",      "size": "1rem",      "fluid": false },
+				{ "slug": "large",    "name": "Grand",      "size": "1.375rem",  "fluid": { "min": "1.25rem", "max": "1.375rem" } },
+				{ "slug": "x-large",  "name": "Très grand", "size": "2.75rem",   "fluid": { "min": "2rem",    "max": "2.75rem" } },
+				{ "slug": "xx-large", "name": "Énorme",     "size": "4.5rem",    "fluid": { "min": "2.75rem", "max": "4.5rem" } }
+			],
+			"fontFamilies": [
+				{
+					"slug": "title",
+					"name": "Cormorant Garamond",
+					"fontFamily": "'Cormorant Garamond', Georgia, serif",
+					"fontFace": [
+						{ "fontFamily": "Cormorant Garamond", "fontWeight": "300 700", "fontStyle": "normal", "fontDisplay": "swap", "src": [ "file:./assets/fonts/cormorant-garamond-latin.woff2" ] }
+					]
+				},
+				{
+					"slug": "text",
+					"name": "DM Sans",
+					"fontFamily": "'DM Sans', system-ui, sans-serif",
+					"fontFace": [
+						{ "fontFamily": "DM Sans", "fontWeight": "100 1000", "fontStyle": "normal", "fontDisplay": "swap", "src": [ "file:./assets/fonts/dm-sans-latin.woff2" ] }
+					]
+				}
+			]
+		}
+	},
+	"styles": {
+		"color": { "background": "var:preset|color|cream", "text": "var:preset|color|ink" },
+		"spacing": {
+			"blockGap": "1.5rem",
+			"padding": { "left": "clamp(16px, 4.5vw, 56px)", "right": "clamp(16px, 4.5vw, 56px)" }
+		},
+		"typography": {
+			"fontFamily": "var:preset|font-family|text",
+			"fontSize": "var:preset|font-size|medium",
+			"lineHeight": "1.6"
+		},
+		"elements": {
+			"heading": {
+				"typography": { "fontFamily": "var:preset|font-family|title", "fontWeight": "400", "lineHeight": "1.1" }
+			},
+			"h1": { "typography": { "fontSize": "var:preset|font-size|xx-large" } },
+			"h2": { "typography": { "fontSize": "var:preset|font-size|x-large" } },
+			"h3": { "typography": { "fontSize": "var:preset|font-size|large" } },
+			"link": {
+				"color": { "text": "var:preset|color|ink" },
+				":hover": { "color": { "text": "var:preset|color|terracotta" } }
+			},
+			"button": {
+				"color": { "background": "var:preset|color|terracotta", "text": "var:preset|color|white" },
+				"border": { "radius": "999px", "width": "0" },
+				"spacing": { "padding": { "top": "0.85rem", "bottom": "0.85rem", "left": "1.75rem", "right": "1.75rem" } },
+				"typography": { "fontSize": "0.9375rem", "fontWeight": "500", "lineHeight": "1.2" },
+				":hover": { "color": { "background": "var:preset|color|terracotta-dark" } }
+			}
+		}
+	},
+	"templateParts": [
+		{ "name": "header", "title": "En-tête", "area": "header" },
+		{ "name": "footer", "title": "Pied de page", "area": "footer" }
+	]
+}
