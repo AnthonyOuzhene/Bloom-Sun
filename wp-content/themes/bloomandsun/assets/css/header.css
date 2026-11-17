@@ -1,5 +1,5 @@
 /* ==========================================================================
-   Bloom & Sun — en-tête (parts/header.html, parts/logo.html)
+   Bloom & Sun — en-tête (parts/header.html)
    Bandeau d'annonce, menu réparti autour du logo, icônes fines, filet doré.
    ========================================================================== */
 
@@ -46,28 +46,19 @@
 	padding-block: 24px 20px;
 }
 
-/* Logo (aussi utilisé dans le pied de page) */
+/* Logo : image SVG (assets/images/logo.svg), aussi utilisée dans le pied de page */
 .bs-logo {
-	--bs-logo-sun: var(--bs-coral);
-	display: block;
-	color: var(--bs-ink);
-	text-decoration: none;
+	margin: 0;
 }
 
-.bs-logo__svg {
+.bs-logo a {
+	display: block;
+}
+
+.bs-logo img {
 	display: block;
 	width: 150px;
 	height: auto;
-	overflow: visible;
-}
-
-.bs-logo text {
-	font-family: var(--bs-font-logo);
-	font-weight: 400;
-}
-
-.bs-logo__sun {
-	stroke: var(--bs-logo-sun);
 }
 
 /* Menus : petites capitales espacées */
@@ -231,7 +222,7 @@
 		border-left: 0;
 	}
 
-	.bs-logo__svg {
+	.bs-logo img {
 		width: 124px;
 	}
 
@@ -259,7 +250,7 @@
 		gap: 14px;
 	}
 
-	.bs-logo__svg {
+	.bs-logo img {
 		width: 108px;
 	}
 

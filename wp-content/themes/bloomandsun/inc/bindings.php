@@ -62,6 +62,7 @@ function bloomandsun_link( array $args ): string {
 		'category' => bloomandsun_link_category( $slug ),
 		'tag'      => bloomandsun_link_tag( $slug ),
 		'page'     => bloomandsun_link_page( $slug ),
+		'logo'     => get_theme_file_uri( 'assets/images/logo.svg' ),
 		default    => home_url( '/' ),
 	};
 }
@@ -93,6 +94,7 @@ function bloomandsun_bindings_editor_data(): array {
 		'links' => [
 			'shop'       => bloomandsun_link( [ 'key' => 'shop' ] ),
 			'new'        => bloomandsun_link( [ 'key' => 'new' ] ),
+			'logo'       => bloomandsun_link( [ 'key' => 'logo' ] ),
 			'categories' => array_combine( BLOOMANDSUN_CATEGORY_SLUGS, array_map( 'bloomandsun_link_category', BLOOMANDSUN_CATEGORY_SLUGS ) ),
 			'pages'      => array_combine( BLOOMANDSUN_PAGE_SLUGS, array_map( 'bloomandsun_link_page', BLOOMANDSUN_PAGE_SLUGS ) ),
 			'tags'       => array_combine( BLOOMANDSUN_TAG_SLUGS, array_map( 'bloomandsun_link_tag', BLOOMANDSUN_TAG_SLUGS ) ),

@@ -24,7 +24,6 @@
 
 	--bs-font-title: var(--wp--preset--font-family--title);
 	--bs-font-text: var(--wp--preset--font-family--text);
-	--bs-font-logo: var(--wp--preset--font-family--logo);
 
 	--bs-wide: 1320px;
 	--bs-gutter: clamp(16px, 3.5vw, 40px);

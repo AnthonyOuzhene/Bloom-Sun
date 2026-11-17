@@ -17,6 +17,8 @@
 				return data.links.shop;
 			case 'new':
 				return data.links.new;
+			case 'logo':
+				return data.links.logo;
 			case 'category':
 				return data.links.categories[ args.slug ] || data.links.shop;
 			case 'page':

@@ -55,14 +55,6 @@
 					"fontFace": [
 						{ "fontFamily": "Outfit", "fontWeight": "300 600", "fontStyle": "normal", "fontDisplay": "swap", "src": [ "file:./assets/fonts/outfit-latin.woff2" ] }
 					]
-				},
-				{
-					"slug": "logo",
-					"name": "Cormorant Garamond (logo)",
-					"fontFamily": "'Cormorant Garamond', Georgia, serif",
-					"fontFace": [
-						{ "fontFamily": "Cormorant Garamond", "fontWeight": "300 700", "fontStyle": "normal", "fontDisplay": "swap", "src": [ "file:./assets/fonts/cormorant-garamond-latin.woff2" ] }
-					]
 				}
 			]
 		}
@@ -101,7 +93,6 @@
 	"templateParts": [
 		{ "name": "header",       "title": "En-tête",                     "area": "header" },
 		{ "name": "footer",       "title": "Pied de page",                "area": "footer" },
-		{ "name": "logo",         "title": "Logo",                        "area": "uncategorized" },
 		{ "name": "hero",         "title": "Accueil — Bandeau principal", "area": "uncategorized" },
 		{ "name": "categories",   "title": "Accueil — Nos collections",   "area": "uncategorized" },
 		{ "name": "new-arrivals", "title": "Accueil — Nouveautés",        "area": "uncategorized" },
