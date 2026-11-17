@@ -38,7 +38,7 @@
 				return values;
 			},
 			canUserEditValue: function () {
-				return false; // se modifient dans Apparence > Personnaliser
+				return false; // se modifient dans le menu « Infos du magasin » ou dans le thème
 			},
 		} );
 	}
