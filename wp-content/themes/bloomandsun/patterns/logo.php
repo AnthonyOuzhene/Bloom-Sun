@@ -6,7 +6,7 @@
  * Inserter: false
  *
  * Logo en SVG : le texte prend la couleur du lien (currentColor),
- * le soleil prend la couleur définie par --bs-logo-sun dans header.css et footer.css.
+ * le soleil prend la couleur définie par --bs-logo-sun dans header.css (et footer.css pour le pied de page).
  */
 ?>
 <!-- wp:html -->

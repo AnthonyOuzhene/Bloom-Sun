@@ -1,58 +1,116 @@
 /* ==========================================================================
    Bloom & Sun — bandeau principal (patterns/home-hero.php)
+   Grande carte vert sapin, photo ronde à filet doré, badge tournant.
    ========================================================================== */
 
-.bs-hero {
-	padding-block: 32px var(--bs-section-y);
-}
-
-.bs-hero__inner {
+.bs-hero__card {
 	display: grid;
-	grid-template-columns: minmax(0, 0.85fr) minmax(0, 1fr);
+	grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
 	align-items: center;
-	gap: clamp(32px, 5vw, 48px);
+	gap: 32px;
+	padding: clamp(28px, 5vw, 72px);
+	border-radius: var(--bs-r-xl);
+	background: var(--bs-sapin);
+	color: var(--bs-cream);
+	overflow: hidden;
 }
 
 .bs-hero__text {
 	display: flex;
 	flex-direction: column;
 	align-items: flex-start;
-	gap: 22px;
-	max-width: 480px;
+	gap: 24px;
+}
+
+/* Pastille sur fond sombre */
+.bs-hero .bs-chip {
+	background: rgba(251, 247, 242, 0.12);
+	color: var(--bs-cream);
+}
+
+.bs-hero .bs-chip::before {
+	background: var(--bs-gold);
 }
 
 .bs-hero__title {
-	font-size: var(--wp--preset--font-size--xx-large);
-	line-height: 1.05;
+	color: var(--bs-cream);
+	font-size: clamp(2.8rem, 5.6vw, 5.2rem);
 }
 
-/* Trois photos : une grande à gauche, deux empilées à droite */
-.bs-hero__media {
-	display: grid;
-	grid-template-columns: 1fr 1fr;
-	grid-template-rows: 1fr 1fr;
-	gap: 12px;
-	aspect-ratio: 1.28;
+.bs-hero__title em {
+	color: var(--bs-coral);
 }
 
-.bs-hero__main {
-	grid-row: span 2;
+.bs-hero__lead {
+	max-width: 44ch;
+	color: var(--bs-on-dark);
+	font-size: 17px;
+}
+
+.bs-hero .is-style-outline > .wp-block-button__link {
+	color: var(--bs-cream);
+}
+
+.bs-hero .is-style-outline > .wp-block-button__link:hover {
+	background: var(--bs-cream);
+	border-color: var(--bs-cream);
+	color: var(--bs-sapin);
+}
+
+/* Visuel : photo ronde + petite photo + badge */
+.bs-hero__visual {
+	position: relative;
+	justify-self: end;
+	width: min(100%, 520px);
+	aspect-ratio: 1;
+}
+
+.bs-hero__circle {
+	position: absolute;
+	inset: 0 0 0 8%;
+	border-radius: 50%;
+	outline: 1px solid var(--bs-gold);
+	outline-offset: 12px;
+}
+
+.bs-hero__small {
+	position: absolute;
+	left: 0;
+	bottom: 2%;
+	width: 38%;
+	aspect-ratio: 3 / 4;
+	border: 6px solid var(--bs-sapin);
+}
+
+.bs-hero__small .bs-photo__label {
+	bottom: 10px;
+	font-size: 10px;
+}
+
+.bs-hero__badge {
+	position: absolute;
+	right: 2%;
+	top: 4%;
+	z-index: 3;
+	width: 26%;
+	height: auto;
 }
 
 /* Responsive
    -------------------------------------------------------------------------- */
 @media (max-width: 960px) {
-	.bs-hero__inner {
+	.bs-hero__card {
 		grid-template-columns: 1fr;
 	}
 
-	.bs-hero__text {
-		max-width: none;
+	.bs-hero__visual {
+		justify-self: center;
+		width: min(100%, 440px);
 	}
 }
 
-@media (max-width: 599px) {
-	.bs-hero__media {
-		aspect-ratio: 1;
+@media (max-width: 600px) {
+	.bs-hero__card {
+		padding: 28px 20px 24px;
 	}
 }

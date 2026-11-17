@@ -14,12 +14,12 @@
 
 // Sections : classe CSS du groupe principal => fichier assets/css/home/<fichier>.css
 const BLOOMANDSUN_SECTION_STYLES = [
-	'bs-hero'         => 'hero',
-	'bs-categories'   => 'categories',
-	'bs-inspirations' => 'inspirations',
-	'bs-reassurance'  => 'reassurance',
-	'bs-store'        => 'store',
-	'bs-newsletter'   => 'newsletter',
+	'bs-hero'        => 'hero',
+	'bs-categories'  => 'categories',
+	'bs-reassurance' => 'reassurance',
+	'bs-store'       => 'store',
+	'bs-instagram'   => 'instagram',
+	'bs-newsletter'  => 'newsletter',
 ];
 
 /**
@@ -27,11 +27,13 @@ const BLOOMANDSUN_SECTION_STYLES = [
  * modification du fichier : le navigateur recharge le CSS dès qu'il change.
  */
 function bloomandsun_register_style( string $handle, string $file, array $deps = [ 'bloomandsun-base' ] ): void {
+	$path = get_theme_file_path( "assets/css/$file" );
+
 	wp_register_style(
 		$handle,
 		get_theme_file_uri( "assets/css/$file" ),
 		$deps,
-		(string) filemtime( get_theme_file_path( "assets/css/$file" ) )
+		file_exists( $path ) ? (string) filemtime( $path ) : wp_get_theme()->get( 'Version' )
 	);
 }
 
@@ -109,7 +111,7 @@ add_action( 'init', function () {
 
 /**
  * URL d'une catégorie de produits à partir de son slug.
- * Renvoie la page Collections (boutique en ligne WooCommerce) si la catégorie n'existe pas encore.
+ * Renvoie la page boutique de WooCommerce si la catégorie n'existe pas encore.
  */
 function bloomandsun_category_url( string $slug ): string {
 	$link = get_term_link( $slug, 'product_cat' );
@@ -122,10 +124,44 @@ function bloomandsun_category_url( string $slug ): string {
 }
 
 /**
- * URL de la page Collections (boutique en ligne WooCommerce), avec des paramètres optionnels (ex. tri par date).
+ * URL de la page boutique de WooCommerce, avec des paramètres optionnels (ex. tri par date).
  */
 function bloomandsun_shop_url( array $args = [] ): string {
 	$url = function_exists( 'wc_get_page_permalink' ) ? wc_get_page_permalink( 'shop' ) : home_url( '/' );
 
 	return esc_url( add_query_arg( $args, $url ) );
+}
+
+/**
+ * URL d'une page à partir de son slug (ex. « le-magasin »).
+ * Renvoie l'adresse attendue si la page n'existe pas encore.
+ */
+function bloomandsun_page_url( string $slug ): string {
+	$page = get_page_by_path( $slug );
+
+	return esc_url( $page ? get_permalink( $page ) : home_url( "/$slug/" ) );
+}
+
+/**
+ * Bloc « lien de navigation » prêt à insérer dans une composition.
+ */
+function bloomandsun_nav_link( string $label, string $url ): string {
+	$attrs = [ 'label' => $label, 'url' => $url, 'kind' => 'custom', 'isTopLevelLink' => true ];
+
+	return '<!-- wp:navigation-link ' . wp_json_encode( $attrs, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES ) . ' /-->';
+}
+
+/**
+ * Liens du menu principal, partagés par l'en-tête (bureau et mobile).
+ *
+ * @return array<string, array{0: string, 1: string}> clé => [libellé, URL]
+ */
+function bloomandsun_menu_links(): array {
+	return [
+		'nouveautes'  => [ 'Nouveautés', bloomandsun_shop_url( [ 'orderby' => 'date' ] ) ],
+		'vetements'   => [ 'Vêtements', bloomandsun_category_url( 'vetements' ) ],
+		'accessoires' => [ 'Accessoires', bloomandsun_category_url( 'accessoires' ) ],
+		'magasin'     => [ 'Le magasin', bloomandsun_page_url( 'le-magasin' ) ],
+		'contact'     => [ 'Contact', bloomandsun_page_url( 'contact' ) ],
+	];
 }

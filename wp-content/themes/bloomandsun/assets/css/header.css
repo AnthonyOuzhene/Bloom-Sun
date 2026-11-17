@@ -1,41 +1,55 @@
 /* ==========================================================================
-   Bloom & Sun — en-tête (parts/header.html, patterns/logo.php)
-   Bandeau d'annonce, logo, menu, icônes.
+   Bloom & Sun — en-tête (parts/header.html, patterns/header.php, patterns/logo.php)
+   Bandeau d'annonce, menu réparti autour du logo, icônes fines, filet doré.
    ========================================================================== */
 
-/* Bandeau d'annonce
+/* Bandeau d'annonce : trois messages précédés d'un petit soleil
    -------------------------------------------------------------------------- */
-.bs-announcement {
-	margin: 0;
-	padding: 9px var(--bs-gutter);
-	background: var(--bs-coral);
-	color: var(--bs-ink);
-	font-size: 0.8125rem;
-	letter-spacing: 0.02em;
-	text-align: center;
-}
-
-/* En-tête
-   -------------------------------------------------------------------------- */
-.bs-header {
-	border-bottom: 1px solid var(--bs-line);
-	background: var(--bs-cream);
-}
-
-.bs-header__inner {
+.bs-announce {
 	display: flex;
-	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: center;
+	gap: 6px 22px;
+	padding: 10px var(--bs-gutter);
+	background: var(--bs-blush);
+	color: var(--bs-terracotta);
+	font-size: 13px;
+	font-weight: 500;
+}
+
+.bs-announce.bs-announce > * {
+	margin: 0;
+}
+
+.bs-announce__item {
+	display: inline-flex;
+	align-items: center;
+	gap: 8px;
+}
+
+.bs-announce__item::before {
+	content: "";
+	width: 16px;
+	height: 16px;
+	background: currentColor;
+	-webkit-mask: var(--bs-icon-sun) center / contain no-repeat;
+	mask: var(--bs-icon-sun) center / contain no-repeat;
+}
+
+/* En-tête : menu | logo | menu + icônes
+   -------------------------------------------------------------------------- */
+.bs-header__inner {
+	display: grid;
+	grid-template-columns: 1fr auto 1fr;
 	align-items: center;
 	gap: 24px;
-	padding-block: 18px;
+	padding-block: 24px 20px;
 }
 
-/* Logo (aussi utilisé dans le pied de page, voir footer.css)
-   -------------------------------------------------------------------------- */
+/* Logo (aussi utilisé dans le pied de page) */
 .bs-logo {
 	--bs-logo-sun: var(--bs-coral);
 	display: block;
-	flex: 0 0 auto;
 	color: var(--bs-ink);
 	text-decoration: none;
 }
@@ -48,7 +62,7 @@
 }
 
 .bs-logo text {
-	font-family: var(--bs-font-title);
+	font-family: var(--bs-font-logo);
 	font-weight: 400;
 }
 
@@ -56,36 +70,53 @@
 	stroke: var(--bs-logo-sun);
 }
 
-/* Menu
-   -------------------------------------------------------------------------- */
-.bs-header .bs-nav {
-	flex: 1 1 auto;
-	gap: 2rem;
-	font-size: 0.9375rem;
-}
-
+/* Menus : petites capitales espacées */
+.bs-header .bs-nav,
 .bs-header .bs-nav .wp-block-navigation__container {
-	gap: 2rem;
+	gap: clamp(18px, 2.6vw, 40px);
 }
 
 .bs-header .bs-nav a {
+	padding-bottom: 4px;
+	border-bottom: 1px solid transparent;
+	font-size: 12px;
+	font-weight: 500;
+	letter-spacing: 0.24em;
+	text-transform: uppercase;
 	text-decoration: none;
 }
 
-.bs-header .bs-nav a:hover {
-	color: var(--bs-terracotta);
+.bs-header .bs-nav a:hover,
+.bs-header .bs-nav .current-menu-item > a {
+	color: var(--bs-sapin);
+	border-bottom-color: var(--bs-sapin);
+}
+
+.bs-header__right {
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
+	gap: clamp(18px, 2.6vw, 40px);
+}
+
+/* Menu mobile : masqué sur ordinateur */
+.bs-header .bs-nav-mobile {
+	display: none;
 }
 
 /* Icônes : recherche, compte, liste d'envies, panier
    -------------------------------------------------------------------------- */
-.bs-header__actions {
-	flex: 0 0 auto;
-	gap: 16px;
+.bs-header__icons {
+	display: flex;
+	align-items: center;
+	gap: 18px;
+	padding-left: 26px;
+	border-left: 1px solid var(--bs-line);
 }
 
-.bs-header__actions svg {
-	width: 22px;
-	height: 22px;
+.bs-header__icons svg {
+	width: 19px;
+	height: 19px;
 }
 
 .bs-header .bs-search,
@@ -99,8 +130,8 @@
 
 .bs-header .bs-search .wp-block-search__button {
 	display: block;
-	width: 22px;
-	height: 22px;
+	width: 19px;
+	height: 19px;
 	margin: 0;
 	padding: 0;
 	border: 0;
@@ -108,7 +139,7 @@
 	color: var(--bs-ink);
 }
 
-/* Icône de recherche au trait, comme les autres icônes */
+/* Icône de recherche au trait, comme les autres */
 .bs-header .bs-search .wp-block-search__button svg {
 	display: none;
 }
@@ -123,10 +154,6 @@
 	mask: var(--bs-icon-search) center / contain no-repeat;
 }
 
-.bs-header .bs-search .wp-block-search__button:hover {
-	color: var(--bs-terracotta);
-}
-
 .bs-header .wp-block-woocommerce-customer-account a {
 	display: flex;
 	padding: 0;
@@ -139,73 +166,104 @@
 }
 
 .bs-header .wc-block-mini-cart__badge {
-	background: var(--bs-terracotta);
-	color: #fff;
+	background: var(--bs-sapin);
+	color: var(--bs-cream);
 }
 
 .bs-icon-link {
 	display: block;
-	width: 22px;
-	height: 22px;
+	width: 19px;
+	height: 19px;
 	background: currentColor;
 	color: var(--bs-ink);
 	-webkit-mask: var(--bs-icon-heart) center / contain no-repeat;
 	mask: var(--bs-icon-heart) center / contain no-repeat;
 }
 
+.bs-header .bs-search .wp-block-search__button:hover,
 .bs-icon-link:hover {
-	color: var(--bs-terracotta);
+	color: var(--bs-sapin);
 }
 
-/* Responsive
+/* Filet doré au petit soleil, sous l'en-tête
+   -------------------------------------------------------------------------- */
+.bs-header__line {
+	display: flex;
+	align-items: center;
+	gap: 18px;
+	margin-bottom: 24px;
+	padding-inline: var(--bs-gutter);
+	color: var(--bs-gold);
+}
+
+.bs-header__line::before,
+.bs-header__line::after {
+	content: "";
+	flex: 1;
+	height: 1px;
+	background: rgba(184, 151, 90, 0.6);
+}
+
+.bs-header__line svg {
+	width: 44px;
+	height: 22px;
+}
+
+/* Responsive : un seul menu « hamburger » à gauche
    -------------------------------------------------------------------------- */
 @media (max-width: 960px) {
-	/* Tablette : logo + icônes sur une ligne, menu centré en dessous */
 	.bs-header__inner {
-		flex-wrap: wrap;
-		row-gap: 12px;
-	}
-
-	.bs-header .bs-logo {
-		margin-right: auto;
+		grid-template-columns: 1fr auto 1fr;
+		padding-block: 16px;
 	}
 
 	.bs-header .bs-nav {
-		flex: 1 0 100%;
-		order: 3;
-		font-size: 0.875rem;
+		display: none;
 	}
 
-	.bs-header .bs-nav,
-	.bs-header .bs-nav .wp-block-navigation__container {
-		gap: 1.5rem;
+	.bs-header .bs-nav-mobile {
+		display: flex;
+		justify-self: start;
+	}
+
+	.bs-header__icons {
+		padding-left: 0;
+		border-left: 0;
 	}
 
 	.bs-logo__svg {
-		width: 128px;
+		width: 124px;
+	}
+
+	/* Menu ouvert : plein écran crème, liens en Fraunces */
+	.bs-nav-mobile .wp-block-navigation__responsive-container.is-menu-open {
+		padding: 32px var(--bs-gutter);
+		background: var(--bs-cream);
+		color: var(--bs-ink);
+	}
+
+	.bs-nav-mobile .is-menu-open .wp-block-navigation-item a {
+		font-family: var(--bs-font-title);
+		font-size: 1.75rem;
+		text-decoration: none;
 	}
 }
 
-@media (max-width: 599px) {
-	.bs-header__inner {
+@media (max-width: 600px) {
+	.bs-header .bs-search,
+	.bs-header .bs-wishlist {
+		display: none;
+	}
+
+	.bs-header__icons {
 		gap: 14px;
 	}
 
-	/* Le menu devient un bouton « hamburger », placé à gauche du logo */
-	.bs-header .bs-nav {
-		flex: 0 0 auto;
-		order: -1;
-	}
-
 	.bs-logo__svg {
-		width: 112px;
+		width: 108px;
 	}
 
-	.bs-header__actions {
-		gap: 12px;
-	}
-
-	.bs-header .bs-search {
+	.bs-announce__item:not(:first-child) {
 		display: none;
 	}
 }

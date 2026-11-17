@@ -1,38 +1,89 @@
 /* ==========================================================================
-   Bloom & Sun — « Par envie » (patterns/home-categories.php)
-   La grille vient de .bs-grid--4 (base.css).
+   Bloom & Sun — Nos collections (patterns/home-categories.php)
+   5 cartes arrondies, étiquette blanche avec flèche en bas.
    ========================================================================== */
 
-.bs-cat-card {
-	position: relative;
+.bs-cats__grid {
+	display: grid;
+	grid-template-columns: repeat(5, minmax(0, 1fr));
+	gap: 14px;
+}
+
+/* La carte : l'étiquette est poussée en bas */
+.bs-cat {
 	display: flex;
 	flex-direction: column;
-	gap: 12px;
+	justify-content: flex-end;
+	aspect-ratio: 3 / 4;
+	padding: 14px;
+	transition: transform 0.25s ease;
 }
 
-.bs-cat-card__title {
+.bs-cat:hover {
+	transform: translateY(-4px);
+}
+
+/* Étiquette : pilule blanche + rond rose avec flèche terracotta */
+.bs-cat__name a {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 10px;
+	padding: 8px 8px 8px 14px;
+	border-radius: 999px;
+	background: var(--bs-white);
+	font-size: 14px;
 	font-weight: 500;
-}
-
-.bs-cat-card__title a {
 	text-decoration: none;
 }
 
-/* Toute la carte est cliquable : le lien du titre est étiré sur la carte */
-.bs-cat-card__title a::after {
+.bs-cat__name a::after {
+	content: "";
+	flex: none;
+	width: 34px;
+	height: 34px;
+	border-radius: 50%;
+	background: var(--bs-blush) url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23A65F4F' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'><path d='M5 12h14M13 6l6 6-6 6'/></svg>") center / 16px no-repeat;
+}
+
+/* Toute la carte est cliquable : le lien est étiré sur la carte */
+.bs-cat__name a::before {
 	content: "";
 	position: absolute;
 	inset: 0;
 }
 
-.bs-cat-card .bs-photo {
-	transition: opacity 0.2s ease;
+/* Responsive
+   -------------------------------------------------------------------------- */
+@media (max-width: 960px) {
+	.bs-cats__grid {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+	}
+
+	/* 5 cartes sur 2 colonnes : la dernière passe en bandeau pleine largeur */
+	.bs-cat:last-child {
+		grid-column: 1 / -1;
+		aspect-ratio: 16 / 7;
+	}
 }
 
-.bs-cat-card:hover .bs-photo {
-	opacity: 0.85;
-}
+@media (max-width: 600px) {
+	.bs-cats__grid {
+		gap: 10px;
+	}
 
-.bs-cat-card:hover .bs-cat-card__title a {
-	text-decoration: underline;
+	.bs-cat {
+		padding: 8px;
+	}
+
+	.bs-cat__name a {
+		padding: 6px 6px 6px 12px;
+		font-size: 13px;
+	}
+
+	.bs-cat__name a::after {
+		width: 26px;
+		height: 26px;
+		background-size: 13px;
+	}
 }

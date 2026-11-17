@@ -2,6 +2,7 @@
    Bloom & Sun — cartes produit
    Bloc « Collection de produits » de WooCommerce (classe .bs-products).
    Chargé uniquement quand ce bloc est affiché sur la page (voir functions.php).
+   Carte blanche arrondie : photo, puis nom + prix à gauche, bouton « + » à droite.
    ========================================================================== */
 
 .bs-products .wc-block-product-template.wc-block-product-template {
@@ -14,34 +15,47 @@
 }
 
 .bs-products .wc-block-product-template.wc-block-product-template > li {
-	display: flex;
-	flex-direction: column;
-	gap: 6px;
+	display: grid;
+	grid-template-columns: minmax(0, 1fr) auto;
+	align-content: start;
+	column-gap: 10px;
+	row-gap: 2px;
 	width: auto;
 	margin: 0;
+	padding: 10px 10px 16px;
+	border-radius: var(--bs-r-lg);
+	background: var(--bs-white);
 	text-align: left;
 }
 
+/* Photo sur toute la largeur de la carte */
 .bs-products .wc-block-components-product-image {
-	margin: 0 0 8px;
-	border-radius: var(--bs-radius);
+	grid-column: 1 / -1;
+	margin: 0 0 12px;
+	border-radius: var(--bs-r-md);
 	overflow: hidden;
-	background: var(--wp--preset--color--sand);
+	background: var(--bs-sand);
 }
 
 .bs-products .wc-block-components-product-image img {
 	width: 100%;
-	aspect-ratio: 3 / 4;
 	object-fit: cover;
 }
 
-.bs-products .bs-product__title {
+.bs-products .bs-product__title,
+.bs-products .bs-product__price {
+	grid-column: 1;
 	margin: 0;
-	font-family: var(--bs-font-text);
-	font-size: 0.9375rem;
-	font-weight: 500;
-	line-height: 1.4;
+	padding-inline: 6px;
 	text-align: left;
+}
+
+.bs-products .bs-product__title {
+	font-family: var(--bs-font-text);
+	font-size: 15px;
+	font-weight: 500;
+	line-height: 1.35;
+	letter-spacing: 0;
 }
 
 .bs-products .bs-product__title a {
@@ -49,18 +63,58 @@
 }
 
 .bs-products .bs-product__price {
-	margin: 0;
 	color: var(--bs-ink-soft);
-	font-size: var(--wp--preset--font-size--small);
-	text-align: left;
+	font-size: 15px;
 }
 
+/* Bouton « + » : rond vert sapin, le texte reste lisible par les lecteurs d'écran */
+.bs-products .bs-product__add {
+	grid-column: 2;
+	grid-row: 2 / span 2;
+	align-self: end;
+	margin: 0;
+}
+
+.bs-products .bs-product__add .wp-block-button__link {
+	display: grid;
+	place-items: center;
+	width: 40px;
+	height: 40px;
+	min-width: 0;
+	margin: 0;
+	padding: 0;
+	border-radius: 50%;
+	background: var(--bs-sapin);
+	color: var(--bs-cream);
+	font-size: 0;
+	line-height: 0;
+}
+
+.bs-products .bs-product__add .wp-block-button__link::before {
+	content: "+";
+	font-size: 22px;
+	font-weight: 300;
+	line-height: 1;
+}
+
+.bs-products .bs-product__add .wp-block-button__link:hover {
+	background: var(--bs-terracotta);
+}
+
+/* Après ajout, WooCommerce affiche « Voir le panier » : on le masque dans la carte */
+.bs-products .bs-product__add .added_to_cart {
+	display: none;
+}
+
+/* Badge promo */
 .bs-products .wc-block-components-product-sale-badge {
+	margin: 12px;
+	padding: 5px 11px;
 	border: 0;
 	border-radius: 999px;
-	background: #fff;
-	color: var(--bs-ink);
-	font-size: 0.6875rem;
+	background: var(--bs-terracotta);
+	color: var(--bs-white);
+	font-size: 12px;
 	font-weight: 500;
 	text-transform: none;
 }
@@ -75,5 +129,16 @@
 @media (max-width: 960px) {
 	.bs-products .wc-block-product-template.wc-block-product-template {
 		grid-template-columns: repeat(2, minmax(0, 1fr));
+	}
+}
+
+@media (max-width: 600px) {
+	.bs-products .wc-block-product-template.wc-block-product-template {
+		gap: 10px;
+	}
+
+	.bs-products .bs-product__add .wp-block-button__link {
+		width: 34px;
+		height: 34px;
 	}
 }

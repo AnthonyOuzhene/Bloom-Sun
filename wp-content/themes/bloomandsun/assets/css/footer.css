@@ -1,16 +1,17 @@
 /* ==========================================================================
-   Bloom & Sun — pied de page (parts/footer.html)
+   Bloom & Sun — pied de page (parts/footer.html, patterns/footer.php)
+   Fond sable aux coins arrondis, réseaux sociaux en pastilles.
    ========================================================================== */
 
 .bs-footer {
-	padding-top: 48px;
-	background: var(--bs-coral);
-	color: var(--bs-ink);
-	font-size: var(--wp--preset--font-size--small);
+	margin-top: var(--bs-section-y);
+	padding-top: clamp(48px, 6vw, 72px);
+	border-radius: var(--bs-r-xl) var(--bs-r-xl) 0 0;
+	background: var(--bs-sand);
+	font-size: 15px;
 }
 
 .bs-footer a {
-	color: var(--bs-ink);
 	text-decoration: none;
 }
 
@@ -20,9 +21,9 @@
 
 .bs-footer__grid {
 	display: grid;
-	grid-template-columns: repeat(4, minmax(0, 1fr));
+	grid-template-columns: 1.5fr repeat(3, minmax(0, 1fr));
 	gap: 32px;
-	padding-bottom: 32px;
+	padding-bottom: 48px;
 }
 
 .bs-footer__brand,
@@ -32,24 +33,23 @@
 	gap: 14px;
 }
 
-/* Logo en blanc (le logo lui-même est stylé dans header.css) */
-.bs-footer .bs-logo {
-	--bs-logo-sun: #fff;
-	color: #fff;
+.bs-footer__brand p {
+	color: var(--bs-ink-soft);
 }
 
 .bs-footer .bs-logo__svg {
-	width: 130px;
+	width: 138px;
 }
 
 .bs-footer__title {
-	font-family: var(--bs-font-text);
-	font-size: var(--wp--preset--font-size--small);
-	font-weight: 600;
-	line-height: 1.4;
+	font-family: var(--bs-font-title);
+	font-size: 20px;
+	font-weight: 400;
+	letter-spacing: 0;
 }
 
 .bs-footer__links,
+.bs-footer__social,
 .bs-footer__legal {
 	margin: 0;
 	padding: 0;
@@ -59,19 +59,47 @@
 .bs-footer__links {
 	display: flex;
 	flex-direction: column;
-	gap: 6px;
+	gap: 8px;
+}
+
+/* Réseaux sociaux en pastilles blanches */
+.bs-footer__social {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 8px;
+}
+
+.bs-footer__social a {
+	display: inline-block;
+	padding: 8px 16px;
+	border-radius: 999px;
+	background: var(--bs-white);
+	font-size: 14px;
+	font-weight: 500;
+}
+
+.bs-footer__social a:hover {
+	text-decoration: none;
+	background: var(--bs-sapin);
+	color: var(--bs-cream);
 }
 
 .bs-footer__bottom {
-	padding-block: 18px;
-	border-top: 1px solid rgba(58, 46, 43, 0.15);
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	align-items: center;
+	gap: 12px 24px;
+	padding-block: 20px;
+	border-top: 1px solid var(--bs-line);
+	font-size: 13px;
+	color: var(--bs-ink-soft);
 }
 
 .bs-footer__legal {
 	display: flex;
 	flex-wrap: wrap;
-	gap: 8px 24px;
-	font-size: 0.8125rem;
+	gap: 8px 22px;
 }
 
 /* Responsive
@@ -80,9 +108,13 @@
 	.bs-footer__grid {
 		grid-template-columns: repeat(2, minmax(0, 1fr));
 	}
+
+	.bs-footer__brand {
+		grid-column: 1 / -1;
+	}
 }
 
-@media (max-width: 599px) {
+@media (max-width: 600px) {
 	.bs-footer__grid {
 		grid-template-columns: 1fr;
 	}

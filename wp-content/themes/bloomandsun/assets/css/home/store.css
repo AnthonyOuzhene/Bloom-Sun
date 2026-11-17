@@ -1,33 +1,143 @@
 /* ==========================================================================
    Bloom & Sun — Le magasin (patterns/home-store.php)
-   La mise en page texte + photo vient de .bs-split (base.css).
+   Photo arrondie avec pastille « Venez essayer ! » + carte vert sapin.
    ========================================================================== */
 
-/* Colonne texte plus étroite que la photo */
-.bs-split--store {
-	grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+.bs-store__grid {
+	display: grid;
+	grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+	gap: 16px;
 }
 
 .bs-store__photo {
-	aspect-ratio: 1.68;
+	min-height: 460px;
+	border-radius: var(--bs-r-xl);
 }
 
-/* Horaires sur deux colonnes : jours | heures */
+/* Pastille ronde inclinée, en haut à droite de la photo */
+.bs-store__sticker {
+	position: absolute;
+	right: 28px;
+	top: 28px;
+	display: grid;
+	place-items: center;
+	width: 128px;
+	height: 128px;
+	border-radius: 50%;
+	background: var(--bs-coral);
+	font-family: var(--bs-font-title);
+	font-size: 20px;
+	font-style: italic;
+	line-height: 1.1;
+	text-align: center;
+	transform: rotate(-10deg);
+}
+
+/* Carte vert sapin */
+.bs-store__card {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	gap: 18px;
+	padding: clamp(28px, 4vw, 56px);
+	border-radius: var(--bs-r-xl);
+	background: var(--bs-sapin);
+	color: var(--bs-on-dark);
+}
+
+.bs-store__card h2 {
+	color: var(--bs-cream);
+}
+
+.bs-store__card h2 em {
+	color: var(--bs-coral);
+}
+
+/* Pastille « Ouvert aujourd'hui » : point vert à la place du soleil */
+.bs-chip--open {
+	background: var(--bs-cream);
+	color: var(--bs-ink);
+}
+
+.bs-chip--open::before {
+	width: 8px;
+	height: 8px;
+	border-radius: 50%;
+	background: #6E8B5C;
+	box-shadow: 0 0 0 4px rgba(110, 139, 92, 0.2);
+	-webkit-mask: none;
+	mask: none;
+}
+
+.bs-store__address {
+	display: flex;
+	align-items: flex-start;
+	gap: 10px;
+	color: var(--bs-cream);
+}
+
+.bs-store__address::before {
+	content: "";
+	flex: none;
+	width: 20px;
+	height: 20px;
+	margin-top: 2px;
+	background: var(--bs-coral);
+	-webkit-mask: var(--bs-icon-pin) center / contain no-repeat;
+	mask: var(--bs-icon-pin) center / contain no-repeat;
+}
+
+/* Horaires : jours | heures */
 .bs-hours {
 	display: grid;
 	grid-template-columns: auto 1fr;
-	gap: 4px 24px;
-	font-size: var(--wp--preset--font-size--small);
+	gap: 10px 24px;
+	width: 100%;
+	padding: 18px 20px;
+	border-radius: var(--bs-r-md);
+	background: rgba(251, 247, 242, 0.08);
+	font-size: 15px;
 }
 
 .bs-hours__day {
-	font-weight: 600;
+	font-weight: 500;
+	color: var(--bs-cream);
+}
+
+.bs-hours__time {
+	text-align: right;
+	color: rgba(251, 247, 242, 0.75);
+}
+
+.bs-store .is-style-outline > .wp-block-button__link {
+	color: var(--bs-cream);
+}
+
+.bs-store .is-style-outline > .wp-block-button__link:hover {
+	background: var(--bs-cream);
+	border-color: var(--bs-cream);
+	color: var(--bs-sapin);
 }
 
 /* Responsive
    -------------------------------------------------------------------------- */
 @media (max-width: 960px) {
-	.bs-split--store {
+	.bs-store__grid {
 		grid-template-columns: 1fr;
+	}
+
+	.bs-store__photo {
+		min-height: 0;
+		aspect-ratio: 16 / 10;
+	}
+}
+
+@media (max-width: 600px) {
+	.bs-store__sticker {
+		width: 96px;
+		height: 96px;
+		right: 16px;
+		top: 16px;
+		font-size: 16px;
 	}
 }

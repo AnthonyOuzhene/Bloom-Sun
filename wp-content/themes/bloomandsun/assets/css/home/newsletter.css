@@ -1,52 +1,68 @@
 /* ==========================================================================
    Bloom & Sun — newsletter (patterns/home-newsletter.php)
+   Grande carte corail, formulaire en pilule blanche.
    ========================================================================== */
 
-.bs-newsletter__inner {
+.bs-newsletter__card {
+	display: flex;
+	flex-direction: column;
 	align-items: center;
 	gap: 14px;
+	padding: clamp(44px, 6vw, 80px) 24px;
+	border-radius: var(--bs-r-xl);
+	background: var(--bs-coral);
 	text-align: center;
 }
 
-.bs-newsletter__inner > p {
-	color: var(--bs-ink-soft);
+.bs-newsletter__card h2 em {
+	color: var(--bs-ink);
+}
+
+.bs-newsletter__card p {
+	max-width: 46ch;
 }
 
 .bs-newsletter__form {
 	display: flex;
-	gap: 8px;
-	width: min(100%, 440px);
+	gap: 6px;
+	width: min(100%, 460px);
 	margin-top: 10px;
+	padding: 6px;
+	border-radius: 999px;
+	background: var(--bs-white);
 }
 
 .bs-newsletter__form input {
 	flex: 1 1 auto;
 	min-width: 0;
-	padding: 0.8rem 1.2rem;
-	border: 1px solid #D9CFC6;
-	border-radius: 999px;
-	background: #fff;
+	padding: 0 18px;
+	border: 0;
+	background: transparent;
 	color: var(--bs-ink);
-	font: inherit;
-	font-size: var(--wp--preset--font-size--small);
+	font: 400 15px var(--bs-font-text);
+	outline: none;
 }
 
 .bs-newsletter__form button {
-	flex: 0 0 auto;
-	border: 0;
+	flex: none;
 	background: var(--bs-ink);
-	color: #fff;
+	color: var(--bs-cream);
 	cursor: pointer;
 }
 
 .bs-newsletter__form button:hover {
-	background: var(--bs-terracotta);
+	background: var(--bs-sapin);
 }
 
 /* Responsive
    -------------------------------------------------------------------------- */
-@media (max-width: 599px) {
+@media (max-width: 600px) {
 	.bs-newsletter__form {
 		flex-direction: column;
+		border-radius: var(--bs-r-lg);
+	}
+
+	.bs-newsletter__form input {
+		padding: 12px 14px;
 	}
 }

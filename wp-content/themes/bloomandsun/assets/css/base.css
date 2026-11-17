@@ -1,7 +1,7 @@
 /* ==========================================================================
    Bloom & Sun — base (chargé sur toutes les pages)
-   Variables, reset, éléments réutilisables par plusieurs sections.
-   Les couleurs et polices viennent de theme.json :
+   Direction « Atelier chaleureux, logo centré, vert sapin » (maquette E bis).
+   Couleurs et polices déclarées dans theme.json :
    var(--wp--preset--color--<slug>) et var(--wp--preset--font-family--<slug>)
    ========================================================================== */
 
@@ -9,24 +9,37 @@
    -------------------------------------------------------------------------- */
 :root {
 	--bs-cream: var(--wp--preset--color--cream);
+	--bs-white: var(--wp--preset--color--white);
 	--bs-blush: var(--wp--preset--color--blush);
 	--bs-coral: var(--wp--preset--color--coral);
 	--bs-terracotta: var(--wp--preset--color--terracotta);
+	--bs-sand: var(--wp--preset--color--sand);
+	--bs-sapin: var(--wp--preset--color--sapin);
+	--bs-sapin-light: var(--wp--preset--color--sapin-light);
+	--bs-gold: var(--wp--preset--color--gold);
 	--bs-ink: var(--wp--preset--color--ink);
 	--bs-ink-soft: #5E504C;
 	--bs-line: rgba(58, 46, 43, 0.12);
+	--bs-on-dark: rgba(251, 247, 242, 0.82);   /* texte courant sur fond sapin */
 
 	--bs-font-title: var(--wp--preset--font-family--title);
 	--bs-font-text: var(--wp--preset--font-family--text);
+	--bs-font-logo: var(--wp--preset--font-family--logo);
 
-	--bs-wide: 1240px;
-	--bs-gutter: clamp(16px, 4.5vw, 56px);
+	--bs-wide: 1320px;
+	--bs-gutter: clamp(16px, 3.5vw, 40px);
 	--bs-section-y: clamp(56px, 7vw, 104px);
-	--bs-radius: 4px;
+	--bs-r-xl: 36px;
+	--bs-r-lg: 24px;
+	--bs-r-md: 16px;
 
 	/* Icônes (dessinées en masque CSS : elles prennent la couleur du texte) */
 	--bs-icon-heart: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'><path d='M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z'/></svg>");
 	--bs-icon-search: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'><circle cx='11' cy='11' r='7.5'/><path d='m20.5 20.5-4.2-4.2'/></svg>");
+	--bs-icon-arrow: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'><path d='M5 12h14M13 6l6 6-6 6'/></svg>");
+	--bs-icon-sun: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.6' stroke-linecap='round'><path d='M3 17h18'/><path d='M12 6v4M6.3 9.3l2.2 2.2M17.7 9.3l-2.2 2.2M4 14h2.5M17.5 14H20'/><path d='M8.5 17a3.5 3.5 0 0 1 7 0'/></svg>");
+	--bs-icon-pin: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'><path d='M12 21s7-6.2 7-11a7 7 0 1 0-14 0c0 4.8 7 11 7 11z'/><circle cx='12' cy='10' r='2.5'/></svg>");
+	--bs-icon-insta: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'><rect x='3' y='3' width='18' height='18' rx='5'/><circle cx='12' cy='12' r='4'/><circle cx='17.5' cy='6.5' r='0.6' fill='black'/></svg>");
 	--bs-icon-truck: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'><path d='M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2'/><path d='M15 18H9'/><path d='M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.62l-3.48-4.35A1 1 0 0 0 17.52 8H14'/><circle cx='17' cy='18' r='2'/><circle cx='7' cy='18' r='2'/></svg>");
 	--bs-icon-return: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'><path d='M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8'/><path d='M3 3v5h5'/></svg>");
 	--bs-icon-card: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'><rect width='20' height='14' x='2' y='5' rx='2'/><path d='M2 10h20'/></svg>");
@@ -79,7 +92,13 @@ a {
 	outline-offset: 3px;
 }
 
-/* Mise en page : conteneur, sections, grilles
+/* Mot en italique dans un titre : Fraunces italique, terracotta */
+:where(h1, h2, h3) em {
+	font-style: italic;
+	color: var(--bs-terracotta);
+}
+
+/* Mise en page : conteneur, sections, en-têtes de section
    -------------------------------------------------------------------------- */
 .bs-container {
 	display: flex;
@@ -92,56 +111,128 @@ a {
 }
 
 .bs-section {
-	padding-block: var(--bs-section-y);
-}
-
-.bs-section--blush {
-	background: var(--bs-blush);
+	padding-block: var(--bs-section-y) 0;
 }
 
 .bs-section__head {
 	display: flex;
-	align-items: baseline;
+	align-items: flex-end;
 	justify-content: space-between;
-	gap: 16px;
+	gap: 20px;
 }
 
-.bs-section__more {
-	font-size: var(--wp--preset--font-size--small);
-}
-
-.bs-grid {
-	display: grid;
-	gap: 16px;
-}
-
-.bs-grid--4 {
-	grid-template-columns: repeat(4, minmax(0, 1fr));
-}
-
-.bs-grid--6 {
-	grid-template-columns: repeat(6, minmax(0, 1fr));
+.bs-section__head > div {
+	display: flex;
+	flex-direction: column;
 	gap: 10px;
 }
 
-/* Bloc texte + photo côte à côte (Inspirations, Le magasin) */
-.bs-split {
-	display: grid;
-	grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
-	align-items: center;
-	gap: clamp(32px, 5vw, 64px);
-}
-
-.bs-split__text {
-	display: flex;
-	flex-direction: column;
-	align-items: flex-start;
-	gap: 20px;
-	max-width: 460px;
-}
-
-.bs-split__text > p:not(.bs-eyebrow) {
+.bs-section__intro {
 	color: var(--bs-ink-soft);
+}
+
+.bs-note {
+	font-size: 13px;
+	color: var(--bs-ink-soft);
+}
+
+/* Pastille « chip » : petit soleil + texte */
+.bs-chip {
+	display: inline-flex;
+	align-items: center;
+	align-self: flex-start;
+	gap: 8px;
+	padding: 7px 14px;
+	border-radius: 999px;
+	background: var(--bs-white);
+	font-size: 13px;
+	font-weight: 500;
+	line-height: 1.3;
+}
+
+.bs-chip::before {
+	content: "";
+	flex: none;
+	width: 16px;
+	height: 16px;
+	background: var(--bs-terracotta);
+	-webkit-mask: var(--bs-chip-icon, var(--bs-icon-sun)) center / contain no-repeat;
+	mask: var(--bs-chip-icon, var(--bs-icon-sun)) center / contain no-repeat;
+}
+
+.bs-chip a {
+	text-decoration: none;
+}
+
+/* Boutons : le style plein (pilule terracotta) vient de theme.json
+   -------------------------------------------------------------------------- */
+.bs-actions {
+	gap: 12px;
+}
+
+.wp-block-button.is-style-outline > .wp-block-button__link {
+	border: 1.5px solid currentColor;
+	padding: 13.5px 24.5px;
+	color: var(--bs-ink);
+	background: transparent;
+}
+
+.wp-block-button.is-style-outline > .wp-block-button__link:hover {
+	background: var(--bs-ink);
+	border-color: var(--bs-ink);
+	color: var(--bs-cream);
+}
+
+/* Bouton avec flèche : ajouter la classe « bs-btn-arrow » au bouton */
+.bs-btn-arrow .wp-block-button__link {
+	display: inline-flex;
+	align-items: center;
+	gap: 10px;
+}
+
+.bs-btn-arrow .wp-block-button__link::after {
+	content: "";
+	width: 18px;
+	height: 18px;
+	background: currentColor;
+	-webkit-mask: var(--bs-icon-arrow) center / contain no-repeat;
+	mask: var(--bs-icon-arrow) center / contain no-repeat;
+}
+
+/* Emplacements photo : groupe coloré, image de fond ajoutée dans l'éditeur
+   (Styles > Arrière-plan). Un voile chaud commun harmonise les photos.
+   -------------------------------------------------------------------------- */
+.bs-photo {
+	position: relative;
+	isolation: isolate; /* le voile reste sous le contenu de la carte */
+	overflow: hidden;
+	border-radius: var(--bs-r-lg);
+	background-position: center;
+	background-size: cover;
+}
+
+.bs-photo::before {
+	content: "";
+	position: absolute;
+	inset: 0;
+	z-index: -1;
+	border-radius: inherit;
+	background: rgba(214, 178, 138, 0.16);
+	pointer-events: none;
+}
+
+.bs-photo__label {
+	position: absolute;
+	left: 50%;
+	bottom: 16px;
+	transform: translateX(-50%);
+	padding: 4px 11px;
+	border-radius: 999px;
+	background: rgba(255, 255, 255, 0.82);
+	color: var(--bs-ink);
+	font-size: 11px;
+	line-height: 1.4;
+	white-space: nowrap;
 }
 
 /* Pages intérieures (templates page.html et index.html) */
@@ -149,100 +240,11 @@ a {
 	padding-block: clamp(40px, 6vw, 80px);
 }
 
-/* Textes
-   -------------------------------------------------------------------------- */
-.bs-eyebrow {
-	color: var(--bs-terracotta);
-	font-size: 0.75rem;
-	font-weight: 500;
-	letter-spacing: 0.14em;
-	text-transform: uppercase;
-}
-
-.bs-lead {
-	max-width: 40ch;
-	color: var(--bs-ink-soft);
-	font-size: 1.0625rem;
-}
-
-.bs-note {
-	font-size: 0.75rem;
-	color: var(--bs-ink-soft);
-}
-
-/* Boutons : le style plein vient de theme.json, ici la variante « contour »
-   -------------------------------------------------------------------------- */
-.bs-actions {
-	gap: 12px;
-}
-
-.wp-block-button.is-style-outline > .wp-block-button__link {
-	border: 1px solid var(--bs-ink);
-	padding: calc(0.85rem - 1px) calc(1.75rem - 1px);
-	color: var(--bs-ink);
-	background: transparent;
-}
-
-.wp-block-button.is-style-outline > .wp-block-button__link:hover {
-	background: var(--bs-ink);
-	color: var(--bs-cream);
-}
-
-/* Emplacements photo : groupe coloré, image de fond ajoutée dans l'éditeur
-   -------------------------------------------------------------------------- */
-.bs-photo {
-	position: relative;
-	overflow: hidden;
-	border-radius: var(--bs-radius);
-	background-position: center;
-	background-size: cover;
-}
-
-.bs-photo__label {
-	position: absolute;
-	left: 14px;
-	bottom: 14px;
-	padding: 4px 10px;
-	border-radius: 999px;
-	background: rgba(255, 255, 255, 0.75);
-	font-size: 0.6875rem;
-	line-height: 1.4;
-}
-
-.bs-photo--portrait {
-	aspect-ratio: 3 / 4;
-}
-
-.bs-photo--square {
-	aspect-ratio: 1;
-}
-
-/* Arrondi en quart de cercle (haut droit) */
-.bs-photo--arch-corner {
-	border-top-right-radius: clamp(80px, 11vw, 170px);
-}
-
-/* Arche (haut arrondi) */
-.bs-photo--arch {
-	border-radius: 50% 50% var(--bs-radius) var(--bs-radius) / 50% 50% var(--bs-radius) var(--bs-radius);
-}
-
 /* Responsive
    -------------------------------------------------------------------------- */
-@media (max-width: 960px) {
-	.bs-split {
-		grid-template-columns: 1fr;
-	}
-
-	.bs-split__text {
-		max-width: none;
-	}
-
-	.bs-grid--4 {
-		grid-template-columns: repeat(2, minmax(0, 1fr));
-	}
-
-	.bs-grid--6 {
-		grid-template-columns: repeat(3, minmax(0, 1fr));
+@media (max-width: 600px) {
+	.bs-section__head {
+		flex-direction: column;
+		align-items: flex-start;
 	}
 }
