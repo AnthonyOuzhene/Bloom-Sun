@@ -164,6 +164,37 @@ a {
 	text-decoration: none;
 }
 
+/* Bouton présenté comme une pastille (lien lié, ex. Instagram) */
+.bs-chip-button .wp-block-button__link {
+	display: inline-flex;
+	align-items: center;
+	gap: 8px;
+	padding: 7px 14px;
+	background: var(--bs-white);
+	color: var(--bs-ink);
+	font-size: 13px;
+	line-height: 1.3;
+	text-decoration: underline;
+}
+
+.bs-chip-button .wp-block-button__link::before {
+	content: "";
+	width: 16px;
+	height: 16px;
+	background: var(--bs-terracotta);
+	-webkit-mask: var(--bs-chip-icon, var(--bs-icon-sun)) center / contain no-repeat;
+	mask: var(--bs-chip-icon, var(--bs-icon-sun)) center / contain no-repeat;
+}
+
+.bs-chip-button .wp-block-button__link:hover {
+	background: var(--bs-white);
+	color: var(--bs-terracotta);
+}
+
+.bs-chip-button--insta {
+	--bs-chip-icon: var(--bs-icon-insta);
+}
+
 /* Boutons : le style plein (pilule terracotta) vient de theme.json
    -------------------------------------------------------------------------- */
 .bs-actions {
@@ -294,17 +325,24 @@ a {
 	mask: none;
 }
 
-/* Adresse précédée d'une épingle */
+/* Adresse précédée d'une épingle (un ou plusieurs paragraphes) */
 .bs-address {
-	display: flex;
-	align-items: flex-start;
-	gap: 10px;
+	display: grid;
+	grid-template-columns: 20px 1fr;
+	column-gap: 10px;
+	align-items: start;
 	color: var(--bs-cream);
+}
+
+.bs-address > * {
+	grid-column: 2;
+	margin: 0;
 }
 
 .bs-address::before {
 	content: "";
-	flex: none;
+	grid-column: 1;
+	grid-row: 1 / span 2;
 	width: 20px;
 	height: 20px;
 	margin-top: 2px;
@@ -337,9 +375,17 @@ a {
 
 /* Blocs « Infos du magasin » (texte de la carte) et « Plan du magasin »
    -------------------------------------------------------------------------- */
-.bs-store-card__tagline {
+.bs-store-card__tagline,
+.bs-store-card__baseline {
 	color: var(--bs-cream);
-	line-height: 1.8;
+}
+
+.bs-store-card__tagline::before {
+	content: "🌸 ";
+}
+
+.bs-store-card__baseline::before {
+	content: "✨ ";
 }
 
 .bs-store-map {

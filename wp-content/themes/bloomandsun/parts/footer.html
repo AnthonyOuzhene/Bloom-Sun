@@ -1,1 +1,84 @@
-<!-- wp:pattern {"slug":"bloomandsun/footer"} /-->
+<!-- wp:group {"className":"bs-footer","layout":{"type":"default"}} -->
+<div class="wp-block-group bs-footer">
+	<!-- wp:group {"className":"bs-container bs-footer__grid","layout":{"type":"default"}} -->
+	<div class="wp-block-group bs-container bs-footer__grid">
+		<!-- wp:group {"className":"bs-footer__brand","layout":{"type":"default"}} -->
+		<div class="wp-block-group bs-footer__brand">
+			<!-- wp:template-part {"slug":"logo"} /-->
+
+			<!-- wp:group {"className":"bs-footer__about","layout":{"type":"default"}} -->
+			<div class="wp-block-group bs-footer__about">
+				<!-- wp:paragraph {"metadata":{"bindings":{"content":{"source":"bloomandsun/store","args":{"key":"tagline"}}}}} -->
+				<p>Prêt-à-porter &amp; accessoires féminins</p>
+				<!-- /wp:paragraph -->
+
+				<!-- wp:paragraph {"metadata":{"bindings":{"content":{"source":"bloomandsun/store","args":{"key":"address"}}}}} -->
+				<p>61 rue Paul Doumer, 76600 Le Havre</p>
+				<!-- /wp:paragraph -->
+			</div>
+			<!-- /wp:group -->
+		</div>
+		<!-- /wp:group -->
+
+		<!-- wp:group {"className":"bs-footer__col","layout":{"type":"default"}} -->
+		<div class="wp-block-group bs-footer__col">
+			<!-- wp:heading {"level":2,"className":"bs-footer__title"} -->
+			<h2 class="wp-block-heading bs-footer__title">Boutique</h2>
+			<!-- /wp:heading -->
+
+			<!-- wp:navigation {"className":"bs-footer__nav","overlayMenu":"never","layout":{"type":"flex","orientation":"vertical"}} -->
+				<!-- wp:navigation-link {"label":"Nouveautés","url":"/boutique/?orderby=date","kind":"custom","isTopLevelLink":true,"metadata":{"bindings":{"url":{"source":"bloomandsun/links","args":{"key":"new"}}}}} /-->
+				<!-- wp:navigation-link {"label":"Robes","url":"/boutique/","kind":"custom","isTopLevelLink":true,"metadata":{"bindings":{"url":{"source":"bloomandsun/links","args":{"key":"category","slug":"robes"}}}}} /-->
+				<!-- wp:navigation-link {"label":"Hauts et mailles","url":"/boutique/","kind":"custom","isTopLevelLink":true,"metadata":{"bindings":{"url":{"source":"bloomandsun/links","args":{"key":"category","slug":"hauts-et-mailles"}}}}} /-->
+				<!-- wp:navigation-link {"label":"Vestes et manteaux","url":"/boutique/","kind":"custom","isTopLevelLink":true,"metadata":{"bindings":{"url":{"source":"bloomandsun/links","args":{"key":"category","slug":"vestes-et-manteaux"}}}}} /-->
+				<!-- wp:navigation-link {"label":"Accessoires","url":"/boutique/","kind":"custom","isTopLevelLink":true,"metadata":{"bindings":{"url":{"source":"bloomandsun/links","args":{"key":"category","slug":"accessoires"}}}}} /-->
+			<!-- /wp:navigation -->
+		</div>
+		<!-- /wp:group -->
+
+		<!-- wp:group {"className":"bs-footer__col","layout":{"type":"default"}} -->
+		<div class="wp-block-group bs-footer__col">
+			<!-- wp:heading {"level":2,"className":"bs-footer__title"} -->
+			<h2 class="wp-block-heading bs-footer__title">Aide</h2>
+			<!-- /wp:heading -->
+
+			<!-- wp:navigation {"className":"bs-footer__nav","overlayMenu":"never","layout":{"type":"flex","orientation":"vertical"}} -->
+				<!-- wp:navigation-link {"label":"Livraison et retours","url":"/livraison-et-retours/","kind":"custom","isTopLevelLink":true,"metadata":{"bindings":{"url":{"source":"bloomandsun/links","args":{"key":"page","slug":"livraison-et-retours"}}}}} /-->
+				<!-- wp:navigation-link {"label":"Guide des tailles","url":"/guide-des-tailles/","kind":"custom","isTopLevelLink":true,"metadata":{"bindings":{"url":{"source":"bloomandsun/links","args":{"key":"page","slug":"guide-des-tailles"}}}}} /-->
+				<!-- wp:navigation-link {"label":"FAQ","url":"/faq/","kind":"custom","isTopLevelLink":true,"metadata":{"bindings":{"url":{"source":"bloomandsun/links","args":{"key":"page","slug":"faq"}}}}} /-->
+				<!-- wp:navigation-link {"label":"Contact","url":"/contact/","kind":"custom","isTopLevelLink":true,"metadata":{"bindings":{"url":{"source":"bloomandsun/links","args":{"key":"page","slug":"contact"}}}}} /-->
+			<!-- /wp:navigation -->
+		</div>
+		<!-- /wp:group -->
+
+		<!-- wp:group {"className":"bs-footer__col","layout":{"type":"default"}} -->
+		<div class="wp-block-group bs-footer__col">
+			<!-- wp:heading {"level":2,"className":"bs-footer__title"} -->
+			<h2 class="wp-block-heading bs-footer__title">Suivez-nous</h2>
+			<!-- /wp:heading -->
+
+			<!-- wp:navigation {"className":"bs-footer__social","overlayMenu":"never","layout":{"type":"flex","flexWrap":"wrap"}} -->
+				<!-- wp:navigation-link {"label":"Instagram","url":"https://www.instagram.com/bloomandsun_boutique/","kind":"custom","opensInNewTab":true,"isTopLevelLink":true,"metadata":{"bindings":{"url":{"source":"bloomandsun/store","args":{"key":"instagram"}}}}} /-->
+				<!-- wp:navigation-link {"label":"Facebook","url":"#","kind":"custom","opensInNewTab":true,"isTopLevelLink":true} /-->
+			<!-- /wp:navigation -->
+		</div>
+		<!-- /wp:group -->
+	</div>
+	<!-- /wp:group -->
+
+	<!-- wp:group {"className":"bs-container bs-footer__bottom","layout":{"type":"default"}} -->
+	<div class="wp-block-group bs-container bs-footer__bottom">
+		<!-- wp:navigation {"className":"bs-footer__legal","overlayMenu":"never","layout":{"type":"flex","flexWrap":"wrap"}} -->
+			<!-- wp:navigation-link {"label":"CGV","url":"/cgv/","kind":"custom","isTopLevelLink":true,"metadata":{"bindings":{"url":{"source":"bloomandsun/links","args":{"key":"page","slug":"cgv"}}}}} /-->
+			<!-- wp:navigation-link {"label":"Mentions légales","url":"/mentions-legales/","kind":"custom","isTopLevelLink":true,"metadata":{"bindings":{"url":{"source":"bloomandsun/links","args":{"key":"page","slug":"mentions-legales"}}}}} /-->
+			<!-- wp:navigation-link {"label":"Confidentialité","url":"/politique-de-confidentialite/","kind":"custom","isTopLevelLink":true,"metadata":{"bindings":{"url":{"source":"bloomandsun/links","args":{"key":"page","slug":"politique-de-confidentialite"}}}}} /-->
+			<!-- wp:navigation-link {"label":"Gestion des cookies","url":"/gestion-des-cookies/","kind":"custom","isTopLevelLink":true,"metadata":{"bindings":{"url":{"source":"bloomandsun/links","args":{"key":"page","slug":"gestion-des-cookies"}}}}} /-->
+		<!-- /wp:navigation -->
+
+		<!-- wp:paragraph -->
+		<p>© Bloom &amp; Sun</p>
+		<!-- /wp:paragraph -->
+	</div>
+	<!-- /wp:group -->
+</div>
+<!-- /wp:group -->

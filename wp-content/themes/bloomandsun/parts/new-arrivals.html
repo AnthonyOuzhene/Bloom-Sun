@@ -1,14 +1,3 @@
-<?php
-/**
- * Title: Accueil — Nouveautés
- * Slug: bloomandsun/home-new-arrivals
- * Categories: bloomandsun
- *
- * Les 4 derniers produits publiés (bloc « Collection de produits » de WooCommerce),
- * en cartes blanches avec un bouton « + » d'ajout au panier.
- * Le cœur et les pastilles de couleur viendront avec YITH Wishlist et Variation Swatches.
- */
-?>
 <!-- wp:group {"tagName":"section","className":"bs-section bs-new-arrivals","layout":{"type":"default"}} -->
 <section class="wp-block-group bs-section bs-new-arrivals">
 	<!-- wp:group {"className":"bs-container","layout":{"type":"default"}} -->
@@ -28,8 +17,8 @@
 			<!-- /wp:group -->
 
 			<!-- wp:buttons -->
-			<div class="wp-block-buttons"><!-- wp:button {"className":"is-style-outline"} -->
-<div class="wp-block-button is-style-outline"><a class="wp-block-button__link wp-element-button" href="<?php echo bloomandsun_shop_url( [ 'orderby' => 'date' ] ); ?>">Tout voir</a></div>
+			<div class="wp-block-buttons"><!-- wp:button {"className":"is-style-outline","metadata":{"bindings":{"url":{"source":"bloomandsun/links","args":{"key":"new"}}}}} -->
+<div class="wp-block-button is-style-outline"><a class="wp-block-button__link wp-element-button" href="/boutique/?orderby=date">Tout voir</a></div>
 <!-- /wp:button --></div>
 			<!-- /wp:buttons -->
 		</div>

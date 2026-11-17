@@ -1,16 +1,8 @@
 /* ==========================================================================
-   Bloom & Sun — Instagram (patterns/home-instagram.php)
+   Bloom & Sun — Instagram (parts/instagram.html)
    6 carrés arrondis, un sur deux légèrement décalé vers le bas.
    ========================================================================== */
 
-.bs-chip--insta {
-	--bs-chip-icon: var(--bs-icon-insta);
-	align-self: flex-end;
-}
-
-.bs-chip--insta a {
-	text-decoration: underline;
-}
 
 .bs-instagram__grid {
 	display: grid;
@@ -46,8 +38,3 @@
 	}
 }
 
-@media (max-width: 600px) {
-	.bs-chip--insta {
-		align-self: flex-start;
-	}
-}

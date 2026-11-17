@@ -1,5 +1,5 @@
 /* ==========================================================================
-   Bloom & Sun — bandeau principal (patterns/home-hero.php)
+   Bloom & Sun — bandeau principal (parts/hero.html)
    Grande carte vert sapin, photo ronde à filet doré, badge tournant.
    ========================================================================== */
 
@@ -94,6 +94,20 @@
 	z-index: 3;
 	width: 26%;
 	height: auto;
+}
+
+.bs-hero__badge-bg {
+	fill: var(--bs-terracotta);
+}
+
+.bs-hero__badge-text {
+	fill: var(--bs-cream);
+	font-family: var(--bs-font-text);
+	font-weight: 500;
+}
+
+.bs-hero__badge-sun {
+	stroke: var(--bs-cream);
 }
 
 /* Responsive

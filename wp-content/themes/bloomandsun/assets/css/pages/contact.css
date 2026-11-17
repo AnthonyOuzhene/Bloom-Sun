@@ -1,8 +1,7 @@
 /* ==========================================================================
-   Bloom & Sun — page Contact (patterns/page-contact.php, templates/page-contact.html)
+   Bloom & Sun — page Contact (templates/page-contact.html + contenu de la page Contact)
    Introduction, carte vert sapin + plan, formulaire.
-   La carte et le plan sont les blocs « Infos du magasin » et « Plan du magasin »
-   (blocks/), stylés dans base.css.
+   La carte (.bs-sapin-card) et le plan (.bs-store-map) sont stylés dans base.css.
    ========================================================================== */
 
 .bs-contact .bs-container {

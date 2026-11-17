@@ -1,5 +1,5 @@
 /* ==========================================================================
-   Bloom & Sun — Nos collections (patterns/home-categories.php)
+   Bloom & Sun — Nos collections (parts/categories.html)
    5 cartes arrondies, étiquette blanche avec flèche en bas.
    ========================================================================== */
 
@@ -23,7 +23,19 @@
 	transform: translateY(-4px);
 }
 
-/* Étiquette : pilule blanche + rond rose avec flèche terracotta */
+/* Étiquette : bouton transformé en pilule blanche + rond rose avec flèche terracotta */
+.bs-cat__name .wp-block-button {
+	width: 100%;
+}
+
+.bs-cat .bs-cat__name .wp-block-button__link {
+	position: static; /* le lien s'étire sur toute la carte (voir ::before) */
+	width: 100%;
+	color: var(--bs-ink);
+	line-height: 1.3;
+	text-align: left;
+}
+
 .bs-cat__name a {
 	display: flex;
 	align-items: center;
