@@ -19,6 +19,8 @@ $bloomandsun_list = static function ( array $items, string $class = 'bs-footer__
 		. '<!-- /wp:list -->';
 };
 
+$bloomandsun_store = bloomandsun_store_info();
+
 $bloomandsun_shop = [
 	[ 'Nouveautés', bloomandsun_shop_url( [ 'orderby' => 'date' ] ) ],
 	[ 'Robes', bloomandsun_category_url( 'robes' ) ],
@@ -33,7 +35,7 @@ $bloomandsun_help = [
 	[ 'Contact', bloomandsun_page_url( 'contact' ) ],
 ];
 $bloomandsun_social = [
-	[ 'Instagram', 'https://www.instagram.com/bloomandsun_boutique/' ],
+	[ 'Instagram', $bloomandsun_store['instagram'] ],
 	[ 'Facebook', '#' ],
 ];
 $bloomandsun_legal = [
@@ -52,7 +54,7 @@ $bloomandsun_legal = [
 			<!-- wp:pattern {"slug":"bloomandsun/logo"} /-->
 
 			<!-- wp:paragraph -->
-			<p>Concept store · prêt-à-porter féminin<br>[ADRESSE DU MAGASIN]</p>
+			<p><?php echo esc_html( $bloomandsun_store['tagline'] ); ?><br><?php echo esc_html( $bloomandsun_store['address'] ); ?></p>
 			<!-- /wp:paragraph -->
 		</div>
 		<!-- /wp:group -->

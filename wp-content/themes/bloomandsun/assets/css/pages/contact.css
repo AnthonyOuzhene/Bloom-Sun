@@ -1,0 +1,228 @@
+/* ==========================================================================
+   Bloom & Sun — page Contact (patterns/page-contact.php, templates/page-contact.html)
+   Introduction, carte vert sapin + plan, formulaire.
+   La carte et le plan sont les blocs « Infos du magasin » et « Plan du magasin »
+   (blocks/), stylés dans base.css.
+   ========================================================================== */
+
+.bs-contact .bs-container {
+	gap: clamp(28px, 4vw, 48px);
+}
+
+/* Introduction */
+.bs-contact__intro {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	gap: 18px;
+	max-width: 760px;
+	padding-top: clamp(16px, 3vw, 40px);
+}
+
+.bs-contact__intro h1 {
+	font-size: clamp(2.6rem, 5vw, 4.4rem);
+}
+
+.bs-contact__lead {
+	color: var(--bs-ink-soft);
+	font-size: 17px;
+}
+
+/* Carte + plan côte à côte */
+.bs-contact__grid {
+	display: grid;
+	grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+	gap: 16px;
+}
+
+/* Bloc « Écrivez-nous » : texte à gauche, formulaire dans une carte blanche */
+.bs-contact__write {
+	display: grid;
+	grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+	gap: clamp(24px, 4vw, 64px);
+	align-items: start;
+	padding: clamp(28px, 4vw, 56px);
+	border-radius: var(--bs-r-xl);
+	background: var(--bs-blush);
+}
+
+.bs-contact__write-text {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	gap: 16px;
+}
+
+.bs-contact__write-text > p:not(.bs-chip) {
+	color: var(--bs-ink-soft);
+}
+
+.bs-chip--insta {
+	--bs-chip-icon: var(--bs-icon-insta);
+}
+
+/* Formulaire */
+.bs-contact__form {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 14px;
+	padding: clamp(20px, 3vw, 32px);
+	border-radius: var(--bs-r-lg);
+	background: var(--bs-white);
+}
+
+.bs-contact__form p {
+	margin: 0;
+}
+
+.bs-field {
+	display: flex;
+	flex-direction: column;
+	gap: 6px;
+}
+
+.bs-field--full {
+	grid-column: 1 / -1;
+}
+
+.bs-field label {
+	font-size: 14px;
+	font-weight: 500;
+}
+
+.bs-field input:not([type="checkbox"]),
+.bs-field select,
+.bs-field textarea {
+	width: 100%;
+	padding: 12px 16px;
+	border: 1px solid #D9CFC6;
+	border-radius: var(--bs-r-md);
+	background: var(--bs-cream);
+	color: var(--bs-ink);
+	font: 400 15px var(--bs-font-text);
+}
+
+.bs-field textarea {
+	resize: vertical;
+}
+
+.bs-field input:focus,
+.bs-field select:focus,
+.bs-field textarea:focus {
+	outline: 2px solid var(--bs-sapin);
+	outline-offset: 0;
+	border-color: transparent;
+}
+
+.bs-field--check {
+	flex-direction: row;
+	align-items: flex-start;
+	gap: 10px;
+}
+
+.bs-field--check input {
+	margin-top: 4px;
+	accent-color: var(--bs-sapin);
+}
+
+.bs-field--check label {
+	font-weight: 400;
+	color: var(--bs-ink-soft);
+}
+
+.bs-contact__form button {
+	cursor: pointer;
+}
+
+/* Contact Form 7 : on adapte son balisage à notre grille et à nos champs
+   -------------------------------------------------------------------------- */
+.bs-contact__form .wpcf7-form-control-wrap {
+	display: block;
+}
+
+.bs-contact__form .wpcf7-response-output {
+	grid-column: 1 / -1;
+	margin: 0;
+	padding: 12px 16px;
+	border: 0;
+	border-radius: var(--bs-r-md);
+	background: var(--bs-sapin-light);
+	color: var(--bs-sapin);
+	font-size: 14px;
+}
+
+.bs-contact__form.invalid .wpcf7-response-output,
+.bs-contact__form.failed .wpcf7-response-output,
+.bs-contact__form.unaccepted .wpcf7-response-output {
+	background: var(--bs-blush);
+	color: var(--bs-terracotta);
+}
+
+.bs-contact__form .wpcf7-not-valid-tip {
+	margin-top: 4px;
+	color: var(--bs-terracotta);
+	font-size: 13px;
+}
+
+.bs-contact__form .wpcf7-not-valid {
+	border-color: var(--bs-terracotta) !important;
+}
+
+/* Case de consentement */
+.bs-contact__form .wpcf7-acceptance .wpcf7-list-item {
+	margin: 0;
+}
+
+.bs-contact__form .wpcf7-acceptance label {
+	display: flex;
+	align-items: flex-start;
+	gap: 10px;
+	font-weight: 400;
+	color: var(--bs-ink-soft);
+	cursor: pointer;
+}
+
+.bs-contact__form .wpcf7-acceptance input {
+	margin-top: 4px;
+	accent-color: var(--bs-sapin);
+}
+
+/* Bouton d'envoi : même pilule que les autres boutons */
+.bs-contact__form .wpcf7-submit {
+	padding: 15px 26px;
+	border: 0;
+	border-radius: 999px;
+	background: var(--bs-terracotta);
+	color: var(--bs-white);
+	font: 500 15px/1 var(--bs-font-text);
+	cursor: pointer;
+}
+
+.bs-contact__form .wpcf7-submit:hover {
+	background: var(--wp--preset--color--terracotta-dark);
+}
+
+.bs-contact__form .wpcf7-spinner {
+	vertical-align: middle;
+}
+
+/* La réassurance qui suit la page */
+.bs-page-contact .bs-reassurance {
+	padding-top: clamp(28px, 4vw, 48px);
+}
+
+/* Responsive
+   -------------------------------------------------------------------------- */
+@media (max-width: 960px) {
+	.bs-contact__grid,
+	.bs-contact__write {
+		grid-template-columns: 1fr;
+	}
+
+}
+
+@media (max-width: 600px) {
+	.bs-contact__form {
+		grid-template-columns: 1fr;
+	}
+}

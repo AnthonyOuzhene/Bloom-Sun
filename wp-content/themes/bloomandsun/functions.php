@@ -3,24 +3,34 @@
  * Bloom & Sun — fonctions du thème.
  */
 
+require_once __DIR__ . '/inc/store.php'; // infos du magasin, réglages, blocs
+
 /*
  * Feuilles de style (assets/css/)
  * ---------------------------------------------------------------------------
  * - base.css, header.css, footer.css : sur toutes les pages
  * - products.css : seulement si le bloc « Collection de produits » est affiché
- * - home/<section>.css : seulement si la section est affichée sur la page
- *   (sur l'accueil, mais aussi sur toute page où la composition est insérée)
+ * - home/<section>.css et pages/<page>.css : seulement si la section est
+ *   affichée sur la page (où que la composition soit insérée)
  */
 
-// Sections : classe CSS du groupe principal => fichier assets/css/home/<fichier>.css
+// Sections : classe CSS du groupe principal => fichier assets/css/<fichier>.css
 const BLOOMANDSUN_SECTION_STYLES = [
-	'bs-hero'        => 'hero',
-	'bs-categories'  => 'categories',
-	'bs-reassurance' => 'reassurance',
-	'bs-store'       => 'store',
-	'bs-instagram'   => 'instagram',
-	'bs-newsletter'  => 'newsletter',
+	'bs-hero'        => 'home/hero',
+	'bs-categories'  => 'home/categories',
+	'bs-reassurance' => 'home/reassurance',
+	'bs-store'       => 'home/store',
+	'bs-instagram'   => 'home/instagram',
+	'bs-newsletter'  => 'home/newsletter',
+	'bs-contact'     => 'pages/contact',
 ];
+
+/**
+ * Identifiant WordPress d'une feuille de section (ex. « home/hero » → « bloomandsun-home-hero »).
+ */
+function bloomandsun_section_handle( string $file ): string {
+	return 'bloomandsun-' . str_replace( '/', '-', $file );
+}
 
 /**
  * Déclare une feuille de style du thème. La version est la date de
@@ -43,7 +53,7 @@ add_action( 'after_setup_theme', function () {
 	// L'éditeur reçoit tous les fichiers, pour un rendu identique au site.
 	$editor_styles = [ 'assets/css/base.css', 'assets/css/header.css', 'assets/css/footer.css', 'assets/css/products.css' ];
 	foreach ( BLOOMANDSUN_SECTION_STYLES as $file ) {
-		$editor_styles[] = "assets/css/home/$file.css";
+		$editor_styles[] = "assets/css/$file.css";
 	}
 	add_editor_style( $editor_styles );
 } );
@@ -55,7 +65,7 @@ add_action( 'init', function () {
 	bloomandsun_register_style( 'bloomandsun-products', 'products.css' );
 
 	foreach ( BLOOMANDSUN_SECTION_STYLES as $file ) {
-		bloomandsun_register_style( "bloomandsun-home-$file", "home/$file.css" );
+		bloomandsun_register_style( bloomandsun_section_handle( $file ), "$file.css" );
 	}
 } );
 
@@ -85,7 +95,7 @@ add_filter( 'render_block', function ( string $html, array $block ): string {
 
 		foreach ( BLOOMANDSUN_SECTION_STYLES as $class => $file ) {
 			if ( in_array( $class, $classes, true ) ) {
-				bloomandsun_needed_styles( "bloomandsun-home-$file" );
+				bloomandsun_needed_styles( bloomandsun_section_handle( $file ) );
 			}
 		}
 	}
@@ -165,3 +175,35 @@ function bloomandsun_menu_links(): array {
 		'contact'     => [ 'Contact', bloomandsun_page_url( 'contact' ) ],
 	];
 }
+
+/*
+ * Contact Form 7
+ * ---------------------------------------------------------------------------
+ * Pas de <p>/<br> ajoutés automatiquement dans les formulaires :
+ * la mise en page vient du balisage du formulaire et de pages/contact.css.
+ */
+add_filter( 'wpcf7_autop_or_not', '__return_false' );
+
+/*
+ * Éditeurs (extension Classic Editor)
+ * ---------------------------------------------------------------------------
+ * Articles : éditeur classique (préférence pour l'écriture).
+ * Pages : éditeur de blocs, nécessaire aux compositions et blocs du thème
+ * (page Contact, blocs « Infos du magasin » et « Plan du magasin »…).
+ */
+
+// Réglage par défaut de Classic Editor (« classique pour tous ») : il coupe l'éditeur
+// de blocs partout (priorité 100). On le réactive juste après, pour les pages seulement.
+add_filter( 'use_block_editor_for_post_type', function ( bool $use_block_editor, string $post_type ): bool {
+	return 'page' === $post_type ? true : $use_block_editor;
+}, 101, 2 );
+
+// Si l'option « Autoriser les utilisateurs à changer d'éditeur » est activée :
+// les pages ne proposent que l'éditeur de blocs.
+add_filter( 'classic_editor_enabled_editors_for_post_type', function ( array $editors, string $post_type ): array {
+	if ( 'page' === $post_type ) {
+		return [ 'classic_editor' => false, 'block_editor' => true ];
+	}
+
+	return $editors;
+}, 10, 2 );

@@ -1,6 +1,7 @@
 /* ==========================================================================
    Bloom & Sun — Le magasin (patterns/home-store.php)
-   Photo arrondie avec pastille « Venez essayer ! » + carte vert sapin.
+   Photo arrondie avec pastille « Venez essayer ! » + carte vert sapin
+   (la carte, l'adresse et les horaires sont stylés dans base.css : .bs-sapin-card).
    ========================================================================== */
 
 .bs-store__grid {
@@ -31,92 +32,6 @@
 	line-height: 1.1;
 	text-align: center;
 	transform: rotate(-10deg);
-}
-
-/* Carte vert sapin */
-.bs-store__card {
-	display: flex;
-	flex-direction: column;
-	align-items: flex-start;
-	gap: 18px;
-	padding: clamp(28px, 4vw, 56px);
-	border-radius: var(--bs-r-xl);
-	background: var(--bs-sapin);
-	color: var(--bs-on-dark);
-}
-
-.bs-store__card h2 {
-	color: var(--bs-cream);
-}
-
-.bs-store__card h2 em {
-	color: var(--bs-coral);
-}
-
-/* Pastille « Ouvert aujourd'hui » : point vert à la place du soleil */
-.bs-chip--open {
-	background: var(--bs-cream);
-	color: var(--bs-ink);
-}
-
-.bs-chip--open::before {
-	width: 8px;
-	height: 8px;
-	border-radius: 50%;
-	background: #6E8B5C;
-	box-shadow: 0 0 0 4px rgba(110, 139, 92, 0.2);
-	-webkit-mask: none;
-	mask: none;
-}
-
-.bs-store__address {
-	display: flex;
-	align-items: flex-start;
-	gap: 10px;
-	color: var(--bs-cream);
-}
-
-.bs-store__address::before {
-	content: "";
-	flex: none;
-	width: 20px;
-	height: 20px;
-	margin-top: 2px;
-	background: var(--bs-coral);
-	-webkit-mask: var(--bs-icon-pin) center / contain no-repeat;
-	mask: var(--bs-icon-pin) center / contain no-repeat;
-}
-
-/* Horaires : jours | heures */
-.bs-hours {
-	display: grid;
-	grid-template-columns: auto 1fr;
-	gap: 10px 24px;
-	width: 100%;
-	padding: 18px 20px;
-	border-radius: var(--bs-r-md);
-	background: rgba(251, 247, 242, 0.08);
-	font-size: 15px;
-}
-
-.bs-hours__day {
-	font-weight: 500;
-	color: var(--bs-cream);
-}
-
-.bs-hours__time {
-	text-align: right;
-	color: rgba(251, 247, 242, 0.75);
-}
-
-.bs-store .is-style-outline > .wp-block-button__link {
-	color: var(--bs-cream);
-}
-
-.bs-store .is-style-outline > .wp-block-button__link:hover {
-	background: var(--bs-cream);
-	border-color: var(--bs-cream);
-	color: var(--bs-sapin);
 }
 
 /* Responsive
