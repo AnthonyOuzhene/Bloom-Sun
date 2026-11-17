@@ -9,6 +9,7 @@
 !/.gitignore
 !/README.md
 !/.ddev/
+!/scripts/
 
 # 3. Dans wp-content, uniquement notre thème
 !/wp-content/

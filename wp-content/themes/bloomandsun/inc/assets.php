@@ -11,6 +11,7 @@
 const BLOOMANDSUN_SECTION_STYLES = [
 	'bs-hero'        => 'home/hero',
 	'bs-categories'  => 'home/categories',
+	'bs-gifts'       => 'home/gifts',
 	'bs-reassurance' => 'home/reassurance',
 	'bs-store'       => 'home/store',
 	'bs-instagram'   => 'home/instagram',

@@ -11,7 +11,7 @@ add_action( 'after_setup_theme', function () {
  * Affiche une vue du back-office (dossier views/).
  * La vue ne fait qu'afficher : les données lui sont préparées par la logique (inc/).
  *
- * @param string $name Nom de la vue, ex. « admin/store-settings ».
+ * @param string $name Nom de la vue, ex. « admin/settings ».
  * @param array  $data Données mises à disposition de la vue dans $data.
  */
 function bloomandsun_view( string $name, array $data = [] ): void {

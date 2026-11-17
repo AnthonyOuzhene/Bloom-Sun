@@ -1,6 +1,7 @@
 /* ==========================================================================
    Bloom & Sun — Nos collections (parts/categories.html)
    5 cartes arrondies, étiquette blanche avec flèche en bas.
+   Catégories choisies dans le menu « Page d'accueil » ; photo = miniature de la catégorie.
    ========================================================================== */
 
 .bs-cats__grid {
@@ -21,6 +22,20 @@
 
 .bs-cat:hover {
 	transform: translateY(-4px);
+}
+
+/* Photo de la catégorie (Produits > Catégories > Miniature), sous le voile chaud */
+.bs-cat__image {
+	position: absolute;
+	inset: 0;
+	z-index: -2;
+	margin: 0;
+}
+
+.bs-cat__image img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
 }
 
 /* Étiquette : bouton transformé en pilule blanche + rond rose avec flèche terracotta */

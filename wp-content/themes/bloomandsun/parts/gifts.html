@@ -1,0 +1,46 @@
+<!-- wp:group {"tagName":"section","className":"bs-section bs-gifts","layout":{"type":"default"}} -->
+<section class="wp-block-group bs-section bs-gifts">
+	<!-- wp:group {"className":"bs-container","layout":{"type":"default"}} -->
+	<div class="wp-block-group bs-container">
+		<!-- wp:group {"className":"bs-gifts__card","layout":{"type":"default"}} -->
+		<div class="wp-block-group bs-gifts__card">
+			<!-- wp:group {"className":"bs-gifts__text","layout":{"type":"default"}} -->
+			<div class="wp-block-group bs-gifts__text">
+				<!-- wp:paragraph {"className":"bs-chip","metadata":{"bindings":{"content":{"source":"bloomandsun/home","args":{"key":"gifts_kicker"}}}}} -->
+				<p class="bs-chip">Sélection du moment</p>
+				<!-- /wp:paragraph -->
+
+				<!-- wp:heading {"className":"bs-gifts__title","metadata":{"bindings":{"content":{"source":"bloomandsun/home","args":{"key":"gifts_title"}}}}} -->
+				<h2 class="wp-block-heading bs-gifts__title">Idées cadeaux</h2>
+				<!-- /wp:heading -->
+
+				<!-- wp:paragraph {"className":"bs-gifts__intro","metadata":{"bindings":{"content":{"source":"bloomandsun/home","args":{"key":"gifts_text"}}}}} -->
+				<p class="bs-gifts__intro">Bougies, plantes en boîte, foulards, bijoux… de jolies attentions choisies en magasin, à offrir ou à s'offrir.</p>
+				<!-- /wp:paragraph -->
+
+				<!-- wp:buttons {"className":"bs-actions"} -->
+				<div class="wp-block-buttons bs-actions"><!-- wp:button {"className":"bs-btn-arrow","metadata":{"bindings":{"url":{"source":"bloomandsun/links","args":{"key":"tag","slug":"idee-cadeau"}},"text":{"source":"bloomandsun/home","args":{"key":"gifts_button"}}}}} -->
+<div class="wp-block-button bs-btn-arrow"><a class="wp-block-button__link wp-element-button" href="/boutique/">Toutes les idées cadeaux</a></div>
+<!-- /wp:button --></div>
+				<!-- /wp:buttons -->
+			</div>
+			<!-- /wp:group -->
+
+			<!-- wp:woocommerce/product-collection {"queryId":11,"query":{"perPage":3,"pages":1,"offset":0,"postType":"product","order":"desc","orderBy":"date","search":"","exclude":[],"inherit":false,"taxQuery":{},"isProductCollectionBlock":true,"featured":false,"woocommerceOnSale":false,"woocommerceStockStatus":["instock","onbackorder"],"woocommerceAttributes":[],"woocommerceHandPickedProducts":[],"filterable":false},"tagName":"div","displayLayout":{"type":"flex","columns":3,"shrinkColumns":true},"dimensions":{"widthType":"fill"},"queryContextIncludes":["collection"],"className":"bs-products bs-gifts-products"} -->
+			<div class="wp-block-woocommerce-product-collection bs-products bs-gifts-products">
+				<!-- wp:woocommerce/product-template -->
+					<!-- wp:woocommerce/product-image {"showSaleBadge":false,"imageSizing":"single","aspectRatio":"4/5","scale":"cover"} -->
+						<!-- wp:woocommerce/product-sale-badge {"align":"left"} /-->
+					<!-- /wp:woocommerce/product-image -->
+					<!-- wp:post-title {"level":3,"isLink":true,"className":"bs-product__title","__woocommerceNamespace":"woocommerce/product-collection/product-title"} /-->
+					<!-- wp:woocommerce/product-price {"className":"bs-product__price"} /-->
+					<!-- wp:woocommerce/product-button {"className":"bs-product__add"} /-->
+				<!-- /wp:woocommerce/product-template -->
+			</div>
+			<!-- /wp:woocommerce/product-collection -->
+		</div>
+		<!-- /wp:group -->
+	</div>
+	<!-- /wp:group -->
+</section>
+<!-- /wp:group -->

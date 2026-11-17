@@ -4,7 +4,7 @@
  *
  * - Super administrateur (le développeur) : accès complet — thème, extensions, réglages.
  *   Rôle « bloomandsun_super_admin », ajouté au compte en plus du rôle Administrateur.
- * - Administrateur (la cliente) : contenus, WooCommerce, utilisateurs, Infos du magasin.
+ * - Administrateur (la cliente) : contenus, WooCommerce, utilisateurs, Infos du magasin, Page d'accueil.
  *   Pas d'accès à Apparence, Extensions, Réglages, mises à jour, import/export.
  * - Gestionnaire de boutique (rôle WooCommerce, pour une future vendeuse) : idem sans
  *   les utilisateurs ni les réglages WooCommerce avancés ; pas d'accès à Apparence.
@@ -15,8 +15,8 @@
 
 const BLOOMANDSUN_SUPER_ADMIN_ROLE = 'bloomandsun_super_admin';
 
-// Droit propre au thème : modifier les Infos du magasin.
-const BLOOMANDSUN_STORE_CAP = 'manage_bloomandsun_store';
+// Droit propre au thème : modifier les pages de réglages (Infos du magasin, Page d'accueil).
+const BLOOMANDSUN_SETTINGS_CAP = 'manage_bloomandsun_settings';
 
 // Thème et apparence : réservés au super administrateur.
 const BLOOMANDSUN_THEME_CAPS = [ 'edit_theme_options', 'customize', 'switch_themes', 'edit_themes', 'install_themes', 'update_themes', 'delete_themes', 'edit_css' ];
@@ -47,7 +47,7 @@ add_filter( 'user_has_cap', function ( array $allcaps, array $caps, array $args,
 		foreach ( array_diff( $caps, [ 'do_not_allow' ] ) as $cap ) {
 			$allcaps[ $cap ] = true;
 		}
-		$allcaps[ BLOOMANDSUN_STORE_CAP ] = true;
+		$allcaps[ BLOOMANDSUN_SETTINGS_CAP ] = true;
 
 		return $allcaps;
 	}
@@ -60,7 +60,7 @@ add_filter( 'user_has_cap', function ( array $allcaps, array $caps, array $args,
 		foreach ( BLOOMANDSUN_THEME_CAPS as $cap ) {
 			$allcaps[ $cap ] = false;
 		}
-		$allcaps[ BLOOMANDSUN_STORE_CAP ] = true;
+		$allcaps[ BLOOMANDSUN_SETTINGS_CAP ] = true;
 	}
 
 	if ( $is_admin ) {

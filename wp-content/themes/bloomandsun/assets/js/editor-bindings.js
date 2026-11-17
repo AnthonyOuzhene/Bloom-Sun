@@ -21,6 +21,8 @@
 				return data.links.categories[ args.slug ] || data.links.shop;
 			case 'page':
 				return data.links.pages[ args.slug ] || '';
+			case 'tag':
+				return data.links.tags[ args.slug ] || data.links.shop;
 			default:
 				return '';
 		}
@@ -38,13 +40,17 @@
 				return values;
 			},
 			canUserEditValue: function () {
-				return false; // se modifient dans le menu « Infos du magasin » ou dans le thème
+				return false; // se modifient dans les menus « Infos du magasin » et « Page d'accueil »
 			},
 		} );
 	}
 
 	source( 'bloomandsun/store', 'Infos du magasin', function ( args ) {
 		return data.store[ args.key ] || '';
+	} );
+
+	source( 'bloomandsun/home', 'Page d\'accueil', function ( args ) {
+		return data.home[ args.key ] || '';
 	} );
 
 	source( 'bloomandsun/links', 'Liens du site', resolveLink );

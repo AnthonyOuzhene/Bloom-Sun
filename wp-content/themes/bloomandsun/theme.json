@@ -105,6 +105,7 @@
 		{ "name": "hero",         "title": "Accueil — Bandeau principal", "area": "uncategorized" },
 		{ "name": "categories",   "title": "Accueil — Nos collections",   "area": "uncategorized" },
 		{ "name": "new-arrivals", "title": "Accueil — Nouveautés",        "area": "uncategorized" },
+		{ "name": "gifts",        "title": "Accueil — Idées cadeaux",     "area": "uncategorized" },
 		{ "name": "reassurance",  "title": "Réassurance",                 "area": "uncategorized" },
 		{ "name": "store",        "title": "Accueil — Le magasin",        "area": "uncategorized" },
 		{ "name": "instagram",    "title": "Accueil — Instagram",         "area": "uncategorized" },
