@@ -20,12 +20,15 @@ bloomandsun_register_settings_page( [
 	'position' => 57,
 	'intro'    => 'Contenus de la page d\'accueil que vous pouvez faire évoluer selon vos envies.',
 	'fields'   => [
-		'gifts_visible' => [ 'section' => 'Idées cadeaux', 'label' => 'Afficher la section', 'type' => 'checkbox', 'default' => '1', 'help' => 'Les produits affichés sont ceux qui portent l\'étiquette « Idée cadeau » (fiche produit > Étiquettes). Sans aucun produit, la section reste masquée.' ],
-		'gifts_kicker'  => [ 'section' => 'Idées cadeaux', 'label' => 'Petit titre', 'type' => 'text', 'default' => 'Sélection du moment' ],
-		'gifts_title'   => [ 'section' => 'Idées cadeaux', 'label' => 'Titre', 'type' => 'text', 'default' => 'Idées cadeaux' ],
-		'gifts_text'    => [ 'section' => 'Idées cadeaux', 'label' => 'Texte', 'type' => 'textarea', 'default' => 'Bougies, plantes en boîte, foulards, bijoux… de jolies attentions choisies en magasin, à offrir ou à s\'offrir.' ],
-		'gifts_button'  => [ 'section' => 'Idées cadeaux', 'label' => 'Texte du bouton', 'type' => 'text', 'default' => 'Toutes les idées cadeaux' ],
-		'gifts_count'   => [ 'section' => 'Idées cadeaux', 'label' => 'Nombre de produits', 'type' => 'select', 'default' => '3', 'options' => [ '3' => '3 produits', '6' => '6 produits' ] ],
+		'gifts_visible'  => [ 'section' => 'Idées cadeaux', 'label' => 'Afficher la section', 'type' => 'checkbox', 'default' => '1', 'help' => 'Produits affichés : ceux dont la case « Idée cadeau » est cochée dans la fiche produit. Sans aucun produit, la section reste masquée.' ],
+		'gifts_position' => [ 'section' => 'Idées cadeaux', 'label' => 'Position', 'type' => 'select', 'default' => 'after', 'options' => [ 'top' => 'En haut de page (temps fort : fêtes, fête des mères…)', 'after' => 'Après les nouveautés' ] ],
+		'gifts_color'    => [ 'section' => 'Idées cadeaux', 'label' => 'Couleur', 'type' => 'select', 'default' => 'terracotta', 'options' => [ 'terracotta' => 'Terracotta', 'sapin' => 'Vert sapin et or' ] ],
+		'gifts_ribbon'   => [ 'section' => 'Idées cadeaux', 'label' => 'Ruban', 'type' => 'text', 'default' => '', 'help' => 'Texte du ruban en angle, ex. « Noël · Fête des mères ». Laisser vide pour ne pas afficher de ruban.' ],
+		'gifts_kicker'   => [ 'section' => 'Idées cadeaux', 'label' => 'Petit titre', 'type' => 'text', 'default' => 'Sélection du moment' ],
+		'gifts_title'    => [ 'section' => 'Idées cadeaux', 'label' => 'Titre', 'type' => 'text', 'default' => 'Idées cadeaux' ],
+		'gifts_text'     => [ 'section' => 'Idées cadeaux', 'label' => 'Texte', 'type' => 'textarea', 'default' => 'Bougies, plantes en boîte, foulards, bijoux… de jolies attentions choisies en magasin, à offrir ou à s\'offrir.' ],
+		'gifts_button'   => [ 'section' => 'Idées cadeaux', 'label' => 'Texte du bouton', 'type' => 'text', 'default' => 'Toutes les idées cadeaux' ],
+		'gifts_count'    => [ 'section' => 'Idées cadeaux', 'label' => 'Nombre de produits', 'type' => 'select', 'default' => '6', 'options' => [ '4' => '4 produits', '6' => '6 produits', '8' => '8 produits', '10' => '10 produits' ] ],
 		'card_1'        => [ 'section' => 'Nos collections', 'label' => 'Carte 1', 'type' => 'select', 'default' => 'robes', 'options' => 'bloomandsun_category_options', 'help' => 'La photo de chaque carte est celle de la catégorie (Produits > Catégories > Miniature).' ],
 		'card_2'        => [ 'section' => 'Nos collections', 'label' => 'Carte 2', 'type' => 'select', 'default' => 'pulls', 'options' => 'bloomandsun_category_options' ],
 		'card_3'        => [ 'section' => 'Nos collections', 'label' => 'Carte 3', 'type' => 'select', 'default' => 'manteaux', 'options' => 'bloomandsun_category_options' ],
@@ -108,14 +111,47 @@ add_filter( 'render_block_data', function ( array $block ): array {
 	return $block;
 } );
 
-// Section masquée si désactivée ou sans produit ; carte de catégorie sans photo : pas d'image vide.
+/*
+ * Emplacements de la section dans templates/front-page.html :
+ * deux parties « gifts », l'une en haut (bs-gifts-slot--top), l'autre après les nouveautés
+ * (bs-gifts-slot--after). Seule celle qui correspond au réglage « Position » est rendue.
+ */
+add_filter( 'pre_render_block', function ( ?string $pre, array $block ): ?string {
+	if ( 'core/template-part' !== $block['blockName'] || 'gifts' !== ( $block['attrs']['slug'] ?? '' ) ) {
+		return $pre;
+	}
+
+	$classes = explode( ' ', $block['attrs']['className'] ?? '' );
+	$slot    = in_array( 'bs-gifts-slot--top', $classes, true ) ? 'top' : 'after';
+
+	return ( bloomandsun_gifts_visible() && bloomandsun_home( 'gifts_position' ) === $slot ) ? $pre : '';
+}, 10, 2 );
+
 add_filter( 'render_block', function ( string $html, array $block ): string {
 	$classes = explode( ' ', $block['attrs']['className'] ?? '' );
 
-	if ( 'core/group' === $block['blockName'] && in_array( 'bs-gifts', $classes, true ) && ! bloomandsun_gifts_visible() ) {
+	// Section : masquée si désactivée ou sans produit ; couleur choisie ; script du carrousel.
+	if ( 'core/group' === $block['blockName'] && in_array( 'bs-gifts', $classes, true ) ) {
+		if ( ! bloomandsun_gifts_visible() ) {
+			return '';
+		}
+
+		wp_enqueue_script( 'bloomandsun-gifts', get_theme_file_uri( 'assets/js/gifts-carousel.js' ), [], bloomandsun_file_version( 'assets/js/gifts-carousel.js' ), [ 'in_footer' => true, 'strategy' => 'defer' ] );
+
+		$tags = new WP_HTML_Tag_Processor( $html );
+		if ( $tags->next_tag() ) {
+			$tags->add_class( 'bs-gifts--' . sanitize_html_class( bloomandsun_home( 'gifts_color' ) ) );
+		}
+
+		return $tags->get_updated_html();
+	}
+
+	// Ruban sans texte : pas de ruban.
+	if ( 'core/paragraph' === $block['blockName'] && in_array( 'bs-gifts__ribbon', $classes, true ) && '' === trim( wp_strip_all_tags( $html ) ) ) {
 		return '';
 	}
 
+	// Carte de catégorie sans photo : pas d'image vide.
 	if ( 'core/image' === $block['blockName'] && in_array( 'bs-cat__image', $classes, true ) && ! preg_match( '/<img[^>]+src="[^"]+"/', $html ) ) {
 		return '';
 	}

@@ -114,7 +114,7 @@
    -------------------------------------------------------------------------- */
 @media (max-width: 960px) {
 	.bs-hero__card {
-		grid-template-columns: 1fr;
+		grid-template-columns: minmax(0, 1fr); /* la colonne ne s'élargit pas au-delà de l'écran */
 	}
 
 	.bs-hero__visual {

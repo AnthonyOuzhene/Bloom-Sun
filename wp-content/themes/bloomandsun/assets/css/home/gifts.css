@@ -1,19 +1,71 @@
 /* ==========================================================================
-   Bloom & Sun — Idées cadeaux (parts/gifts.html)
-   Carte rose poudré : texte à gauche, sélection de produits à droite.
-   Contenus et produits : menu « Page d'accueil » + étiquette « Idée cadeau ».
+   Bloom & Sun — Idées cadeaux, section « temps fort » (parts/gifts.html)
+   Seule section pleine largeur du site : aplat terracotta (ou vert sapin),
+   titre en grande italique, photos en arche, prix sur étiquette cadeau, carrousel.
+   Réglages : menu « Page d'accueil » ; produits : case « Idée cadeau ».
    ========================================================================== */
 
-.bs-gifts__card {
-	display: grid;
-	grid-template-columns: minmax(0, 0.75fr) minmax(0, 2.25fr);
-	align-items: center;
-	gap: clamp(24px, 4vw, 56px);
-	padding: clamp(24px, 4vw, 48px);
-	border-radius: var(--bs-r-xl);
-	background: var(--bs-blush);
+.bs-gifts {
+	--bs-gifts-bg: var(--bs-terracotta);
+	--bs-gifts-accent: #E8D3A9;
+	position: relative;
+	overflow: hidden;
+	margin-top: var(--bs-section-y);
+	padding-block: clamp(48px, 6vw, 72px);
+	background: var(--bs-gifts-bg);
+	color: var(--bs-cream);
 }
 
+.bs-gifts--sapin {
+	--bs-gifts-bg: var(--bs-sapin);
+	--bs-gifts-accent: var(--bs-gold);
+}
+
+/* En haut de page : collée à l'en-tête, le bandeau principal suit */
+.bs-gifts-slot--top .bs-gifts {
+	margin-top: 0;
+	margin-bottom: 24px;
+}
+
+/* Motif de petits soleils dorés, très discret */
+.bs-gifts::before {
+	content: "";
+	position: absolute;
+	inset: 0;
+	opacity: 0.09;
+	background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='120' height='120' viewBox='0 0 120 120' fill='none' stroke='%23E8D3A9' stroke-width='1.4' stroke-linecap='round'><path d='M38 70h44M50 70a10 10 0 0 1 20 0M60 46v10M48 52l4 6M72 52l-4 6M42 62h6M72 62h6'/></svg>");
+	pointer-events: none;
+}
+
+/* Ruban en diagonale dans l'angle */
+.bs-gifts .bs-gifts__ribbon {
+	position: absolute;
+	top: 34px;
+	right: -64px;
+	z-index: 2;
+	width: 300px;
+	margin: 0;
+	padding: 9px 0;
+	transform: rotate(35deg);
+	background: var(--bs-gifts-accent);
+	color: var(--bs-gifts-bg);
+	font-size: 12px;
+	font-weight: 600;
+	letter-spacing: 0.22em;
+	text-align: center;
+	text-transform: uppercase;
+}
+
+.bs-gifts__inner {
+	position: relative;
+	z-index: 1;
+	display: grid;
+	grid-template-columns: 360px minmax(0, 1fr);
+	align-items: center;
+	gap: 48px;
+}
+
+/* Texte */
 .bs-gifts__text {
 	display: flex;
 	flex-direction: column;
@@ -21,23 +73,243 @@
 	gap: 18px;
 }
 
-.bs-gifts__intro {
-	color: var(--bs-ink-soft);
+.bs-gifts__kicker {
+	display: inline-flex;
+	align-items: center;
+	gap: 10px;
+	color: var(--bs-gifts-accent);
+	font-size: 13px;
+	font-weight: 600;
+	letter-spacing: 0.2em;
+	text-transform: uppercase;
 }
 
-/* 3 produits par ligne (6 = deux lignes) */
-.bs-gifts .bs-products .wc-block-product-template.wc-block-product-template {
-	grid-template-columns: repeat(3, minmax(0, 1fr));
+.bs-gifts__kicker::before {
+	content: "";
+	width: 34px;
+	height: 1px;
+	background: currentColor;
+}
+
+.bs-gifts .bs-gifts__title {
+	color: var(--bs-cream);
+	font-size: clamp(3.4rem, 6.5vw, 6rem);
+	font-style: italic;
+	font-weight: 300;
+	line-height: 0.92;
+	letter-spacing: -0.03em;
+}
+
+.bs-gifts__intro {
+	max-width: 34ch;
+	color: rgba(251, 247, 242, 0.85);
+}
+
+.bs-gifts__actions {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: 18px;
+	margin-top: 10px;
+}
+
+.bs-gifts .bs-gifts__button .wp-block-button__link {
+	background: var(--bs-cream);
+	color: var(--bs-gifts-bg);
+}
+
+.bs-gifts .bs-gifts__button .wp-block-button__link:hover {
+	background: var(--bs-white);
+}
+
+/* Flèches du carrousel */
+.bs-gifts__arrows {
+	display: flex;
+	gap: 8px;
+}
+
+.bs-gifts__arrow {
+	display: grid;
+	place-items: center;
+	width: 46px;
+	height: 46px;
+	padding: 0;
+	border: 1.5px solid rgba(251, 247, 242, 0.6);
+	border-radius: 50%;
+	background: none;
+	color: var(--bs-cream);
+	cursor: pointer;
+}
+
+.bs-gifts__arrow::before {
+	content: "";
+	width: 18px;
+	height: 18px;
+	background: currentColor;
+	-webkit-mask: var(--bs-icon-arrow) center / contain no-repeat;
+	mask: var(--bs-icon-arrow) center / contain no-repeat;
+}
+
+.bs-gifts__arrow--prev::before {
+	transform: rotate(180deg);
+}
+
+.bs-gifts__arrow:hover {
+	background: var(--bs-cream);
+	color: var(--bs-gifts-bg);
+}
+
+/* Carrousel : la ligne de produits déborde jusqu'au bord droit de l'écran */
+.bs-gifts-products {
+	min-width: 0;
+	margin-right: calc(-1 * var(--bs-gutter) - (100vw - min(100vw, var(--bs-wide) + 2 * var(--bs-gutter))) / 2);
+}
+
+.bs-gifts .wc-block-product-template.wc-block-product-template {
+	display: flex;
+	gap: 18px;
+	margin: 0;
+	padding: 0 var(--bs-gutter) 46px 0;
+	overflow-x: auto;
+	scroll-snap-type: x mandatory;
+	scrollbar-width: none;
+	list-style: none;
+}
+
+.bs-gifts .wc-block-product-template::-webkit-scrollbar {
+	display: none;
+}
+
+.bs-gifts .wc-block-product-template.wc-block-product-template > li {
+	flex: 0 0 clamp(220px, 22vw, 300px);
+	width: auto;
+	margin: 0;
+	scroll-snap-align: start;
+	text-align: left;
+}
+
+/* Quinconce : une carte sur deux descend */
+.bs-gifts .wc-block-product-template > li:nth-child(even) {
+	margin-top: 44px;
+}
+
+/* Photo en arche */
+.bs-gifts .bs-gift__image {
+	margin: 0;
+	border-radius: 200px 200px 22px 22px;
+	overflow: hidden;
+	background: rgba(251, 247, 242, 0.12);
+}
+
+.bs-gifts .bs-gift__image img {
+	width: 100%;
+	object-fit: cover;
+}
+
+/* Nom, catégorie et étiquette prix */
+.bs-gift__meta {
+	display: grid;
+	grid-template-columns: minmax(0, 1fr) auto;
+	column-gap: 12px;
+	align-items: start;
+	margin-top: 16px;
+}
+
+.bs-gifts .bs-gift__name {
+	grid-column: 1;
+	margin: 0;
+	color: var(--bs-cream);
+	font-size: 1.35rem;
+	line-height: 1.15;
+	text-align: left;
+}
+
+.bs-gifts .bs-gift__name a {
+	color: inherit;
+	text-decoration: none;
+}
+
+.bs-gifts .bs-gift__cat {
+	grid-column: 1;
+	margin: 2px 0 0;
+	font-size: 13px;
+	color: rgba(251, 247, 242, 0.7);
+}
+
+.bs-gifts .bs-gift__cat a {
+	color: inherit;
+	text-decoration: none;
+}
+
+/* Prix sur une étiquette cadeau (forme découpée, petit trou) */
+.bs-gifts .bs-gift__price {
+	position: relative;
+	grid-column: 2;
+	grid-row: 1 / span 2;
+	margin: 4px 0 0;
+	padding: 7px 14px 7px 26px;
+	clip-path: polygon(14px 0, 100% 0, 100% 100%, 14px 100%, 0 50%);
+	transform: rotate(-4deg);
+	background: var(--bs-cream);
+	color: var(--bs-gifts-bg);
+	font-size: 15px;
+	font-weight: 600;
+	white-space: nowrap;
+}
+
+.bs-gifts .bs-gift__price::before {
+	content: "";
+	position: absolute;
+	left: 11px;
+	top: 50%;
+	width: 6px;
+	height: 6px;
+	margin-top: -3px;
+	border-radius: 50%;
+	background: var(--bs-gifts-bg);
+}
+
+.bs-gifts .bs-gift__price del {
+	opacity: 0.55;
+	font-weight: 400;
+}
+
+.bs-gifts .bs-gift__price ins {
+	text-decoration: none;
 }
 
 /* Responsive
    -------------------------------------------------------------------------- */
 @media (max-width: 960px) {
-	.bs-gifts__card {
-		grid-template-columns: 1fr;
+	.bs-gifts__inner {
+		grid-template-columns: minmax(0, 1fr);
 	}
 
-	.bs-gifts .bs-products .wc-block-product-template.wc-block-product-template {
-		grid-template-columns: repeat(2, minmax(0, 1fr));
+	.bs-gifts-products {
+		margin-right: calc(-1 * var(--bs-gutter));
+	}
+
+	.bs-gifts .wc-block-product-template > li:nth-child(even) {
+		margin-top: 0;
+	}
+
+	.bs-gifts .wc-block-product-template.wc-block-product-template {
+		padding-bottom: 0;
+	}
+}
+
+@media (max-width: 600px) {
+	.bs-gifts__arrows {
+		display: none; /* sur mobile : on fait défiler au doigt */
+	}
+
+	.bs-gifts .wc-block-product-template.wc-block-product-template > li {
+		flex-basis: 72%;
+	}
+
+	.bs-gifts .bs-gifts__ribbon {
+		top: 22px;
+		right: -84px;
+		font-size: 10px;
 	}
 }
