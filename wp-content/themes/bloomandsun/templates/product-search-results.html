@@ -1,0 +1,136 @@
+<!-- wp:template-part {"slug":"header","tagName":"header"} /-->
+
+<!-- wp:group {"tagName":"main","className":"bs-shop","layout":{"type":"default"}} -->
+<main class="wp-block-group bs-shop">
+	<!-- wp:group {"className":"bs-container bs-shop__head","layout":{"type":"default"}} -->
+	<div class="wp-block-group bs-container bs-shop__head">
+		<!-- wp:woocommerce/breadcrumbs {"className":"bs-breadcrumbs"} /-->
+
+		<!-- wp:query-title {"type":"search","showSearchTerm":true,"className":"bs-shop__title"} /-->
+
+		<!-- wp:term-description {"className":"bs-shop__intro"} /-->
+
+		<!-- wp:woocommerce/store-notices /-->
+	</div>
+	<!-- /wp:group -->
+
+	<!-- wp:group {"className":"bs-container bs-shop__layout","layout":{"type":"default"}} -->
+	<div class="wp-block-group bs-container bs-shop__layout">
+		<!-- wp:woocommerce/product-filters {"className":"bs-filters"} -->
+		<div class="wp-block-woocommerce-product-filters bs-filters">
+			<!-- wp:woocommerce/product-filter-active -->
+			<div class="wp-block-woocommerce-product-filter-active">
+				<!-- wp:woocommerce/product-filter-removable-chips -->
+				<div class="wp-block-woocommerce-product-filter-removable-chips wc-block-product-filter-removable-chips"></div>
+				<!-- /wp:woocommerce/product-filter-removable-chips -->
+
+				<!-- wp:woocommerce/product-filter-clear-button -->
+				<!-- wp:buttons {"layout":{"type":"flex"}} -->
+				<div class="wp-block-buttons"><!-- wp:button {"className":"is-style-outline bs-filters__clear"} -->
+<div class="wp-block-button is-style-outline bs-filters__clear"><a class="wp-block-button__link wp-element-button">Tout effacer</a></div>
+<!-- /wp:button --></div>
+				<!-- /wp:buttons -->
+				<!-- /wp:woocommerce/product-filter-clear-button -->
+			</div>
+			<!-- /wp:woocommerce/product-filter-active -->
+
+			<!-- wp:woocommerce/product-filter-taxonomy {"taxonomy":"product_cat","sortOrder":"name-asc","className":"bs-filter"} -->
+			<div class="wp-block-woocommerce-product-filter-taxonomy bs-filter">
+				<!-- wp:heading {"level":3,"className":"bs-filter__title"} -->
+				<h3 class="wp-block-heading bs-filter__title">Catégories</h3>
+				<!-- /wp:heading -->
+
+				<!-- wp:woocommerce/product-filter-checkbox-list {"lock":{"remove":true}} -->
+				<div class="wp-block-woocommerce-product-filter-checkbox-list wc-block-product-filter-checkbox-list"></div>
+				<!-- /wp:woocommerce/product-filter-checkbox-list -->
+			</div>
+			<!-- /wp:woocommerce/product-filter-taxonomy -->
+
+			<!-- wp:woocommerce/product-filter-attribute {"displayStyle":"woocommerce/product-filter-chips","sortOrder":"menu_order-asc","className":"bs-filter bs-filter-attribute--taille"} -->
+			<div class="wp-block-woocommerce-product-filter-attribute bs-filter bs-filter-attribute--taille">
+				<!-- wp:heading {"level":3,"className":"bs-filter__title"} -->
+				<h3 class="wp-block-heading bs-filter__title">Taille</h3>
+				<!-- /wp:heading -->
+
+				<!-- wp:woocommerce/product-filter-chips {"lock":{"remove":true}} -->
+				<div class="wp-block-woocommerce-product-filter-chips wc-block-product-filter-chips"></div>
+				<!-- /wp:woocommerce/product-filter-chips -->
+			</div>
+			<!-- /wp:woocommerce/product-filter-attribute -->
+
+			<!-- wp:woocommerce/product-filter-attribute {"sortOrder":"menu_order-asc","className":"bs-filter bs-filter-attribute--couleur"} -->
+			<div class="wp-block-woocommerce-product-filter-attribute bs-filter bs-filter-attribute--couleur">
+				<!-- wp:heading {"level":3,"className":"bs-filter__title"} -->
+				<h3 class="wp-block-heading bs-filter__title">Couleur</h3>
+				<!-- /wp:heading -->
+
+				<!-- wp:woocommerce/product-filter-checkbox-list {"lock":{"remove":true}} -->
+				<div class="wp-block-woocommerce-product-filter-checkbox-list wc-block-product-filter-checkbox-list"></div>
+				<!-- /wp:woocommerce/product-filter-checkbox-list -->
+			</div>
+			<!-- /wp:woocommerce/product-filter-attribute -->
+
+			<!-- wp:woocommerce/product-filter-price {"className":"bs-filter"} -->
+			<div class="wp-block-woocommerce-product-filter-price bs-filter">
+				<!-- wp:heading {"level":3,"className":"bs-filter__title"} -->
+				<h3 class="wp-block-heading bs-filter__title">Prix</h3>
+				<!-- /wp:heading -->
+
+				<!-- wp:woocommerce/product-filter-price-slider {"lock":{"remove":true}} -->
+				<div class="wp-block-woocommerce-product-filter-price-slider wc-block-product-filter-price-slider"></div>
+				<!-- /wp:woocommerce/product-filter-price-slider -->
+			</div>
+			<!-- /wp:woocommerce/product-filter-price -->
+		</div>
+		<!-- /wp:woocommerce/product-filters -->
+
+		<!-- wp:group {"className":"bs-shop__results","layout":{"type":"default"}} -->
+		<div class="wp-block-group bs-shop__results">
+			<!-- wp:group {"className":"bs-shop__toolbar","layout":{"type":"default"}} -->
+			<div class="wp-block-group bs-shop__toolbar">
+				<!-- wp:woocommerce/product-results-count /-->
+				<!-- wp:woocommerce/catalog-sorting /-->
+			</div>
+			<!-- /wp:group -->
+
+			<!-- wp:woocommerce/product-collection {"queryId":0,"query":{"woocommerceAttributes":[],"woocommerceStockStatus":["instock","outofstock","onbackorder"],"taxQuery":{},"isProductCollectionBlock":true,"perPage":12,"pages":0,"offset":0,"postType":"product","order":"desc","orderBy":"date","author":"","search":"","exclude":[],"sticky":"","inherit":true},"tagName":"div","displayLayout":{"type":"flex","columns":3,"shrinkColumns":true},"dimensions":{"widthType":"fill"},"queryContextIncludes":["collection"],"className":"bs-products bs-products--grid"} -->
+			<div class="wp-block-woocommerce-product-collection bs-products bs-products--grid">
+				<!-- wp:woocommerce/product-template -->
+					<!-- wp:woocommerce/product-image {"showSaleBadge":false,"imageSizing":"single","aspectRatio":"4/5","scale":"cover"} -->
+						<!-- wp:woocommerce/product-sale-badge {"align":"left"} /-->
+					<!-- /wp:woocommerce/product-image -->
+					<!-- wp:post-title {"level":2,"isLink":true,"className":"bs-product__title","__woocommerceNamespace":"woocommerce/product-collection/product-title"} /-->
+					<!-- wp:woocommerce/product-price {"className":"bs-product__price"} /-->
+					<!-- wp:woocommerce/product-button {"className":"bs-product__add"} /-->
+				<!-- /wp:woocommerce/product-template -->
+
+				<!-- wp:query-pagination {"className":"bs-pagination","layout":{"type":"flex","justifyContent":"center"}} -->
+					<!-- wp:query-pagination-previous {"label":"Précédent"} /-->
+					<!-- wp:query-pagination-numbers /-->
+					<!-- wp:query-pagination-next {"label":"Suivant"} /-->
+				<!-- /wp:query-pagination -->
+
+				<!-- wp:woocommerce/product-collection-no-results -->
+					<!-- wp:group {"className":"bs-shop__empty","layout":{"type":"default"}} -->
+					<div class="wp-block-group bs-shop__empty">
+						<!-- wp:heading {"level":2} -->
+						<h2 class="wp-block-heading">Aucune pièce ne <em>correspond</em></h2>
+						<!-- /wp:heading -->
+						<!-- wp:paragraph -->
+						<p>Essayez d'autres filtres, ou passez nous voir : de nouvelles pièces arrivent chaque semaine en magasin.</p>
+						<!-- /wp:paragraph -->
+					</div>
+					<!-- /wp:group -->
+				<!-- /wp:woocommerce/product-collection-no-results -->
+			</div>
+			<!-- /wp:woocommerce/product-collection -->
+		</div>
+		<!-- /wp:group -->
+	</div>
+	<!-- /wp:group -->
+
+	<!-- wp:template-part {"slug":"reassurance"} /-->
+</main>
+<!-- /wp:group -->
+
+<!-- wp:template-part {"slug":"footer","tagName":"footer"} /-->

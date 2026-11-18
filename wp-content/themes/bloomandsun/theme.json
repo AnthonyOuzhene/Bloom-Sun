@@ -93,6 +93,8 @@
 	"templateParts": [
 		{ "name": "header",       "title": "En-tête",                     "area": "header" },
 		{ "name": "footer",       "title": "Pied de page",                "area": "footer" },
+		{ "name": "checkout-header", "title": "En-tête de la commande",    "area": "header" },
+		{ "name": "checkout-footer", "title": "Pied de page de la commande", "area": "footer" },
 		{ "name": "hero",         "title": "Accueil — Bandeau principal", "area": "uncategorized" },
 		{ "name": "categories",   "title": "Accueil — Nos collections",   "area": "uncategorized" },
 		{ "name": "new-arrivals", "title": "Accueil — Nouveautés",        "area": "uncategorized" },

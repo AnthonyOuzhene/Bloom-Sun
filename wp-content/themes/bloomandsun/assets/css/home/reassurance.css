@@ -7,6 +7,10 @@
 	padding-top: var(--bs-section-y);
 }
 
+.bs-reassurance .wp-block-group > * {
+	margin-block: 0;
+}
+
 .bs-reassurance .bs-grid {
 	display: grid;
 	grid-template-columns: repeat(4, minmax(0, 1fr));

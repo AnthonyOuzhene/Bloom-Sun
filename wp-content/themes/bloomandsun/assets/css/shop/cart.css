@@ -1,0 +1,292 @@
+/* ==========================================================================
+   Bloom & Sun — panier et commande
+   (templates/page-cart.html, page-checkout.html, parts/checkout-header.html, checkout-footer.html)
+   Contenu : blocs « Panier » et « Validation de commande » de WooCommerce.
+   ========================================================================== */
+
+.bs-cart > .bs-container {
+	gap: 24px;
+	padding-top: clamp(24px, 4vw, 48px);
+}
+
+.bs-cart__title {
+	font-size: clamp(2.4rem, 4.5vw, 4rem);
+}
+
+/* Les deux colonnes (articles / récapitulatif) */
+.bs-cart .wc-block-components-sidebar-layout {
+	gap: clamp(24px, 4vw, 48px);
+	margin: 0;
+}
+
+.bs-cart .wc-block-components-main,
+.bs-cart .wc-block-components-sidebar {
+	padding: 0;
+}
+
+/* Récapitulatif dans une carte blanche */
+.bs-cart .wp-block-woocommerce-cart-totals-block,
+.bs-cart .wp-block-woocommerce-checkout-order-summary-block {
+	padding: 24px;
+	border: 0;
+	border-radius: var(--bs-r-lg);
+	background: var(--bs-white);
+}
+
+.bs-cart .wc-block-cart__totals-title,
+.bs-cart .wc-block-components-checkout-order-summary__title-text {
+	font-family: var(--bs-font-title);
+	font-size: 1.5rem;
+	font-weight: 400;
+	text-transform: none;
+}
+
+/* Lignes d'articles */
+.bs-cart .wc-block-cart-items {
+	border-collapse: separate;
+	border-spacing: 0 10px;
+}
+
+.bs-cart .wc-block-cart-items__header {
+	color: var(--bs-ink-soft);
+	font-size: 12px;
+	letter-spacing: 0.14em;
+}
+
+.bs-cart .wc-block-cart-items__row td {
+	padding-block: 16px;
+	border-top: 1px solid var(--bs-line);
+}
+
+.bs-cart .wc-block-cart-item__image img {
+	border-radius: var(--bs-r-md);
+	aspect-ratio: 4 / 5;
+	object-fit: cover;
+}
+
+.bs-cart .wc-block-components-product-name {
+	color: var(--bs-ink);
+	font-family: var(--bs-font-title);
+	font-size: 1.2rem;
+	text-decoration: none;
+}
+
+.bs-cart .wc-block-components-product-metadata {
+	color: var(--bs-ink-soft);
+	font-size: 13px;
+}
+
+.bs-cart .wc-block-cart-item__remove-link {
+	color: var(--bs-ink-soft) !important;
+	font-size: 13px !important;
+}
+
+/* Sélecteur de quantité */
+.bs-cart .wc-block-components-quantity-selector {
+	border: 1px solid #E2D8CE;
+	border-radius: 999px;
+	overflow: hidden;
+}
+
+.bs-cart .wc-block-components-quantity-selector::after {
+	display: none;
+}
+
+.bs-cart .wc-block-components-quantity-selector input {
+	background: transparent;
+	font-weight: 500;
+}
+
+/* Totaux */
+.bs-cart .wc-block-components-totals-wrapper {
+	border-color: var(--bs-line);
+}
+
+.bs-cart .wc-block-components-totals-footer-item {
+	font-size: 1.1rem;
+}
+
+.bs-cart .wc-block-components-totals-footer-item .wc-block-components-totals-item__value {
+	font-weight: 600;
+}
+
+/* Boutons principaux (valider le panier, payer) */
+.bs-cart .wc-block-components-button:not(.is-link) {
+	min-height: 54px;
+	border-radius: 999px;
+	background: var(--bs-terracotta);
+	color: var(--bs-white);
+	font: 500 16px var(--bs-font-text);
+}
+
+.bs-cart .wc-block-components-button:not(.is-link):hover {
+	background: var(--wp--preset--color--terracotta-dark);
+}
+
+/* Champs de formulaire (code promo, adresse, paiement) */
+.bs-cart .wc-block-components-text-input input,
+.bs-cart .wc-block-components-combobox .components-combobox-control__input,
+.bs-cart .wc-block-components-select select,
+.bs-cart .wc-block-components-textarea {
+	border: 1px solid #E2D8CE !important;
+	border-radius: var(--bs-r-md) !important;
+	background: var(--bs-cream) !important;
+	font-family: var(--bs-font-text);
+}
+
+/* Liste déroulante Pays/Région */
+.bs-cart .wc-blocks-components-select__container {
+	border-radius: var(--bs-r-md) !important;
+	background: var(--bs-cream) !important;
+}
+
+.bs-cart .wc-blocks-components-select__select {
+	border: 1px solid #E2D8CE !important;
+	border-radius: var(--bs-r-md) !important;
+	background: transparent !important;
+	font-family: var(--bs-font-text);
+}
+
+.bs-cart .wc-block-components-text-input.is-active input,
+.bs-cart .wc-block-components-text-input input:focus {
+	border-color: var(--bs-sapin) !important;
+	box-shadow: 0 0 0 1px var(--bs-sapin) !important;
+}
+
+/* Commande : étapes numérotées */
+.bs-checkout .wc-block-components-checkout-step__title {
+	font-family: var(--bs-font-title);
+	font-size: 1.5rem;
+	font-weight: 400;
+}
+
+.bs-checkout .wc-block-components-checkout-step__container::after {
+	border-color: var(--bs-line);
+}
+
+.bs-checkout .wc-block-components-radio-control__option,
+.bs-checkout .wc-block-components-radio-control-accordion-option {
+	border-color: #E2D8CE !important;
+	border-radius: var(--bs-r-md);
+	background: var(--bs-white);
+}
+
+.bs-checkout .wc-block-components-radio-control__input:checked {
+	border-color: var(--bs-sapin);
+	background: var(--bs-sapin);
+}
+
+.bs-checkout .wc-block-components-checkbox__input:checked {
+	border-color: var(--bs-sapin);
+	background: var(--bs-sapin);
+}
+
+/* En-tête et pied de page allégés de la commande
+   -------------------------------------------------------------------------- */
+.bs-checkout-header {
+	border-bottom: 1px solid var(--bs-line);
+	background: var(--bs-cream);
+}
+
+.bs-checkout-header__inner {
+	display: grid;
+	grid-template-columns: 1fr auto 1fr;
+	align-items: center;
+	gap: 20px;
+	padding-block: 20px;
+}
+
+.bs-checkout-header__inner > * {
+	margin: 0;
+}
+
+.bs-link-button--back .wp-block-button__link {
+	display: inline-flex;
+	align-items: center;
+	gap: 8px;
+	padding: 0;
+	background: none;
+	color: var(--bs-ink);
+	font-size: 14px;
+	text-decoration: none;
+}
+
+.bs-link-button--back .wp-block-button__link::before {
+	content: "";
+	width: 16px;
+	height: 16px;
+	background: currentColor;
+	transform: rotate(180deg);
+	-webkit-mask: var(--bs-icon-arrow) center / contain no-repeat;
+	mask: var(--bs-icon-arrow) center / contain no-repeat;
+}
+
+.bs-link-button--back .wp-block-button__link:hover {
+	background: none;
+	color: var(--bs-terracotta);
+}
+
+.bs-checkout-header .bs-logo img {
+	width: 130px;
+}
+
+.bs-checkout-header__secure {
+	display: inline-flex;
+	align-items: center;
+	justify-self: end;
+	gap: 8px;
+	color: var(--bs-sapin);
+	font-size: 14px;
+	font-weight: 500;
+}
+
+.bs-checkout-header__secure::before {
+	content: "";
+	width: 16px;
+	height: 16px;
+	background: currentColor;
+	-webkit-mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'><rect x='5' y='11' width='14' height='10' rx='2'/><path d='M8 11V7a4 4 0 0 1 8 0v4'/></svg>") center / contain no-repeat;
+	mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'><rect x='5' y='11' width='14' height='10' rx='2'/><path d='M8 11V7a4 4 0 0 1 8 0v4'/></svg>") center / contain no-repeat;
+}
+
+.bs-checkout-footer {
+	margin-top: var(--bs-section-y);
+	border-top: 1px solid var(--bs-line);
+	color: var(--bs-ink-soft);
+	font-size: 13px;
+}
+
+.bs-checkout-footer__inner {
+	align-items: center;
+	gap: 10px;
+	padding-block: 24px;
+	text-align: center;
+}
+
+.bs-checkout-footer__inner > * {
+	margin: 0;
+}
+
+.bs-checkout-footer .wp-block-navigation__container {
+	gap: 8px 22px;
+}
+
+.bs-checkout-footer a {
+	text-decoration: none;
+}
+
+/* Responsive
+   -------------------------------------------------------------------------- */
+@media (max-width: 600px) {
+	.bs-checkout-header__inner {
+		grid-template-columns: auto 1fr;
+	}
+
+	.bs-checkout-header__secure {
+		display: none;
+	}
+
+	.bs-checkout-header .bs-logo {
+		justify-self: end;
+	}
+}

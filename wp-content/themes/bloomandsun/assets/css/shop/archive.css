@@ -1,0 +1,293 @@
+/* ==========================================================================
+   Bloom & Sun — liste des produits : boutique, catégories, recherche
+   (templates/archive-product.html, product-search-results.html)
+   Cartes produit : products.css. Filtres : blocs « Filtres de produits » de WooCommerce.
+   ========================================================================== */
+
+.bs-shop__head {
+	gap: 14px;
+	padding-top: clamp(16px, 3vw, 32px);
+	padding-bottom: clamp(24px, 3vw, 40px);
+}
+
+.bs-shop__title {
+	font-size: clamp(2.6rem, 5vw, 4.4rem);
+}
+
+.bs-shop__intro {
+	max-width: 60ch;
+	color: var(--bs-ink-soft);
+}
+
+/* Filtres à gauche, produits à droite */
+.bs-shop__layout {
+	display: grid;
+	grid-template-columns: 260px minmax(0, 1fr);
+	align-items: start;
+	gap: clamp(24px, 4vw, 48px);
+}
+
+/* Filtres
+   -------------------------------------------------------------------------- */
+.bs-filters {
+	position: sticky;
+	top: 24px;
+	display: flex;
+	flex-direction: column;
+	gap: 6px;
+	padding: 22px;
+	border-radius: var(--bs-r-lg);
+	background: var(--bs-white);
+}
+
+.bs-filter {
+	padding-block: 14px;
+	border-top: 1px solid var(--bs-line);
+}
+
+.bs-filters .wp-block-woocommerce-product-filter-active + .bs-filter,
+.bs-filters > .bs-filter:first-child {
+	border-top: 0;
+	padding-top: 0;
+}
+
+.bs-filter__title {
+	margin: 0 0 12px;
+	font-size: 1.15rem;
+}
+
+/* Cases à cocher */
+.bs-filters .wc-block-product-filter-checkbox-list__items {
+	display: flex;
+	flex-direction: column;
+	gap: 6px;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.bs-filters .wc-block-product-filter-checkbox-list__label {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	font-size: 14px;
+	cursor: pointer;
+}
+
+.bs-filters .wc-block-product-filter-checkbox-list__input-wrapper {
+	position: relative;
+	display: grid;
+	place-items: center;
+	width: 18px;
+	height: 18px;
+}
+
+.bs-filters .wc-block-product-filter-checkbox-list__input {
+	width: 18px;
+	height: 18px;
+	margin: 0;
+	border: 1.5px solid #CFC4BA;
+	border-radius: 5px;
+	background: var(--bs-cream);
+	appearance: none;
+	cursor: pointer;
+}
+
+.bs-filters .wc-block-product-filter-checkbox-list__input:checked {
+	border-color: var(--bs-sapin);
+	background: var(--bs-sapin);
+}
+
+.bs-filters .wc-block-product-filter-checkbox-list__mark {
+	position: absolute;
+	color: var(--bs-cream);
+	pointer-events: none;
+}
+
+/* Pastilles (tailles) */
+.bs-filters .wc-block-product-filter-chips__items {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 6px;
+}
+
+.bs-filters .wc-block-product-filter-chips__item {
+	min-width: 42px;
+	padding: 7px 12px;
+	border: 1.5px solid #E2D8CE;
+	border-radius: 999px;
+	background: var(--bs-cream);
+	color: var(--bs-ink);
+	font: 500 13px var(--bs-font-text);
+	cursor: pointer;
+}
+
+.bs-filters .wc-block-product-filter-chips__item:hover {
+	border-color: var(--bs-ink);
+}
+
+.bs-filters .wc-block-product-filter-chips__item[aria-checked="true"] {
+	border-color: var(--bs-sapin);
+	background: var(--bs-sapin);
+	color: var(--bs-cream);
+}
+
+/* Prix */
+.bs-filters .wc-block-product-filter-price-slider {
+	--bs-slider: var(--bs-sapin);
+	font-size: 13px;
+}
+
+.bs-filters .wc-block-product-filter-price-slider input[type="text"] {
+	width: 72px;
+	padding: 6px 10px;
+	border: 1px solid #E2D8CE;
+	border-radius: 999px;
+	background: var(--bs-cream);
+	font: 500 13px var(--bs-font-text);
+	text-align: center;
+}
+
+/* Filtres actifs */
+.bs-filters .wc-block-product-filter-removable-chips__items {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 6px;
+	margin: 0 0 10px;
+	padding: 0;
+	list-style: none;
+}
+
+.bs-filters .wc-block-product-filter-removable-chips__item {
+	display: inline-flex;
+	align-items: center;
+	gap: 6px;
+	padding: 5px 8px 5px 12px;
+	border-radius: 999px;
+	background: var(--bs-sapin-light);
+	color: var(--bs-sapin);
+	font-size: 13px;
+}
+
+.bs-filters .wc-block-product-filter-removable-chips__remove {
+	padding: 0;
+	border: 0;
+	background: none;
+	color: inherit;
+	cursor: pointer;
+}
+
+.bs-filters__clear .wp-block-button__link {
+	padding: 7px 14px;
+	font-size: 13px;
+}
+
+/* Barre au-dessus des produits : nombre de résultats + tri */
+.bs-shop__results {
+	display: flex;
+	flex-direction: column;
+	gap: 18px;
+	min-width: 0;
+}
+
+.bs-shop__toolbar {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: space-between;
+	gap: 12px;
+}
+
+.bs-shop__toolbar > * {
+	margin: 0;
+}
+
+.bs-shop__toolbar .woocommerce-result-count {
+	margin: 0;
+	color: var(--bs-ink-soft);
+	font-size: 14px;
+}
+
+.bs-shop__toolbar .woocommerce-ordering {
+	margin: 0;
+}
+
+.bs-shop__toolbar .orderby {
+	padding: 9px 38px 9px 16px;
+	border: 1px solid #E2D8CE;
+	border-radius: 999px;
+	background: var(--bs-white) url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%233A2E2B' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'><path d='m6 9 6 6 6-6'/></svg>") right 14px center / 14px no-repeat;
+	color: var(--bs-ink);
+	font: 500 14px var(--bs-font-text);
+	appearance: none;
+	cursor: pointer;
+}
+
+/* Grille de produits : 3 colonnes à côté des filtres */
+.bs-shop .bs-products--grid .wc-block-product-template.wc-block-product-template {
+	grid-template-columns: repeat(3, minmax(0, 1fr));
+	row-gap: 22px;
+}
+
+/* Pagination */
+.bs-pagination {
+	gap: 6px;
+	margin-top: 32px;
+	font-size: 14px;
+}
+
+.bs-pagination .page-numbers,
+.bs-pagination a {
+	display: inline-grid;
+	place-items: center;
+	min-width: 40px;
+	height: 40px;
+	padding-inline: 12px;
+	border-radius: 999px;
+	text-decoration: none;
+}
+
+.bs-pagination .page-numbers.current {
+	background: var(--bs-sapin);
+	color: var(--bs-cream);
+}
+
+/* Aucun résultat */
+.bs-shop__empty {
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+	padding: 40px;
+	border-radius: var(--bs-r-lg);
+	background: var(--bs-blush);
+	text-align: center;
+}
+
+/* Responsive : les filtres passent dans une fenêtre (bouton « Filtres » de WooCommerce)
+   -------------------------------------------------------------------------- */
+@media (max-width: 960px) {
+	.bs-shop__layout {
+		grid-template-columns: minmax(0, 1fr);
+	}
+
+	.bs-filters {
+		position: static;
+		padding: 0;
+		background: none;
+	}
+
+	.bs-filters .wc-block-product-filters__open-overlay {
+		display: inline-flex;
+		align-items: center;
+		gap: 8px;
+		padding: 10px 18px;
+		border: 1.5px solid var(--bs-ink);
+		border-radius: 999px;
+		background: none;
+		font: 500 14px var(--bs-font-text);
+	}
+
+	.bs-shop .bs-products--grid .wc-block-product-template.wc-block-product-template {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+	}
+}

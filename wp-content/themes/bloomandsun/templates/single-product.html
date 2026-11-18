@@ -1,0 +1,91 @@
+<!-- wp:template-part {"slug":"header","tagName":"header"} /-->
+
+<!-- wp:group {"tagName":"main","className":"bs-product-page","layout":{"type":"default"}} -->
+<main class="wp-block-group bs-product-page">
+	<!-- wp:group {"className":"bs-container","layout":{"type":"default"}} -->
+	<div class="wp-block-group bs-container">
+		<!-- wp:woocommerce/breadcrumbs {"className":"bs-breadcrumbs"} /-->
+		<!-- wp:woocommerce/store-notices /-->
+
+		<!-- wp:group {"className":"bs-product","layout":{"type":"default"}} -->
+		<div class="wp-block-group bs-product">
+			<!-- wp:group {"className":"bs-product__gallery","layout":{"type":"default"}} -->
+			<div class="wp-block-group bs-product__gallery">
+				<!-- wp:woocommerce/product-image-gallery /-->
+			</div>
+			<!-- /wp:group -->
+
+			<!-- wp:group {"className":"bs-product__summary","layout":{"type":"default"}} -->
+			<div class="wp-block-group bs-product__summary">
+				<!-- wp:post-terms {"term":"product_cat","className":"bs-product__cat"} /-->
+
+				<!-- wp:post-title {"level":1,"className":"bs-product__name","__woocommerceNamespace":"woocommerce/product-query/product-title"} /-->
+
+				<!-- wp:woocommerce/product-price {"className":"bs-product__price-main"} /-->
+
+				<!-- wp:post-excerpt {"className":"bs-product__excerpt","__woocommerceNamespace":"woocommerce/product-query/product-summary"} /-->
+
+				<!-- wp:woocommerce/add-to-cart-form {"className":"bs-product__buy"} /-->
+
+				<!-- wp:group {"className":"bs-product__links","layout":{"type":"default"}} -->
+				<div class="wp-block-group bs-product__links">
+					<!-- wp:buttons -->
+					<div class="wp-block-buttons"><!-- wp:button {"className":"bs-link-button bs-link-button--size","metadata":{"bindings":{"url":{"source":"bloomandsun/links","args":{"key":"page","slug":"guide-des-tailles"}}}}} -->
+<div class="wp-block-button bs-link-button bs-link-button--size"><a class="wp-block-button__link wp-element-button" href="/guide-des-tailles/">Guide des tailles</a></div>
+<!-- /wp:button -->
+
+<!-- wp:button {"className":"bs-link-button bs-link-button--store","metadata":{"bindings":{"url":{"source":"bloomandsun/links","args":{"key":"page","slug":"contact"}}}}} -->
+<div class="wp-block-button bs-link-button bs-link-button--store"><a class="wp-block-button__link wp-element-button" href="/contact/">Une question ? Écrivez-nous</a></div>
+<!-- /wp:button --></div>
+					<!-- /wp:buttons -->
+				</div>
+				<!-- /wp:group -->
+
+				<!-- wp:group {"className":"bs-product__perks","layout":{"type":"default"}} -->
+				<div class="wp-block-group bs-product__perks">
+					<!-- wp:paragraph {"className":"bs-perk bs-perk--store"} -->
+					<p class="bs-perk bs-perk--store"><strong>Retrait gratuit en magasin</strong> au Havre</p>
+					<!-- /wp:paragraph -->
+
+					<!-- wp:paragraph {"className":"bs-perk bs-perk--truck"} -->
+					<p class="bs-perk bs-perk--truck"><strong>Livraison Colissimo et point relais</strong>, offerte dès [MONTANT] €</p>
+					<!-- /wp:paragraph -->
+
+					<!-- wp:paragraph {"className":"bs-perk bs-perk--return"} -->
+					<p class="bs-perk bs-perk--return"><strong>Retours sous 14 jours</strong>, échange possible en magasin</p>
+					<!-- /wp:paragraph -->
+				</div>
+				<!-- /wp:group -->
+			</div>
+			<!-- /wp:group -->
+		</div>
+		<!-- /wp:group -->
+
+		<!-- wp:woocommerce/product-details {"className":"bs-product__details"} /-->
+
+		<!-- wp:group {"className":"bs-product__related","layout":{"type":"default"}} -->
+		<div class="wp-block-group bs-product__related">
+			<!-- wp:heading {"className":"bs-product__related-title"} -->
+			<h2 class="wp-block-heading bs-product__related-title">Vous aimerez <em>aussi</em></h2>
+			<!-- /wp:heading -->
+
+			<!-- wp:woocommerce/product-collection {"queryId":12,"query":{"perPage":4,"pages":1,"offset":0,"postType":"product","order":"asc","orderBy":"title","search":"","exclude":[],"inherit":false,"taxQuery":{},"isProductCollectionBlock":true,"featured":false,"woocommerceOnSale":false,"woocommerceStockStatus":["instock","onbackorder"],"woocommerceAttributes":[],"woocommerceHandPickedProducts":[],"filterable":false,"relatedBy":{"categories":true,"tags":false}},"tagName":"div","displayLayout":{"type":"flex","columns":4,"shrinkColumns":true},"dimensions":{"widthType":"fill"},"collection":"woocommerce/product-collection/related","hideControls":["inherit"],"queryContextIncludes":["collection"],"className":"bs-products"} -->
+			<div class="wp-block-woocommerce-product-collection bs-products">
+				<!-- wp:woocommerce/product-template -->
+					<!-- wp:woocommerce/product-image {"showSaleBadge":false,"imageSizing":"single","aspectRatio":"4/5","scale":"cover"} -->
+						<!-- wp:woocommerce/product-sale-badge {"align":"left"} /-->
+					<!-- /wp:woocommerce/product-image -->
+					<!-- wp:post-title {"level":3,"isLink":true,"className":"bs-product__title","__woocommerceNamespace":"woocommerce/product-collection/product-title"} /-->
+					<!-- wp:woocommerce/product-price {"className":"bs-product__price"} /-->
+					<!-- wp:woocommerce/product-button {"className":"bs-product__add"} /-->
+				<!-- /wp:woocommerce/product-template -->
+			</div>
+			<!-- /wp:woocommerce/product-collection -->
+		</div>
+		<!-- /wp:group -->
+	</div>
+	<!-- /wp:group -->
+</main>
+<!-- /wp:group -->
+
+<!-- wp:template-part {"slug":"footer","tagName":"footer"} /-->
