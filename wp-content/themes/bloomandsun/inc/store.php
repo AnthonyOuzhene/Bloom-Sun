@@ -24,6 +24,7 @@ bloomandsun_register_settings_page( [
 		'hours_2_days' => [ 'section' => 'Horaires', 'label' => 'Jours (ligne 2)', 'type' => 'text', 'default' => 'Dimanche, lundi' ],
 		'hours_2_time' => [ 'section' => 'Horaires', 'label' => 'Heures (ligne 2)', 'type' => 'text', 'default' => 'Fermé' ],
 		'instagram'    => [ 'section' => 'Réseaux sociaux', 'label' => 'Lien Instagram', 'type' => 'url', 'default' => 'https://www.instagram.com/bloomandsun_boutique/' ],
+		'facebook'     => [ 'section' => 'Réseaux sociaux', 'label' => 'Lien Facebook', 'type' => 'url', 'default' => 'https://www.facebook.com/profile.php?id=61594915953501' ],
 	],
 ] );
 
