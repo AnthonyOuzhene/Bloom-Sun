@@ -205,18 +205,9 @@
 	color: var(--bs-cream);
 }
 
-.bs-icon-link {
-	display: block;
-	width: 19px;
-	height: 19px;
-	background: currentColor;
-	color: var(--bs-ink);
-	-webkit-mask: var(--bs-icon-heart) center / contain no-repeat;
-	mask: var(--bs-icon-heart) center / contain no-repeat;
-}
+/* Cœur « Liste d'envies » et son compteur : wishlist.css */
 
-.bs-header .bs-search .wp-block-search__button:hover,
-.bs-icon-link:hover {
+.bs-header .bs-search .wp-block-search__button:hover {
 	color: var(--bs-sapin);
 }
 

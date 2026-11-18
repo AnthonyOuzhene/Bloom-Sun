@@ -1,0 +1,58 @@
+<!-- wp:template-part {"slug":"layout/header","tagName":"header"} /-->
+
+<!-- wp:group {"tagName":"main","className":"bs-wishlist-page","layout":{"type":"default"}} -->
+<main class="wp-block-group bs-wishlist-page">
+	<!-- wp:group {"className":"bs-container bs-wishlist-page__head","layout":{"type":"default"}} -->
+	<div class="wp-block-group bs-container bs-wishlist-page__head">
+		<!-- wp:heading {"level":1,"className":"bs-wishlist-page__title"} -->
+		<h1 class="wp-block-heading bs-wishlist-page__title">Ma liste <span class="bs-accent">d'envies</span></h1>
+		<!-- /wp:heading -->
+
+		<!-- wp:paragraph {"className":"bs-wishlist-page__intro"} -->
+		<p class="bs-wishlist-page__intro">Les pièces que vous avez gardées de côté, sur cet appareil. Passez les essayer en magasin ou commandez-les en ligne.</p>
+		<!-- /wp:paragraph -->
+	</div>
+	<!-- /wp:group -->
+
+	<!-- wp:group {"className":"bs-container","layout":{"type":"default"}} -->
+	<div class="wp-block-group bs-container">
+		<!-- wp:woocommerce/product-collection {"queryId":20,"query":{"perPage":48,"pages":1,"offset":0,"postType":"product","order":"asc","orderBy":"post__in","search":"","exclude":[],"inherit":false,"taxQuery":{},"isProductCollectionBlock":true,"featured":false,"woocommerceOnSale":false,"woocommerceStockStatus":["instock","outofstock","onbackorder"],"woocommerceAttributes":[],"woocommerceHandPickedProducts":[],"filterable":false},"tagName":"div","displayLayout":{"type":"flex","columns":4,"shrinkColumns":true},"dimensions":{"widthType":"fill"},"queryContextIncludes":["collection"],"className":"bs-products bs-wishlist-products"} -->
+		<div class="wp-block-woocommerce-product-collection bs-products bs-wishlist-products">
+			<!-- wp:woocommerce/product-template -->
+				<!-- wp:woocommerce/product-image {"showSaleBadge":false,"imageSizing":"single","aspectRatio":"4/5","scale":"cover"} -->
+					<!-- wp:woocommerce/product-sale-badge {"align":"left"} /-->
+				<!-- /wp:woocommerce/product-image -->
+				<!-- wp:post-title {"level":2,"isLink":true,"className":"bs-product__title","__woocommerceNamespace":"woocommerce/product-collection/product-title"} /-->
+				<!-- wp:woocommerce/product-price {"className":"bs-product__price"} /-->
+				<!-- wp:woocommerce/product-button {"className":"bs-product__add"} /-->
+			<!-- /wp:woocommerce/product-template -->
+
+			<!-- wp:woocommerce/product-collection-no-results -->
+				<!-- wp:group {"className":"bs-wishlist-page__empty","layout":{"type":"default"}} -->
+				<div class="wp-block-group bs-wishlist-page__empty">
+					<!-- wp:heading {"level":2} -->
+					<h2 class="wp-block-heading">Votre liste est <span class="bs-accent">encore vide</span></h2>
+					<!-- /wp:heading -->
+
+					<!-- wp:paragraph -->
+					<p>Touchez le cœur sur une pièce qui vous plaît pour la retrouver ici.</p>
+					<!-- /wp:paragraph -->
+
+					<!-- wp:buttons {"layout":{"type":"flex","justifyContent":"center"}} -->
+					<div class="wp-block-buttons"><!-- wp:button {"metadata":{"bindings":{"url":{"source":"bloomandsun/links","args":{"key":"shop"}}}}} -->
+<div class="wp-block-button"><a class="wp-block-button__link wp-element-button" href="/boutique/">Découvrir la boutique</a></div>
+<!-- /wp:button --></div>
+					<!-- /wp:buttons -->
+				</div>
+				<!-- /wp:group -->
+			<!-- /wp:woocommerce/product-collection-no-results -->
+		</div>
+		<!-- /wp:woocommerce/product-collection -->
+	</div>
+	<!-- /wp:group -->
+
+	<!-- wp:template-part {"slug":"common/reassurance"} /-->
+</main>
+<!-- /wp:group -->
+
+<!-- wp:template-part {"slug":"layout/footer","tagName":"footer"} /-->

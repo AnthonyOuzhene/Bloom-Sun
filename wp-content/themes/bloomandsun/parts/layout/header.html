@@ -39,9 +39,25 @@
 			<div class="wp-block-group bs-header__icons">
 				<!-- wp:search {"label":"Rechercher","showLabel":false,"placeholder":"Rechercher un produit","buttonText":"Rechercher","buttonPosition":"button-only","buttonUseIcon":true,"isSearchFieldHidden":true,"query":{"post_type":"product"},"className":"bs-search"} /-->
 
-				<!-- wp:paragraph {"className":"bs-wishlist"} -->
-				<p class="bs-wishlist"><a class="bs-icon-link" href="/wishlist/" aria-label="Liste d'envies"></a></p>
-				<!-- /wp:paragraph -->
+				<!-- wp:group {"className":"bs-wishlist","layout":{"type":"default"}} -->
+				<div class="wp-block-group bs-wishlist">
+					<!-- wp:buttons -->
+					<div class="wp-block-buttons"><!-- wp:button {"className":"bs-wishlist__link","metadata":{"bindings":{"url":{"source":"bloomandsun/links","args":{"key":"page","slug":"liste-d-envies"}}}}} -->
+<div class="wp-block-button bs-wishlist__link"><a class="wp-block-button__link wp-element-button" href="/liste-d-envies/">Liste d'envies</a></div>
+<!-- /wp:button --></div>
+					<!-- /wp:buttons -->
+
+					<!-- wp:paragraph {"className":"bs-wishlist__count"} -->
+					<p class="bs-wishlist__count"></p>
+					<!-- /wp:paragraph -->
+
+					<!-- wp:html -->
+					<template id="bs-wish-button">
+						<button type="button" class="bs-wish" aria-pressed="false" data-label-add="Ajouter à ma liste d'envies" data-label-remove="Retirer de ma liste d'envies"><span class="bs-wish__label">Ajouter à ma liste d'envies</span></button>
+					</template>
+					<!-- /wp:html -->
+				</div>
+				<!-- /wp:group -->
 			</div>
 			<!-- /wp:group -->
 

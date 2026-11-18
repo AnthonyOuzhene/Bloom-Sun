@@ -1,0 +1,179 @@
+/* ==========================================================================
+   Bloom & Sun — liste d'envies
+   Lien et compteur de l'en-tête (parts/layout/header.html), bouton cœur sur les cartes
+   produit et la fiche produit (ajouté par assets/js/wishlist.js),
+   page « Liste d'envies » (templates/page-liste-d-envies.html).
+   ========================================================================== */
+
+:root {
+	--bs-icon-heart-filled: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='black' stroke='black' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'><path d='M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z'/></svg>");
+}
+
+/* En-tête : cœur (texte masqué, lu par les lecteurs d'écran) et compteur
+   -------------------------------------------------------------------------- */
+.bs-wishlist {
+	position: relative;
+	display: flex;
+}
+
+.bs-wishlist .wp-block-buttons {
+	margin: 0;
+}
+
+.bs-wishlist__link .wp-block-button__link {
+	display: block;
+	width: 19px;
+	height: 19px;
+	padding: 0;
+	overflow: hidden;
+	border-radius: 0;
+	background: currentColor;
+	color: var(--bs-ink);
+	font-size: 0;
+	-webkit-mask: var(--bs-icon-heart) center / contain no-repeat;
+	mask: var(--bs-icon-heart) center / contain no-repeat;
+}
+
+.bs-wishlist__link .wp-block-button__link:hover {
+	background: currentColor;
+	color: var(--bs-sapin);
+}
+
+.bs-wishlist__count {
+	position: absolute;
+	top: -8px;
+	right: -10px;
+	min-width: 17px;
+	height: 17px;
+	margin: 0;
+	padding: 0 4px;
+	border-radius: 999px;
+	background: var(--bs-sapin);
+	color: var(--bs-cream);
+	font-size: 10px;
+	font-weight: 600;
+	line-height: 17px;
+	text-align: center;
+	pointer-events: none;
+}
+
+.bs-wishlist__count:empty {
+	display: none;
+}
+
+/* Bouton cœur sur les photos produit
+   -------------------------------------------------------------------------- */
+.bs-products .wc-block-components-product-image,
+.bs-product__gallery {
+	position: relative;
+}
+
+.bs-wish {
+	position: absolute;
+	top: 10px;
+	right: 10px;
+	z-index: 3;
+	display: grid;
+	place-items: center;
+	width: 38px;
+	height: 38px;
+	padding: 0;
+	border: 0;
+	border-radius: 50%;
+	background: var(--bs-white);
+	color: var(--bs-ink);
+	cursor: pointer;
+	transition: transform 0.15s ease;
+}
+
+.bs-wish::before {
+	content: "";
+	width: 18px;
+	height: 18px;
+	background: currentColor;
+	-webkit-mask: var(--bs-icon-heart) center / contain no-repeat;
+	mask: var(--bs-icon-heart) center / contain no-repeat;
+}
+
+.bs-wish:hover {
+	color: var(--bs-terracotta);
+	transform: scale(1.06);
+}
+
+.bs-wish[aria-pressed="true"] {
+	color: var(--bs-terracotta);
+}
+
+.bs-wish[aria-pressed="true"]::before {
+	-webkit-mask-image: var(--bs-icon-heart-filled);
+	mask-image: var(--bs-icon-heart-filled);
+}
+
+.bs-wish:focus-visible {
+	outline: 2px solid var(--bs-sapin);
+	outline-offset: 2px;
+}
+
+/* Texte du bouton : pour les lecteurs d'écran seulement */
+.bs-wish__label {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	overflow: hidden;
+	clip-path: inset(50%);
+	white-space: nowrap;
+}
+
+/* Fiche produit : sous la loupe, en haut à droite de la photo */
+.bs-product__gallery > .bs-wish {
+	top: 70px;
+	right: 18px;
+	width: 42px;
+	height: 42px;
+}
+
+/* Page « Liste d'envies »
+   -------------------------------------------------------------------------- */
+.bs-wishlist-page__head {
+	gap: 12px;
+	padding-top: clamp(24px, 4vw, 48px);
+	padding-bottom: clamp(20px, 3vw, 32px);
+}
+
+.bs-wishlist-page__title {
+	font-size: clamp(2.6rem, 5vw, 4.4rem);
+}
+
+.bs-wishlist-page__intro {
+	max-width: 60ch;
+	color: var(--bs-ink-soft);
+}
+
+.bs-wishlist-page__empty {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 12px;
+	padding: clamp(32px, 6vw, 64px) 24px;
+	border-radius: var(--bs-r-lg);
+	background: var(--bs-blush);
+	text-align: center;
+}
+
+.bs-wishlist-page__empty > * {
+	margin: 0;
+}
+
+/* Responsive
+   -------------------------------------------------------------------------- */
+@media (max-width: 600px) {
+	.bs-wish {
+		width: 34px;
+		height: 34px;
+	}
+
+	.bs-wish::before {
+		width: 16px;
+		height: 16px;
+	}
+}
