@@ -91,8 +91,8 @@ a {
 	outline-offset: 3px;
 }
 
-/* Mot en italique dans un titre : Newsreader italique, terracotta */
-:where(h1, h2, h3) em {
+/* Mot mis en valeur dans un titre (<span class="bs-accent">) : Newsreader italique, terracotta */
+.bs-accent {
 	font-style: italic;
 	color: var(--bs-terracotta);
 }
@@ -294,7 +294,7 @@ a {
 	gap: 12px;
 }
 
-.bs-sapin-card :where(h1, h2, h3) em {
+.bs-sapin-card .bs-accent {
 	color: var(--bs-coral);
 }
 

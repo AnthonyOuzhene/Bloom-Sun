@@ -322,7 +322,7 @@
 	font-size: 14px;
 }
 
-.bs-perk strong {
+.bs-perk__title {
 	color: var(--bs-ink);
 	font-weight: 500;
 }

@@ -37,7 +37,7 @@
 	font-size: clamp(2.8rem, 5.6vw, 5.2rem);
 }
 
-.bs-hero__title em {
+.bs-hero__title .bs-accent {
 	color: var(--bs-coral);
 }
 

@@ -321,7 +321,7 @@ function bloomandsun_event_data( WP_Post $post, string $today ): array {
 		'date_label'   => $date,
 		'hours'        => bloomandsun_event_meta( $id, 'hours' ) ?: bloomandsun_store( 'hours_1_time' ),
 		'address'      => bloomandsun_store( 'address' ),
-		'description'  => nl2br( esc_html( trim( wp_strip_all_tags( $post->post_content ) ) ) ),
+		'description'  => esc_html( trim( wp_strip_all_tags( $post->post_content ) ) ), // retours à la ligne gérés en CSS (white-space)
 		'status_label' => $live ? ( $single ? 'Aujourd\'hui au magasin' : 'En ce moment au magasin' ) : 'Bientôt au magasin',
 		'pill_kicker'  => $live && $single ? 'Aujourd\'hui' : 'En ce moment',
 		'announce'     => $date . ' · ' . $title . ( $artist ? ' avec ' . $artist : '' ) . ' au magasin',

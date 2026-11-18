@@ -287,6 +287,7 @@
 .bs-event-drawer__desc {
 	color: var(--bs-ink-soft);
 	font-size: 15px;
+	white-space: pre-line; /* garde les retours à la ligne saisis dans l'événement */
 }
 
 /* Responsive : pastille ronde en bas à droite, panneau plein écran

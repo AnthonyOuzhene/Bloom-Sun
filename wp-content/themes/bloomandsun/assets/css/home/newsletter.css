@@ -14,7 +14,7 @@
 	text-align: center;
 }
 
-.bs-newsletter__card h2 em {
+.bs-newsletter__card .bs-accent {
 	color: var(--bs-ink);
 }
 
