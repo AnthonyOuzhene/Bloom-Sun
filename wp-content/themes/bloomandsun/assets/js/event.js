@@ -1,5 +1,5 @@
 /**
- * Événement : ouverture et fermeture du panneau (parts/event.html).
+ * Événement : ouverture et fermeture du panneau (parts/layout/event.html).
  * - S'ouvre au clic sur un lien vers « #bs-event » (pastille, ligne du bandeau d'annonce).
  * - Se ferme avec la croix, la touche Échap ou un clic sur le voile.
  * - Accessibilité : rôle « dialog », focus dans le panneau, retour du focus à la fermeture.

@@ -5,7 +5,7 @@
  * - Type de contenu « Événements » (bs_event) + taxonomie « Type d'événement » (bs_event_type)
  * - Champs : artiste, Instagram, Facebook, dates de début et de fin, horaires, 3 photos maximum
  *   (formulaire : views/admin/event-details.php, galerie : assets/js/admin-event-gallery.js)
- * - Affichage automatique selon les dates (parts/event.html, source de liaison « bloomandsun/event ») :
+ * - Affichage automatique selon les dates (parts/layout/event.html, source de liaison « bloomandsun/event ») :
  *   « bientôt » → ligne dans le bandeau d'annonce, X jours avant (réglage « Page d'accueil ») ;
  *   « en cours » → pastille sur le côté droit ; au clic, panneau de détails.
  * Pas de page publique : les événements ne s'affichent que dans le panneau.
@@ -363,7 +363,7 @@ function bloomandsun_event_editor_data(): array {
 }
 
 /*
- * Affichage selon l'état (gabarits : parts/event.html, parts/header.html)
+ * Affichage selon l'état (gabarits : parts/layout/event.html, parts/layout/header.html)
  * - bs-event            : tout le module, masqué sans événement
  * - bs-event-soon-only  : seulement avant l'événement (ligne du bandeau d'annonce)
  * - bs-event-live-only  : seulement pendant l'événement (pastille)

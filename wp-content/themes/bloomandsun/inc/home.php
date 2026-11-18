@@ -118,7 +118,7 @@ add_filter( 'render_block_data', function ( array $block ): array {
  * (bs-gifts-slot--after). Seule celle qui correspond au réglage « Position » est rendue.
  */
 add_filter( 'pre_render_block', function ( ?string $pre, array $block ): ?string {
-	if ( 'core/template-part' !== $block['blockName'] || 'gifts' !== ( $block['attrs']['slug'] ?? '' ) ) {
+	if ( 'core/template-part' !== $block['blockName'] || 'home/gifts' !== ( $block['attrs']['slug'] ?? '' ) ) {
 		return $pre;
 	}
 

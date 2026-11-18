@@ -3,7 +3,7 @@
  * Pages boutique (WooCommerce) : réglages qui ne peuvent pas vivre dans les gabarits.
  *
  * Gabarits : templates/archive-product.html (liste + catégories), single-product.html,
- * page-cart.html, page-checkout.html (+ parts/checkout-header.html, checkout-footer.html).
+ * page-cart.html, page-checkout.html (+ parts/checkout/header.html, footer.html).
  * Styles : assets/css/shop/.
  */
 

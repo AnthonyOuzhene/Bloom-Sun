@@ -91,18 +91,18 @@
 		}
 	},
 	"templateParts": [
-		{ "name": "header",       "title": "En-tête",                     "area": "header" },
-		{ "name": "footer",       "title": "Pied de page",                "area": "footer" },
-		{ "name": "checkout-header", "title": "En-tête de la commande",    "area": "header" },
-		{ "name": "checkout-footer", "title": "Pied de page de la commande", "area": "footer" },
-		{ "name": "hero",         "title": "Accueil — Bandeau principal", "area": "uncategorized" },
-		{ "name": "categories",   "title": "Accueil — Nos collections",   "area": "uncategorized" },
-		{ "name": "new-arrivals", "title": "Accueil — Nouveautés",        "area": "uncategorized" },
-		{ "name": "gifts",        "title": "Accueil — Idées cadeaux",     "area": "uncategorized" },
-		{ "name": "reassurance",  "title": "Réassurance",                 "area": "uncategorized" },
-		{ "name": "store",        "title": "Accueil — Le magasin",        "area": "uncategorized" },
-		{ "name": "instagram",    "title": "Accueil — Instagram",         "area": "uncategorized" },
-		{ "name": "newsletter",   "title": "Newsletter",                  "area": "uncategorized" },
-		{ "name": "event",        "title": "Événement (pastille et panneau)", "area": "uncategorized" }
+		{ "name": "layout/header",       "title": "En-tête",                           "area": "header" },
+		{ "name": "layout/footer",       "title": "Pied de page",                      "area": "footer" },
+		{ "name": "checkout/header",     "title": "En-tête de la commande",            "area": "header" },
+		{ "name": "checkout/footer",     "title": "Pied de page de la commande",       "area": "footer" },
+		{ "name": "home/hero",           "title": "Accueil — Bandeau principal",       "area": "uncategorized" },
+		{ "name": "home/categories",     "title": "Accueil — Nos collections",         "area": "uncategorized" },
+		{ "name": "home/new-arrivals",   "title": "Accueil — Nouveautés",              "area": "uncategorized" },
+		{ "name": "home/gifts",          "title": "Accueil — Idées cadeaux",           "area": "uncategorized" },
+		{ "name": "common/reassurance",  "title": "Réassurance",                       "area": "uncategorized" },
+		{ "name": "home/store",          "title": "Accueil — Le magasin",              "area": "uncategorized" },
+		{ "name": "home/instagram",      "title": "Accueil — Instagram",               "area": "uncategorized" },
+		{ "name": "home/newsletter",     "title": "Newsletter",                        "area": "uncategorized" },
+		{ "name": "layout/event",        "title": "Événement (pastille et panneau)",   "area": "uncategorized" }
 	]
 }
