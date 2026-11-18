@@ -41,11 +41,11 @@
 			"fontFamilies": [
 				{
 					"slug": "title",
-					"name": "Fraunces",
-					"fontFamily": "Fraunces, Georgia, serif",
+					"name": "Newsreader",
+					"fontFamily": "Newsreader, Georgia, serif",
 					"fontFace": [
-						{ "fontFamily": "Fraunces", "fontWeight": "300 600", "fontStyle": "normal", "fontDisplay": "swap", "src": [ "file:./assets/fonts/fraunces-latin.woff2" ] },
-						{ "fontFamily": "Fraunces", "fontWeight": "300 600", "fontStyle": "italic", "fontDisplay": "swap", "src": [ "file:./assets/fonts/fraunces-italic-latin.woff2" ] }
+						{ "fontFamily": "Newsreader", "fontWeight": "300 600", "fontStyle": "normal", "fontDisplay": "swap", "src": [ "file:./assets/fonts/newsreader-latin.woff2" ] },
+						{ "fontFamily": "Newsreader", "fontWeight": "300 600", "fontStyle": "italic", "fontDisplay": "swap", "src": [ "file:./assets/fonts/newsreader-italic-latin.woff2" ] }
 					]
 				},
 				{

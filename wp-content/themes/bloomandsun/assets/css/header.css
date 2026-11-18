@@ -262,7 +262,7 @@
 		width: 124px;
 	}
 
-	/* Menu ouvert : plein écran crème, liens en Fraunces */
+	/* Menu ouvert : plein écran crème, liens en Newsreader */
 	.bs-nav-mobile .wp-block-navigation__responsive-container.is-menu-open {
 		padding: 32px var(--bs-gutter);
 		background: var(--bs-cream);

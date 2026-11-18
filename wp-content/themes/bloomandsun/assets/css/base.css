@@ -91,7 +91,7 @@ a {
 	outline-offset: 3px;
 }
 
-/* Mot en italique dans un titre : Fraunces italique, terracotta */
+/* Mot en italique dans un titre : Newsreader italique, terracotta */
 :where(h1, h2, h3) em {
 	font-style: italic;
 	color: var(--bs-terracotta);
