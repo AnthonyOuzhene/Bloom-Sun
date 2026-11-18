@@ -31,6 +31,7 @@ $categories = [
 		'vestes'    => 'Vestes',
 		'manteaux'  => 'Manteaux',
 		'pantalons' => 'Pantalons',
+		'jupes'     => 'Jupes',
 		'jeans'     => 'Jeans',
 	] ],
 	'accessoires' => [ 'Accessoires', [

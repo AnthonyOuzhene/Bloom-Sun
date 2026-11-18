@@ -12,7 +12,7 @@
  */
 
 // Catégories et pages utilisées par les gabarits (pour l'aperçu dans l'éditeur).
-const BLOOMANDSUN_CATEGORY_SLUGS = [ 'vetements', 'robes', 'pulls', 'gilets', 'vestes', 'manteaux', 'pantalons', 'jeans', 'accessoires' ];
+const BLOOMANDSUN_CATEGORY_SLUGS = [ 'vetements', 'robes', 'pulls', 'gilets', 'vestes', 'manteaux', 'pantalons', 'jupes', 'jeans', 'accessoires' ];
 const BLOOMANDSUN_TAG_SLUGS      = [ 'idee-cadeau' ];
 const BLOOMANDSUN_PAGE_SLUGS     = [ 'le-magasin', 'contact', 'livraison-et-retours', 'guide-des-tailles', 'faq', 'cgv', 'mentions-legales', 'politique-de-confidentialite', 'gestion-des-cookies' ];
 
