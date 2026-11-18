@@ -78,6 +78,11 @@ add_action( 'init', function () {
 		'get_value_callback' => static fn( array $args ): string => bloomandsun_home( (string) ( $args['key'] ?? '' ) ),
 	] );
 
+	register_block_bindings_source( 'bloomandsun/event', [
+		'label'              => 'Événement',
+		'get_value_callback' => static fn( array $args ): string => bloomandsun_event( (string) ( $args['key'] ?? '' ) ),
+	] );
+
 	register_block_bindings_source( 'bloomandsun/links', [
 		'label'              => 'Liens du site',
 		'get_value_callback' => static fn( array $args ): string => bloomandsun_link( $args ),
@@ -91,6 +96,7 @@ function bloomandsun_bindings_editor_data(): array {
 	return [
 		'store' => bloomandsun_store_all(),
 		'home'  => bloomandsun_home_all(),
+		'event' => bloomandsun_event_editor_data(),
 		'links' => [
 			'shop'       => bloomandsun_link( [ 'key' => 'shop' ] ),
 			'new'        => bloomandsun_link( [ 'key' => 'new' ] ),

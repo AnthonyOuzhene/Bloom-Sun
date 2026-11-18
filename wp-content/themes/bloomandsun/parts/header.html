@@ -1,11 +1,17 @@
 <!-- wp:group {"className":"bs-announce","layout":{"type":"default"}} -->
 <div class="wp-block-group bs-announce">
+	<!-- wp:buttons {"className":"bs-announce__event bs-event-soon-only"} -->
+	<div class="wp-block-buttons bs-announce__event bs-event-soon-only"><!-- wp:button {"metadata":{"bindings":{"text":{"source":"bloomandsun/event","args":{"key":"announce"}}}}} -->
+<div class="wp-block-button"><a class="wp-block-button__link wp-element-button" href="#bs-event">Événement au magasin</a></div>
+<!-- /wp:button --></div>
+	<!-- /wp:buttons -->
+
 	<!-- wp:paragraph {"className":"bs-announce__item"} -->
 	<p class="bs-announce__item">Livraison offerte dès [MONTANT] €</p>
 	<!-- /wp:paragraph -->
 
-	<!-- wp:paragraph {"className":"bs-announce__item"} -->
-	<p class="bs-announce__item">Retours sous 14 jours</p>
+	<!-- wp:paragraph {"className":"bs-announce__item bs-announce__item--secondary"} -->
+	<p class="bs-announce__item bs-announce__item--secondary">Retours sous 14 jours</p>
 	<!-- /wp:paragraph -->
 
 	<!-- wp:paragraph {"className":"bs-announce__item"} -->
@@ -68,3 +74,5 @@
 	<!-- /wp:html -->
 </div>
 <!-- /wp:group -->
+
+<!-- wp:template-part {"slug":"event"} /-->

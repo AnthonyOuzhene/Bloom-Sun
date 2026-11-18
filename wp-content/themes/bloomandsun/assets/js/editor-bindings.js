@@ -35,7 +35,7 @@
 			name: name,
 			label: label,
 			getValues: function ( context ) {
-				var values = {};
+				let values = {};
 				Object.keys( context.bindings ).forEach( function ( attribute ) {
 					values[ attribute ] = resolve( context.bindings[ attribute ].args || {} );
 				} );
@@ -53,6 +53,10 @@
 
 	source( 'bloomandsun/home', 'Page d\'accueil', function ( args ) {
 		return data.home[ args.key ] || '';
+	} );
+
+	source( 'bloomandsun/event', 'Événement', function ( args ) {
+		return ( data.event && data.event[ args.key ] ) || '';
 	} );
 
 	source( 'bloomandsun/links', 'Liens du site', resolveLink );

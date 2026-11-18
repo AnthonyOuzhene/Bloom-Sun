@@ -100,6 +100,7 @@
 		{ "name": "reassurance",  "title": "Réassurance",                 "area": "uncategorized" },
 		{ "name": "store",        "title": "Accueil — Le magasin",        "area": "uncategorized" },
 		{ "name": "instagram",    "title": "Accueil — Instagram",         "area": "uncategorized" },
-		{ "name": "newsletter",   "title": "Newsletter",                  "area": "uncategorized" }
+		{ "name": "newsletter",   "title": "Newsletter",                  "area": "uncategorized" },
+		{ "name": "event",        "title": "Événement (pastille et panneau)", "area": "uncategorized" }
 	]
 }

@@ -36,6 +36,42 @@
 	mask: var(--bs-icon-sun) center / contain no-repeat;
 }
 
+/* Événement annoncé : première ligne du bandeau, ouvre le panneau (inc/events.php)
+   -------------------------------------------------------------------------- */
+.bs-announce__event .wp-block-button__link {
+	display: inline-flex;
+	align-items: center;
+	gap: 8px;
+	padding: 0;
+	background: none;
+	color: var(--bs-sapin);
+	font-size: 13px;
+	font-weight: 600;
+	text-decoration: underline;
+	text-underline-offset: 3px;
+	text-decoration-thickness: 1px;
+}
+
+.bs-announce__event .wp-block-button__link::before {
+	content: "";
+	flex: none;
+	width: 7px;
+	height: 7px;
+	border-radius: 50%;
+	background: var(--bs-sapin);
+	box-shadow: 0 0 0 3px rgba(47, 74, 62, 0.18);
+}
+
+.bs-announce__event .wp-block-button__link:hover {
+	background: none;
+	color: var(--bs-terracotta);
+}
+
+/* Avec un événement annoncé, un message habituel cède sa place */
+.bs-announce:has(.bs-announce__event) .bs-announce__item--secondary {
+	display: none;
+}
+
 /* En-tête : menu | logo | menu + icônes
    -------------------------------------------------------------------------- */
 .bs-header__inner {
@@ -254,7 +290,8 @@
 		width: 108px;
 	}
 
-	.bs-announce__item:not(:first-child) {
+	.bs-announce__item:not(:first-child),
+	.bs-announce:has(.bs-announce__event) .bs-announce__item {
 		display: none;
 	}
 }

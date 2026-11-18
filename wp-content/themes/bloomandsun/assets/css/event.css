@@ -1,0 +1,346 @@
+/* ==========================================================================
+   Bloom & Sun — événement : pastille et panneau (parts/event.html)
+   La ligne d'annonce (avant l'événement) est stylée dans header.css.
+   Chargé uniquement quand un événement est annoncé ou en cours.
+   ========================================================================== */
+
+.bs-event > *,
+.bs-event .wp-block-group > * {
+	margin-block: 0;
+}
+
+/* Pastille : accrochée au bord droit
+   -------------------------------------------------------------------------- */
+.bs-event-pill {
+	position: fixed;
+	right: 0;
+	top: 42%;
+	z-index: 900;
+	display: flex;
+	align-items: center;
+	gap: 12px;
+	padding: 10px 20px 10px 10px;
+	border-radius: 999px 0 0 999px;
+	background: var(--bs-terracotta);
+	color: var(--bs-cream);
+	box-shadow: 0 14px 30px -12px rgba(58, 46, 43, 0.45);
+	transition: transform 0.2s ease;
+}
+
+.bs-event-pill:hover {
+	transform: translateX(-4px);
+}
+
+.bs-event-pill__image {
+	position: relative;
+	flex: none;
+	width: 52px;
+	height: 52px;
+	margin: 0;
+}
+
+.bs-event-pill__image img {
+	width: 100%;
+	height: 100%;
+	border: 2px solid var(--bs-cream);
+	border-radius: 50%;
+	object-fit: cover;
+}
+
+/* Point vert « en direct » */
+.bs-event-pill__image::after {
+	content: "";
+	position: absolute;
+	right: -2px;
+	top: -2px;
+	width: 13px;
+	height: 13px;
+	border: 2px solid var(--bs-terracotta);
+	border-radius: 50%;
+	background: #8FD19E;
+}
+
+.bs-event-pill__kicker {
+	font-size: 11px;
+	font-weight: 600;
+	letter-spacing: 0.16em;
+	text-transform: uppercase;
+	color: #E8D3A9;
+}
+
+/* Le lien (titre) couvre toute la pastille */
+.bs-event-pill__link .wp-block-button__link {
+	padding: 0;
+	background: none;
+	color: var(--bs-cream);
+	font-family: var(--bs-font-title);
+	font-size: 1.15rem;
+	font-weight: 400;
+	line-height: 1.15;
+	text-align: left;
+}
+
+.bs-event-pill__link .wp-block-button__link::before {
+	content: "";
+	position: absolute;
+	inset: 0;
+	border-radius: inherit;
+}
+
+.bs-event-pill__link .wp-block-button__link:hover {
+	background: none;
+}
+
+/* Voile et panneau
+   -------------------------------------------------------------------------- */
+.bs-event-veil {
+	position: fixed;
+	inset: 0;
+	z-index: 1000;
+	background: rgba(58, 46, 43, 0.4);
+	opacity: 0;
+	transition: opacity 0.3s ease;
+}
+
+.bs-event-veil.is-open {
+	opacity: 1;
+}
+
+.bs-event-drawer {
+	position: fixed;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	z-index: 1001;
+	width: min(470px, 100%);
+	overflow-y: auto;
+	border-radius: 28px 0 0 28px;
+	background: var(--bs-cream);
+	box-shadow: -20px 0 60px rgba(58, 46, 43, 0.25);
+	transform: translateX(105%);
+	transition: transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.bs-event-drawer.is-open {
+	transform: none;
+}
+
+.bs-event-open {
+	overflow: hidden; /* pas de défilement de la page derrière le panneau */
+}
+
+.bs-event-drawer__close {
+	position: absolute;
+	top: 18px;
+	right: 18px;
+	z-index: 2;
+	width: 42px;
+	height: 42px;
+	padding: 0;
+	border: 0;
+	border-radius: 50%;
+	background: var(--bs-cream);
+	cursor: pointer;
+}
+
+.bs-event-drawer__close::before,
+.bs-event-drawer__close::after {
+	content: "";
+	position: absolute;
+	left: 13px;
+	top: 20px;
+	width: 16px;
+	height: 1.5px;
+	background: var(--bs-ink);
+	transform: rotate(45deg);
+}
+
+.bs-event-drawer__close::after {
+	transform: rotate(-45deg);
+}
+
+/* Photos : 1 grande + 2 petites (s'adapte à 1 ou 2 photos) */
+.bs-event-gallery {
+	display: grid;
+	grid-template-columns: 2fr 1fr;
+	grid-auto-rows: 1fr;
+	gap: 6px;
+	height: 300px;
+	padding: 6px 6px 0;
+}
+
+.bs-event-gallery figure {
+	margin: 0;
+	overflow: hidden;
+	border-radius: 6px;
+}
+
+.bs-event-gallery figure:first-child {
+	grid-row: span 2;
+	border-top-left-radius: 22px;
+}
+
+.bs-event-gallery figure:only-child {
+	grid-column: 1 / -1;
+	border-top-right-radius: 0;
+}
+
+.bs-event-gallery figure:first-child:nth-last-child(2) ~ figure {
+	grid-row: span 2;
+}
+
+.bs-event-gallery img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+/* Contenu */
+.bs-event-drawer__body {
+	display: flex;
+	flex-direction: column;
+	gap: 16px;
+	padding: 26px 32px 32px;
+}
+
+.bs-event-chips {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 8px;
+}
+
+.bs-event-chip {
+	padding: 6px 13px;
+	border-radius: 999px;
+	background: var(--bs-blush);
+	color: var(--bs-terracotta);
+	font-size: 13px;
+	font-weight: 500;
+}
+
+.bs-event-chip--status {
+	display: inline-flex;
+	align-items: center;
+	gap: 7px;
+	background: var(--bs-sapin-light);
+	color: var(--bs-sapin);
+}
+
+.bs-event-chip--status::before {
+	content: "";
+	width: 7px;
+	height: 7px;
+	border-radius: 50%;
+	background: var(--bs-sapin);
+}
+
+.bs-event-drawer__title {
+	font-size: 2.3rem;
+}
+
+.bs-event-artist {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: space-between;
+	gap: 12px;
+	padding: 14px 16px;
+	border-radius: 18px;
+	background: var(--bs-white);
+}
+
+.bs-event-artist__label {
+	font-size: 12px;
+	color: var(--bs-ink-soft);
+}
+
+.bs-event-artist__name {
+	font-family: var(--bs-font-title);
+	font-size: 1.25rem;
+}
+
+.bs-event-artist__links {
+	gap: 6px;
+}
+
+.bs-event-artist__links .wp-block-button__link {
+	padding: 7px 13px;
+	font-size: 13px;
+}
+
+/* Quand / Horaires / Où */
+.bs-event-when {
+	display: grid;
+	grid-template-columns: auto 1fr;
+	gap: 8px 16px;
+	padding: 16px 18px;
+	border-radius: 18px;
+	background: var(--bs-sapin);
+	color: var(--bs-cream);
+	font-size: 15px;
+}
+
+.bs-event-when__label {
+	color: rgba(251, 247, 242, 0.65);
+}
+
+.bs-event-drawer__desc {
+	color: var(--bs-ink-soft);
+	font-size: 15px;
+}
+
+/* Responsive : pastille ronde en bas à droite, panneau plein écran
+   -------------------------------------------------------------------------- */
+@media (max-width: 600px) {
+	.bs-event-pill {
+		top: auto;
+		bottom: 22px;
+		right: 14px;
+		padding: 6px;
+		border-radius: 999px;
+	}
+
+	.bs-event-pill__image {
+		width: 54px;
+		height: 54px;
+	}
+
+	/* Le texte reste lisible par les lecteurs d'écran */
+	.bs-event-pill__text {
+		position: absolute;
+		inset: 0;
+	}
+
+	.bs-event-pill__kicker {
+		display: none;
+	}
+
+	.bs-event-pill__link .wp-block-button__link {
+		font-size: 0;
+	}
+
+	.bs-event-drawer {
+		width: 100%;
+		border-radius: 0;
+	}
+
+	.bs-event-gallery {
+		height: 230px;
+	}
+
+	.bs-event-drawer__body {
+		padding: 20px 20px 24px;
+	}
+
+	.bs-event-drawer__title {
+		font-size: 1.8rem;
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.bs-event-drawer,
+	.bs-event-veil,
+	.bs-event-pill {
+		transition: none;
+	}
+}

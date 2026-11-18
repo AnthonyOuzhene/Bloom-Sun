@@ -17,6 +17,7 @@ const BLOOMANDSUN_SECTION_STYLES = [
 	'bs-instagram'   => 'home/instagram',
 	'bs-newsletter'  => 'home/newsletter',
 	'bs-contact'     => 'pages/contact',
+	'bs-event'       => 'event',
 ];
 
 /**

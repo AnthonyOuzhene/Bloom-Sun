@@ -16,5 +16,6 @@ require_once __DIR__ . '/inc/settings.php';    // moteur des pages de réglages 
 require_once __DIR__ . '/inc/store.php';       // menu « Infos du magasin »
 require_once __DIR__ . '/inc/home.php';        // menu « Page d'accueil » (idées cadeaux, collections)
 require_once __DIR__ . '/inc/products.php';    // fiche produit : case « Idée cadeau »
+require_once __DIR__ . '/inc/events.php';      // événements : contenu, champs, pastille et panneau
 require_once __DIR__ . '/inc/bindings.php';    // données injectées dans les gabarits
 require_once __DIR__ . '/inc/editor.php';      // éditeurs et extensions
