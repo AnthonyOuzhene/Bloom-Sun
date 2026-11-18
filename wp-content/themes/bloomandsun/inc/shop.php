@@ -38,3 +38,19 @@ add_filter( 'woocommerce_breadcrumb_defaults', function ( array $defaults ): arr
 
 // Nombre de produits par ligne et par page sur les pages catégorie (cohérent avec le gabarit).
 add_filter( 'loop_shop_per_page', fn() => 12 );
+
+// Icône « Mon compte » de l'en-tête : toujours le pictogramme au trait, jamais la photo de profil
+// (WooCommerce affiche l'avatar Gravatar, un rond gris, quand on est connecté).
+add_filter( 'pre_render_block', function ( $pre, array $block ) {
+	if ( 'woocommerce/customer-account' === $block['blockName'] ) {
+		add_filter( 'pre_get_avatar', '__return_empty_string' );
+	}
+
+	return $pre;
+}, 10, 2 );
+
+add_filter( 'render_block_woocommerce/customer-account', function ( string $html ): string {
+	remove_filter( 'pre_get_avatar', '__return_empty_string' );
+
+	return $html;
+} );

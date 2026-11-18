@@ -24,27 +24,13 @@
 <div class="wp-block-group bs-header">
 	<!-- wp:group {"className":"bs-container bs-header__inner","layout":{"type":"default"}} -->
 	<div class="wp-block-group bs-container bs-header__inner">
-		<!-- wp:navigation {"className":"bs-nav bs-nav--left","overlayMenu":"never","layout":{"type":"flex","justifyContent":"left"}} -->
-			<!-- wp:navigation-link {"label":"Nouveautés","url":"/boutique/?orderby=date","kind":"custom","isTopLevelLink":true,"metadata":{"bindings":{"url":{"source":"bloomandsun/links","args":{"key":"new"}}}}} /-->
-			<!-- wp:navigation-link {"label":"Vêtements","url":"/boutique/","kind":"custom","isTopLevelLink":true,"metadata":{"bindings":{"url":{"source":"bloomandsun/links","args":{"key":"category","slug":"vetements"}}}}} /-->
-			<!-- wp:navigation-link {"label":"Accessoires","url":"/boutique/","kind":"custom","isTopLevelLink":true,"metadata":{"bindings":{"url":{"source":"bloomandsun/links","args":{"key":"category","slug":"accessoires"}}}}} /-->
-		<!-- /wp:navigation -->
-
-		<!-- wp:navigation {"className":"bs-nav-mobile","overlayMenu":"always","layout":{"type":"flex","orientation":"vertical"}} -->
-			<!-- wp:navigation-link {"label":"Nouveautés","url":"/boutique/?orderby=date","kind":"custom","isTopLevelLink":true,"metadata":{"bindings":{"url":{"source":"bloomandsun/links","args":{"key":"new"}}}}} /-->
-			<!-- wp:navigation-link {"label":"Vêtements","url":"/boutique/","kind":"custom","isTopLevelLink":true,"metadata":{"bindings":{"url":{"source":"bloomandsun/links","args":{"key":"category","slug":"vetements"}}}}} /-->
-			<!-- wp:navigation-link {"label":"Accessoires","url":"/boutique/","kind":"custom","isTopLevelLink":true,"metadata":{"bindings":{"url":{"source":"bloomandsun/links","args":{"key":"category","slug":"accessoires"}}}}} /-->
-			<!-- wp:navigation-link {"label":"Le magasin","url":"/le-magasin/","kind":"custom","isTopLevelLink":true,"metadata":{"bindings":{"url":{"source":"bloomandsun/links","args":{"key":"page","slug":"le-magasin"}}}}} /-->
-			<!-- wp:navigation-link {"label":"Contact","url":"/contact/","kind":"custom","isTopLevelLink":true,"metadata":{"bindings":{"url":{"source":"bloomandsun/links","args":{"key":"page","slug":"contact"}}}}} /-->
-		<!-- /wp:navigation -->
-
-		<!-- wp:image {"sizeSlug":"full","linkDestination":"custom","className":"bs-logo bs-header__logo","metadata":{"bindings":{"url":{"source":"bloomandsun/links","args":{"key":"logo"}}}}} -->
-		<figure class="wp-block-image size-full bs-logo bs-header__logo"><a href="/"><img src="/wp-content/themes/bloomandsun/assets/images/logo.svg" alt="Bloom &amp; Sun, concept store — accueil"/></a></figure>
-		<!-- /wp:image -->
-
-		<!-- wp:group {"className":"bs-header__right","layout":{"type":"default"}} -->
-		<div class="wp-block-group bs-header__right">
-			<!-- wp:navigation {"className":"bs-nav bs-nav--right","overlayMenu":"never","layout":{"type":"flex","justifyContent":"right"}} -->
+		<!-- wp:group {"className":"bs-header__side bs-header__side--left","layout":{"type":"default"}} -->
+		<div class="wp-block-group bs-header__side bs-header__side--left">
+			<!-- wp:navigation {"className":"bs-nav-mobile","overlayMenu":"always","layout":{"type":"flex","orientation":"vertical"}} -->
+				<!-- wp:navigation-link {"label":"Nouveautés","url":"/boutique/?orderby=date","kind":"custom","isTopLevelLink":true,"metadata":{"bindings":{"url":{"source":"bloomandsun/links","args":{"key":"new"}}}}} /-->
+				<!-- wp:navigation-link {"label":"Vêtements","url":"/boutique/","kind":"custom","isTopLevelLink":true,"metadata":{"bindings":{"url":{"source":"bloomandsun/links","args":{"key":"category","slug":"vetements"}}}}} /-->
+				<!-- wp:navigation-link {"label":"Accessoires","url":"/boutique/","kind":"custom","isTopLevelLink":true,"metadata":{"bindings":{"url":{"source":"bloomandsun/links","args":{"key":"category","slug":"accessoires"}}}}} /-->
+				<!-- wp:navigation-link {"label":"Idées cadeaux","url":"/etiquette/idee-cadeau/","kind":"custom","isTopLevelLink":true,"metadata":{"bindings":{"url":{"source":"bloomandsun/links","args":{"key":"tag","slug":"idee-cadeau"}}}}} /-->
 				<!-- wp:navigation-link {"label":"Le magasin","url":"/le-magasin/","kind":"custom","isTopLevelLink":true,"metadata":{"bindings":{"url":{"source":"bloomandsun/links","args":{"key":"page","slug":"le-magasin"}}}}} /-->
 				<!-- wp:navigation-link {"label":"Contact","url":"/contact/","kind":"custom","isTopLevelLink":true,"metadata":{"bindings":{"url":{"source":"bloomandsun/links","args":{"key":"page","slug":"contact"}}}}} /-->
 			<!-- /wp:navigation -->
@@ -53,11 +39,35 @@
 			<div class="wp-block-group bs-header__icons">
 				<!-- wp:search {"label":"Rechercher","showLabel":false,"placeholder":"Rechercher un produit","buttonText":"Rechercher","buttonPosition":"button-only","buttonUseIcon":true,"isSearchFieldHidden":true,"query":{"post_type":"product"},"className":"bs-search"} /-->
 
-				<!-- wp:woocommerce/customer-account {"displayStyle":"icon_only","iconStyle":"line"} /-->
-
 				<!-- wp:paragraph {"className":"bs-wishlist"} -->
 				<p class="bs-wishlist"><a class="bs-icon-link" href="/wishlist/" aria-label="Liste d'envies"></a></p>
 				<!-- /wp:paragraph -->
+			</div>
+			<!-- /wp:group -->
+
+			<!-- wp:navigation {"className":"bs-nav bs-nav--left","overlayMenu":"never","layout":{"type":"flex","justifyContent":"left"}} -->
+				<!-- wp:navigation-link {"label":"Nouveautés","url":"/boutique/?orderby=date","kind":"custom","isTopLevelLink":true,"metadata":{"bindings":{"url":{"source":"bloomandsun/links","args":{"key":"new"}}}}} /-->
+				<!-- wp:navigation-link {"label":"Vêtements","url":"/boutique/","kind":"custom","isTopLevelLink":true,"metadata":{"bindings":{"url":{"source":"bloomandsun/links","args":{"key":"category","slug":"vetements"}}}}} /-->
+				<!-- wp:navigation-link {"label":"Accessoires","url":"/boutique/","kind":"custom","isTopLevelLink":true,"metadata":{"bindings":{"url":{"source":"bloomandsun/links","args":{"key":"category","slug":"accessoires"}}}}} /-->
+			<!-- /wp:navigation -->
+		</div>
+		<!-- /wp:group -->
+
+		<!-- wp:image {"sizeSlug":"full","linkDestination":"custom","className":"bs-logo bs-header__logo","metadata":{"bindings":{"url":{"source":"bloomandsun/links","args":{"key":"logo"}}}}} -->
+		<figure class="wp-block-image size-full bs-logo bs-header__logo"><a href="/"><img src="/wp-content/themes/bloomandsun/assets/images/logo.svg" alt="Bloom &amp; Sun, concept store — accueil"/></a></figure>
+		<!-- /wp:image -->
+
+		<!-- wp:group {"className":"bs-header__side bs-header__side--right","layout":{"type":"default"}} -->
+		<div class="wp-block-group bs-header__side bs-header__side--right">
+			<!-- wp:navigation {"className":"bs-nav bs-nav--right","overlayMenu":"never","layout":{"type":"flex","justifyContent":"right"}} -->
+				<!-- wp:navigation-link {"label":"Idées cadeaux","url":"/etiquette/idee-cadeau/","kind":"custom","isTopLevelLink":true,"metadata":{"bindings":{"url":{"source":"bloomandsun/links","args":{"key":"tag","slug":"idee-cadeau"}}}}} /-->
+				<!-- wp:navigation-link {"label":"Le magasin","url":"/le-magasin/","kind":"custom","isTopLevelLink":true,"metadata":{"bindings":{"url":{"source":"bloomandsun/links","args":{"key":"page","slug":"le-magasin"}}}}} /-->
+				<!-- wp:navigation-link {"label":"Contact","url":"/contact/","kind":"custom","isTopLevelLink":true,"metadata":{"bindings":{"url":{"source":"bloomandsun/links","args":{"key":"page","slug":"contact"}}}}} /-->
+			<!-- /wp:navigation -->
+
+			<!-- wp:group {"className":"bs-header__icons","layout":{"type":"default"}} -->
+			<div class="wp-block-group bs-header__icons">
+				<!-- wp:woocommerce/customer-account {"displayStyle":"icon_only","iconStyle":"line"} /-->
 
 				<!-- wp:woocommerce/mini-cart {"miniCartIcon":"bag"} /-->
 			</div>

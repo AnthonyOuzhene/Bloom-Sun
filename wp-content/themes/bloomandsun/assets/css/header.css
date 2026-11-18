@@ -72,13 +72,15 @@
 	display: none;
 }
 
-/* En-tête : menu | logo | menu + icônes
+/* En-tête en miroir : icônes | menu | logo | menu | icônes
+   Les deux menus sont collés au logo, les icônes aux bords (recherche + envies à gauche,
+   compte + panier à droite).
    -------------------------------------------------------------------------- */
 .bs-header__inner {
 	display: grid;
-	grid-template-columns: 1fr auto 1fr;
+	grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
 	align-items: center;
-	gap: 24px;
+	gap: clamp(28px, 3.5vw, 56px);
 	padding-block: 24px 20px;
 }
 
@@ -100,7 +102,7 @@
 /* Menus : petites capitales espacées */
 .bs-header .bs-nav,
 .bs-header .bs-nav .wp-block-navigation__container {
-	gap: clamp(18px, 2.6vw, 40px);
+	gap: clamp(28px, 3vw, 48px);
 }
 
 .bs-header .bs-nav a {
@@ -108,9 +110,10 @@
 	border-bottom: 1px solid transparent;
 	font-size: 12px;
 	font-weight: 500;
-	letter-spacing: 0.24em;
+	letter-spacing: 0.2em;
 	text-transform: uppercase;
 	text-decoration: none;
+	white-space: nowrap;
 }
 
 .bs-header .bs-nav a:hover,
@@ -119,11 +122,18 @@
 	border-bottom-color: var(--bs-sapin);
 }
 
-.bs-header__right {
+.bs-header__side {
 	display: flex;
-	justify-content: flex-end;
 	align-items: center;
-	gap: clamp(18px, 2.6vw, 40px);
+	gap: 24px;
+}
+
+.bs-header__side--left .bs-nav {
+	margin-left: auto;
+}
+
+.bs-header__side--right .bs-header__icons {
+	margin-left: auto;
 }
 
 /* Menu mobile : masqué sur ordinateur */
@@ -136,9 +146,7 @@
 .bs-header__icons {
 	display: flex;
 	align-items: center;
-	gap: 18px;
-	padding-left: 26px;
-	border-left: 1px solid var(--bs-line);
+	gap: 22px;
 }
 
 .bs-header__icons svg {
@@ -236,12 +244,42 @@
 	height: 22px;
 }
 
-/* Responsive : un seul menu « hamburger » à gauche
+/* Responsive : menus resserrés sur les écrans de portable
    -------------------------------------------------------------------------- */
-@media (max-width: 960px) {
+@media (max-width: 1400px) {
+	.bs-header .bs-nav,
+	.bs-header .bs-nav .wp-block-navigation__container {
+		gap: 28px;
+	}
+
+	.bs-header .bs-nav a {
+		font-size: 11px;
+		letter-spacing: 0.14em;
+	}
+
+	.bs-header__icons {
+		gap: 18px;
+	}
+}
+
+@media (max-width: 1240px) {
+	.bs-header .bs-nav,
+	.bs-header .bs-nav .wp-block-navigation__container {
+		gap: 20px;
+	}
+}
+
+/* Responsive : un seul menu « hamburger » à gauche
+   (sous 1100px, 3 liens + 2 icônes ne tiennent plus de chaque côté du logo)
+   -------------------------------------------------------------------------- */
+@media (max-width: 1100px) {
 	.bs-header__inner {
-		grid-template-columns: 1fr auto 1fr;
+		gap: 16px;
 		padding-block: 16px;
+	}
+
+	.bs-header__side {
+		gap: 18px;
 	}
 
 	.bs-header .bs-nav {
@@ -250,12 +288,6 @@
 
 	.bs-header .bs-nav-mobile {
 		display: flex;
-		justify-self: start;
-	}
-
-	.bs-header__icons {
-		padding-left: 0;
-		border-left: 0;
 	}
 
 	.bs-logo img {
