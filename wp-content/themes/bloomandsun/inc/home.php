@@ -137,7 +137,7 @@ add_filter( 'render_block', function ( string $html, array $block ): string {
 			return '';
 		}
 
-		wp_enqueue_script( 'bloomandsun-gifts', get_theme_file_uri( 'assets/js/gifts-carousel.js' ), [], bloomandsun_file_version( 'assets/js/gifts-carousel.js' ), [ 'in_footer' => true, 'strategy' => 'defer' ] );
+		bloomandsun_enqueue_carousel();
 
 		$tags = new WP_HTML_Tag_Processor( $html );
 		if ( $tags->next_tag() ) {

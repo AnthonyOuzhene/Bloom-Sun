@@ -4,6 +4,7 @@
  * une valeur, ce fichier la fournit. Aucun HTML ici, uniquement des données.
  *
  * Sources : « bloomandsun/store » (Infos du magasin), « bloomandsun/home » (Page d'accueil),
+ * « bloomandsun/event » (événement en cours), « bloomandsun/instagram » (dernières publications),
  * « bloomandsun/links » (liens vers la boutique, les catégories, les étiquettes, les pages).
  *
  * Exemples dans un gabarit :
@@ -84,6 +85,11 @@ add_action( 'init', function () {
 		'get_value_callback' => static fn( array $args ): string => bloomandsun_event( (string) ( $args['key'] ?? '' ) ),
 	] );
 
+	register_block_bindings_source( 'bloomandsun/instagram', [
+		'label'              => 'Instagram',
+		'get_value_callback' => static fn( array $args ): string => bloomandsun_instagram( $args ),
+	] );
+
 	register_block_bindings_source( 'bloomandsun/links', [
 		'label'              => 'Liens du site',
 		'get_value_callback' => static fn( array $args ): string => bloomandsun_link( $args ),
@@ -95,10 +101,11 @@ add_action( 'init', function () {
  */
 function bloomandsun_bindings_editor_data(): array {
 	return [
-		'store' => bloomandsun_store_all(),
-		'home'  => bloomandsun_home_all(),
-		'event' => bloomandsun_event_editor_data(),
-		'links' => [
+		'store'     => bloomandsun_store_all(),
+		'home'      => bloomandsun_home_all(),
+		'event'     => bloomandsun_event_editor_data(),
+		'instagram' => bloomandsun_instagram_editor_data(),
+		'links'     => [
 			'shop'       => bloomandsun_link( [ 'key' => 'shop' ] ),
 			'new'        => bloomandsun_link( [ 'key' => 'new' ] ),
 			'logo'       => bloomandsun_link( [ 'key' => 'logo' ] ),

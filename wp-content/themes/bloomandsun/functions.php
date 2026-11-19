@@ -19,5 +19,6 @@ require_once __DIR__ . '/inc/products.php';    // fiche produit : case « Idée 
 require_once __DIR__ . '/inc/shop.php';        // pages boutique : filtres, fil d'Ariane
 require_once __DIR__ . '/inc/events.php';      // événements : contenu, champs, pastille et panneau
 require_once __DIR__ . '/inc/wishlist.php';    // liste d'envies : cookie, page, cœurs
+require_once __DIR__ . '/inc/instagram.php';   // menu « Instagram » : dernières publications de l'accueil
 require_once __DIR__ . '/inc/bindings.php';    // données injectées dans les gabarits
 require_once __DIR__ . '/inc/editor.php';      // éditeurs et extensions

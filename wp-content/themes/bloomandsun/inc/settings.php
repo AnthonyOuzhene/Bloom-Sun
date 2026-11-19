@@ -10,13 +10,22 @@
  *     'icon'     => 'dashicons-store',        icône du menu
  *     'position' => 58,                       position dans le menu
  *     'intro'    => '…',                      texte d'introduction
+ *     'capability' => 'manage_options',      droit requis (facultatif, BLOOMANDSUN_SETTINGS_CAP par défaut)
  *     'fields'   => [ clé => champ ],
  *   ]
- * Champ : [ 'section', 'label', 'type' (text|textarea|url|checkbox|select), 'default', 'help', 'options' ]
+ * Champ : [ 'section', 'label', 'type' (text|textarea|url|password|checkbox|select), 'default', 'help', 'options' ]
+ * « help » : texte, ou fonction anonyme qui le renvoie (calculé à l'affichage, ex. un état de connexion).
  * « options » (listes) : tableau valeur => libellé, ou nom de fonction qui le renvoie.
  *
- * Affichage : views/admin/settings.php. Droit requis : BLOOMANDSUN_SETTINGS_CAP (inc/permissions.php).
+ * Affichage : views/admin/settings.php. Droit requis par défaut : BLOOMANDSUN_SETTINGS_CAP (inc/permissions.php).
  */
+
+/**
+ * Droit requis pour voir et enregistrer une page de réglages.
+ */
+function bloomandsun_settings_capability( array $page ): string {
+	return $page['capability'] ?? BLOOMANDSUN_SETTINGS_CAP;
+}
 
 /**
  * Registre des pages déclarées.
@@ -95,7 +104,7 @@ function bloomandsun_settings_view_data( array $page ): array {
 			'label'   => $field['label'],
 			'type'    => $field['type'],
 			'value'   => bloomandsun_setting( $page['id'], $key ),
-			'help'    => $field['help'] ?? '',
+			'help'    => ( $field['help'] ?? '' ) instanceof Closure ? (string) $field['help']() : (string) ( $field['help'] ?? '' ),
 			'options' => 'select' === $field['type'] ? bloomandsun_setting_options( $field ) : [],
 		];
 	}
@@ -115,8 +124,9 @@ add_action( 'admin_init', function () {
 			'sanitize_callback' => static fn( $input ) => bloomandsun_settings_sanitize( $page, $input ),
 		] );
 
-		// Enregistrement via options.php : autorisé avec le droit du thème (pas besoin d'être super administrateur).
-		add_filter( "option_page_capability_{$page['option']}", static fn() => BLOOMANDSUN_SETTINGS_CAP );
+		// Enregistrement via options.php : autorisé avec le droit de la page (par défaut celui du thème,
+		// pas besoin d'être super administrateur).
+		add_filter( "option_page_capability_{$page['option']}", static fn() => bloomandsun_settings_capability( $page ) );
 	}
 } );
 
@@ -125,7 +135,7 @@ add_action( 'admin_menu', function () {
 		add_menu_page(
 			$page['title'],
 			$page['title'],
-			BLOOMANDSUN_SETTINGS_CAP,
+			bloomandsun_settings_capability( $page ),
 			"bloomandsun-{$page['id']}",
 			static fn() => bloomandsun_view( 'admin/settings', bloomandsun_settings_view_data( $page ) ),
 			$page['icon'] ?? 'dashicons-admin-generic',

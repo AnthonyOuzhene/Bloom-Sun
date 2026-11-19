@@ -90,6 +90,13 @@ add_filter( 'render_block', function ( string $html, array $block ): string {
 	return $html;
 }, 10, 2 );
 
+/**
+ * Flèches des carrousels (Idées cadeaux, Instagram) : à appeler pendant l'affichage d'une section qui en a.
+ */
+function bloomandsun_enqueue_carousel(): void {
+	wp_enqueue_script( 'bloomandsun-carousel', get_theme_file_uri( 'assets/js/carousel.js' ), [], bloomandsun_file_version( 'assets/js/carousel.js' ), [ 'in_footer' => true, 'strategy' => 'defer' ] );
+}
+
 // Site : CSS du thème après ceux de WordPress, pour qu'ils priment.
 add_action( 'wp_enqueue_scripts', function () {
 	wp_enqueue_style( 'bloomandsun-base' );

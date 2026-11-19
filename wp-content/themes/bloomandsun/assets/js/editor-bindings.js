@@ -61,5 +61,10 @@
 		return ( data.event && data.event[ args.key ] ) || '';
 	} );
 
+	source( 'bloomandsun/instagram', 'Instagram', function ( args ) {
+		let post = ( data.instagram || [] )[ ( args.index || 0 ) - 1 ];
+		return ( post && post[ args.key ] ) || '';
+	} );
+
 	source( 'bloomandsun/links', 'Liens du site', resolveLink );
 } )( window.wp, window.bloomandsunBindings );
