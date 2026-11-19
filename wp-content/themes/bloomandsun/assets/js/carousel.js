@@ -7,7 +7,7 @@
  * Chargé seulement quand une de ces sections est affichée (bloomandsun_enqueue_carousel(), inc/assets.php).
  *
  * Défilement continu : lent et sans fin (les vignettes sont recopiées à la suite, copies masquées
- * aux lecteurs d'écran). En pause au survol, au focus clavier, au toucher, après un clic sur une flèche,
+ * aux lecteurs d'écran). En pause au survol des vignettes, au focus clavier, au toucher, après un clic sur une flèche,
  * quand la section n'est pas à l'écran ; désactivé si le visiteur a demandé moins d'animations.
  */
 ( function () {
@@ -65,10 +65,11 @@
 
 		const pause = ( ms ) => { pausedUntil = Date.now() + ms; };
 
-		section.addEventListener( 'mouseenter', () => { hovered = true; } );
-		section.addEventListener( 'mouseleave', () => { hovered = false; } );
-		section.addEventListener( 'focusin', () => { hovered = true; } );
-		section.addEventListener( 'focusout', () => { hovered = false; } );
+		// Pause au survol des vignettes (ou quand l'une d'elles a le focus clavier)
+		rail.addEventListener( 'mouseenter', () => { hovered = true; } );
+		rail.addEventListener( 'mouseleave', () => { hovered = false; } );
+		rail.addEventListener( 'focusin', () => { hovered = true; } );
+		rail.addEventListener( 'focusout', () => { hovered = false; } );
 		rail.addEventListener( 'touchstart', () => pause( 6000 ), { passive: true } );
 		section.querySelectorAll( '[data-bs-scroll]' ).forEach( ( button ) => {
 			button.addEventListener( 'click', () => pause( 1500 ) );
