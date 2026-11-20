@@ -1,0 +1,268 @@
+/* ==========================================================================
+   Bloom & Sun — page « Le magasin » (templates/page-store.html + contenu de la page)
+   En-tête avec la vitrine, l'esprit de la boutique, l'univers en 3 cartes,
+   galerie en quinconce, encart vert sapin « Venez nous voir ».
+   La carte vert sapin, l'adresse et les horaires sont stylés dans base.css.
+   ========================================================================== */
+
+/* Photos : coins arrondis, image qui remplit son cadre */
+.bs-store-page__photo {
+	margin: 0;
+	overflow: hidden;
+	border-radius: var(--bs-r-xl);
+	background: var(--bs-sand);
+}
+
+.bs-store-page__photo img {
+	display: block;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+/* En-tête : texte à gauche, vitrine à droite
+   -------------------------------------------------------------------------- */
+.bs-store-page__hero-inner {
+	display: grid;
+	grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr);
+	align-items: center;
+	gap: clamp(32px, 5vw, 72px);
+	padding-top: clamp(16px, 3vw, 40px);
+}
+
+.bs-store-page__intro {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	gap: 18px;
+}
+
+.bs-store-page__intro > * {
+	margin: 0;
+}
+
+.bs-store-page__intro h1 {
+	font-size: clamp(2.6rem, 5vw, 4.4rem);
+}
+
+.bs-store-page__lead {
+	max-width: 52ch;
+	color: var(--bs-ink-soft);
+	font-size: 17px;
+}
+
+.bs-store-page__intro .bs-actions {
+	gap: 12px;
+	margin-top: 6px;
+}
+
+/* Vitrine en grand dans un filet doré ; détail en médaillon par-dessus, en bas à gauche */
+.bs-store-page__visual {
+	position: relative;
+	padding: 14px 14px clamp(40px, 6vw, 72px) clamp(28px, 4vw, 56px);
+}
+
+.bs-store-page__photo--main {
+	position: relative;
+	overflow: visible;
+	aspect-ratio: 4 / 3;
+	background: none;
+}
+
+.bs-store-page__photo--main img {
+	border-radius: var(--bs-r-xl);
+}
+
+/* Filet doré : même écart (14px) tout autour de la photo, coins concentriques */
+.bs-store-page__photo--main::before {
+	content: "";
+	position: absolute;
+	inset: -14px;
+	z-index: -1;
+	border: 1px solid var(--bs-gold);
+	border-radius: calc(var(--bs-r-xl) + 14px);
+}
+
+.bs-store-page__photo--small {
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	width: 46%;
+	aspect-ratio: 4 / 3;
+	border: 6px solid var(--bs-cream);
+	border-radius: var(--bs-r-lg);
+}
+
+/* L'esprit : photo en arche + texte
+   -------------------------------------------------------------------------- */
+.bs-store-page__story-inner {
+	display: grid;
+	grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+	align-items: center;
+	gap: clamp(32px, 6vw, 96px);
+}
+
+.bs-store-page__photo--arch {
+	aspect-ratio: 4 / 5;
+	border-radius: 400px 400px var(--bs-r-xl) var(--bs-r-xl);
+}
+
+.bs-store-page__text {
+	display: flex;
+	flex-direction: column;
+	gap: 18px;
+	max-width: 56ch;
+}
+
+.bs-store-page__text > * {
+	margin: 0;
+}
+
+.bs-store-page__text p {
+	color: var(--bs-ink-soft);
+	font-size: 17px;
+}
+
+/* L'univers : 3 cartes
+   -------------------------------------------------------------------------- */
+.bs-store-page__cards {
+	display: grid;
+	grid-template-columns: repeat(3, minmax(0, 1fr));
+	gap: 16px;
+}
+
+.bs-store-page__cards > *,
+.bs-store-page__photos > * {
+	margin-block: 0; /* annule l'espacement automatique de WordPress entre blocs */
+}
+
+.bs-store-page__card {
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+	padding: 28px;
+	border-radius: var(--bs-r-lg);
+	background: var(--bs-white);
+}
+
+.bs-store-page__card > * {
+	margin: 0;
+}
+
+.bs-store-page__card h3 {
+	font-size: 1.6rem;
+}
+
+.bs-store-page__card p {
+	color: var(--bs-ink-soft);
+}
+
+.bs-store-page__card-number {
+	color: var(--bs-terracotta);
+	font-family: var(--bs-font-title);
+	font-size: 1.4rem;
+	font-style: italic;
+}
+
+.bs-store-page__card .wp-block-buttons {
+	margin-top: auto;
+	padding-top: 8px;
+}
+
+/* Lien de la carte : texte souligné + flèche */
+.bs-store-page__card-link .wp-block-button__link {
+	display: inline-flex;
+	align-items: center;
+	gap: 8px;
+	padding: 0;
+	background: none;
+	color: var(--bs-ink);
+	font-size: 15px;
+	text-decoration: underline;
+	text-underline-offset: 4px;
+}
+
+.bs-store-page__card-link .wp-block-button__link::after {
+	content: "";
+	width: 16px;
+	height: 16px;
+	background: currentColor;
+	-webkit-mask: var(--bs-icon-arrow) center / contain no-repeat;
+	mask: var(--bs-icon-arrow) center / contain no-repeat;
+}
+
+.bs-store-page__card-link .wp-block-button__link:hover {
+	background: none;
+	color: var(--bs-terracotta);
+}
+
+/* Galerie : 3 photos, celle du milieu descend
+   -------------------------------------------------------------------------- */
+.bs-store-page__photos {
+	display: grid;
+	grid-template-columns: repeat(3, minmax(0, 1fr));
+	align-items: start;
+	gap: 16px;
+}
+
+.bs-store-page__photos .bs-store-page__photo {
+	aspect-ratio: 4 / 5;
+}
+
+.bs-store-page__photos .bs-store-page__photo:nth-child(2) {
+	margin-top: clamp(24px, 4vw, 56px);
+}
+
+/* Venez nous voir : carte vert sapin, adresse à gauche, horaires et boutons à droite
+   -------------------------------------------------------------------------- */
+.bs-store-page__visit-card {
+	display: grid;
+	grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+	align-items: center;
+	gap: clamp(24px, 4vw, 56px);
+}
+
+.bs-store-page__visit-text,
+.bs-store-page__visit-side {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	gap: 18px;
+}
+
+.bs-store-page__visit-text > *,
+.bs-store-page__visit-side > * {
+	margin: 0;
+}
+
+.bs-store-page__visit-side .bs-hours {
+	align-self: stretch;
+}
+
+/* Responsive
+   -------------------------------------------------------------------------- */
+@media (max-width: 960px) {
+	.bs-store-page__hero-inner,
+	.bs-store-page__story-inner,
+	.bs-store-page__visit-card {
+		grid-template-columns: minmax(0, 1fr);
+	}
+
+	.bs-store-page__photo--arch {
+		max-width: 440px;
+	}
+
+	.bs-store-page__cards {
+		grid-template-columns: minmax(0, 1fr);
+	}
+}
+
+@media (max-width: 600px) {
+	.bs-store-page__photos {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+	}
+
+	.bs-store-page__photos .bs-store-page__photo:nth-child(3) {
+		display: none; /* 2 photos sur mobile */
+	}
+}

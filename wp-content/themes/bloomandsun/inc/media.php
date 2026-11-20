@@ -7,7 +7,7 @@
  * - Les tailles générées par WordPress et WooCommerce (vignettes, galerie, -scaled…) sont en WebP.
  * - GIF et SVG ne sont pas touchés.
  *
- * Images déjà en base : scripts/medias-webp.php.
+ * Images déjà en base : scripts/media-webp.php.
  */
 
 const BLOOMANDSUN_WEBP_QUALITY = 82;

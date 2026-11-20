@@ -104,5 +104,9 @@
 		{ "name": "home/instagram",      "title": "Accueil — Instagram",               "area": "uncategorized" },
 		{ "name": "home/newsletter",     "title": "Newsletter",                        "area": "uncategorized" },
 		{ "name": "layout/event",        "title": "Événement (pastille et panneau)",   "area": "uncategorized" }
+	],
+	"customTemplates": [
+		{ "name": "page-store",    "title": "Le magasin",      "postTypes": [ "page" ] },
+		{ "name": "page-wishlist", "title": "Liste d'envies",  "postTypes": [ "page" ] }
 	]
 }

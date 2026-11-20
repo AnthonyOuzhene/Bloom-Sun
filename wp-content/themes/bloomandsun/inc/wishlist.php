@@ -4,7 +4,8 @@
  *
  * - La liste est un cookie « bs_wishlist » : identifiants de produits séparés par des virgules,
  *   le plus récent en premier. Il est écrit par assets/js/wishlist.js.
- * - Affichage : templates/page-liste-d-envies.html (collection de produits « bs-wishlist-products »)
+ * - Affichage : templates/page-wishlist.html, modèle de la page /liste-d-envies/
+ *   (collection de produits « bs-wishlist-products »)
  *   et le modèle du bouton cœur dans parts/layout/header.html.
  * - Ici : lecture du cookie, choix des produits de la page, chargement du JS et du CSS.
  */

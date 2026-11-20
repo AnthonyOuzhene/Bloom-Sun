@@ -17,6 +17,7 @@ const BLOOMANDSUN_SECTION_STYLES = [
 	'bs-instagram'   => 'home/instagram',
 	'bs-newsletter'  => 'home/newsletter',
 	'bs-contact'     => 'pages/contact',
+	'bs-store-page'  => 'pages/store',
 	'bs-shop'        => 'shop/archive',
 	'bs-product-page' => 'shop/product',
 	'bs-cart'        => 'shop/cart',

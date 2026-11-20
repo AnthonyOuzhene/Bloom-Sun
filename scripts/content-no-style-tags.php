@@ -4,7 +4,7 @@
  * - titres de la page Contact : <em> → <span class="bs-accent">
  * - page Panier : bloc « Espacement » de WooCommerce (style="height:40px") retiré
  *
- * ddev wp eval-file scripts/contenus-sans-style.php   (peut être relancé sans risque)
+ * ddev wp eval-file scripts/content-no-style-tags.php   (peut être relancé sans risque)
  */
 $pages = [
 	'contact' => static fn( string $c ): string => preg_replace(

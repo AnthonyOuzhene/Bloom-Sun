@@ -7,7 +7,7 @@
  * anciens fichiers supprimés. Les produits, événements et pages qui l'utilisent gardent
  * le même média (même identifiant) : rien à refaire de ce côté.
  *
- * ddev wp eval-file scripts/medias-webp.php   (peut être relancé : ne traite que ce qui reste en JPG/PNG)
+ * ddev wp eval-file scripts/media-webp.php   (peut être relancé : ne traite que ce qui reste en JPG/PNG)
  */
 require_once ABSPATH . 'wp-admin/includes/image.php';
 

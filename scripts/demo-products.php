@@ -6,8 +6,8 @@
  * variations de taille et de couleur, une promotion et des « Idées cadeaux ».
  * Tous les produits et photos créés portent la marque _bs_demo : ils se suppriment d'un coup.
  *
- * Créer :     ddev wp eval-file scripts/demo-produits.php
- * Supprimer : ddev wp eval-file scripts/demo-produits.php supprimer
+ * Créer :     ddev wp eval-file scripts/demo-products.php
+ * Supprimer : ddev wp eval-file scripts/demo-products.php supprimer
  *
  * À NE PAS lancer en production.
  */
@@ -49,7 +49,7 @@ if ( in_array( 'supprimer', $args ?? [], true ) ) {
 }
 
 if ( $demo_ids( 'product' ) ) {
-	WP_CLI::error( 'Des produits de démonstration existent déjà. Supprime-les d\'abord : ddev wp eval-file scripts/demo-produits.php supprimer' );
+	WP_CLI::error( 'Des produits de démonstration existent déjà. Supprime-les d\'abord : ddev wp eval-file scripts/demo-products.php supprimer' );
 }
 
 /*
@@ -195,4 +195,4 @@ foreach ( $products as $i => [ $name, $cat, $price, $sale, $photos, $sizes, $col
 }
 
 wc_delete_product_transients();
-WP_CLI::success( "$created produits de démonstration créés. Pour les supprimer : ddev wp eval-file scripts/demo-produits.php supprimer" );
+WP_CLI::success( "$created produits de démonstration créés. Pour les supprimer : ddev wp eval-file scripts/demo-products.php supprimer" );

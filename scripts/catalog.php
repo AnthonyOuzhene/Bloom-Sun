@@ -10,8 +10,8 @@
  * Peut être relancé sans risque : ce qui existe déjà est réutilisé.
  * Les anciennes catégories ne sont supprimées que si elles ne contiennent aucun produit.
  *
- * Lancement :   ddev wp eval-file scripts/catalogue.php
- * Production :  wp eval-file scripts/catalogue.php
+ * Lancement :   ddev wp eval-file scripts/catalog.php
+ * Production :  wp eval-file scripts/catalog.php
  */
 
 if ( ! defined( 'WP_CLI' ) || ! function_exists( 'wc_create_attribute' ) ) {
