@@ -152,7 +152,7 @@ function bloomandsun_instagram_dir(): string {
 }
 
 /**
- * Copie une photo d'Instagram sur le site, au format portrait d'Instagram (4:5, 640 × 800 px).
+ * Copie une photo d'Instagram sur le site, au format portrait d'Instagram (4:5, 640 × 800 px), en WebP.
  * Renvoie le nom du fichier, vide en cas d'échec.
  */
 function bloomandsun_instagram_store_image( string $id, string $remote_url ): string {
@@ -162,7 +162,7 @@ function bloomandsun_instagram_store_image( string $id, string $remote_url ): st
 		return '';
 	}
 
-	$file = "$id-4x5.jpg";
+	$file = "$id-4x5.webp";
 	$path = bloomandsun_instagram_dir() . "/$file";
 
 	if ( file_exists( $path ) ) {
@@ -181,7 +181,8 @@ function bloomandsun_instagram_store_image( string $id, string $remote_url ): st
 
 	if ( ! is_wp_error( $editor ) ) {
 		$editor->resize( 640, 800, true );
-		$editor->save( $path, 'image/jpeg' );
+		$editor->set_quality( BLOOMANDSUN_WEBP_QUALITY );
+		$editor->save( $path, 'image/webp' );
 	}
 
 	wp_delete_file( $tmp );
@@ -193,7 +194,7 @@ function bloomandsun_instagram_store_image( string $id, string $remote_url ): st
  * Supprime les photos qui ne sont plus affichées.
  */
 function bloomandsun_instagram_cleanup( array $keep ): void {
-	foreach ( glob( bloomandsun_instagram_dir() . '/*.jpg' ) ?: [] as $path ) {
+	foreach ( glob( bloomandsun_instagram_dir() . '/*' ) ?: [] as $path ) {
 		if ( ! in_array( basename( $path ), $keep, true ) ) {
 			wp_delete_file( $path );
 		}
